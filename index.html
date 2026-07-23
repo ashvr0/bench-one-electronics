@@ -1,0 +1,2166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Bench one learn Electronics">
+<meta name="keywords" content="Electronics">
+<meta name="theme-color" content="#0D1117">
+<meta name="author" content="Ash">
+
+<meta property="og:title" content="Bench One — Learn Electronics">
+<meta property="og:description" content="Bench One — Learn Electronics">
+<meta property="og:image" content="icon.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ashvr0.github.io/bench-one-electronics/">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@ashvr0">
+<meta name="twitter:title" content="Bench One — Learn Electronics">
+<meta name="twitter:description" content="Bench One — Learn Electronics">
+<meta name="twitter:image" content="icon.png">
+
+<link rel="icon" href="icon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="180x180" href="icon.png">
+<link rel="canonical" href="https://ashvr0.github.io/bench-one-electronics/">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="ash">
+
+<title>Bench One — Learn Electronics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a href="#mainContent" class="skip-link">Skip to content</a>
+<div id="routeAnnouncer" class="sr-only" aria-live="polite" role="status"></div>
+
+<div class="shell">
+  <button class="rail-open-btn" id="railOpenBtn" aria-label="Open sidebar" hidden>☰</button>
+
+  <!-- ===== Sidebar rail ===== -->
+  <aside class="rail" id="rail">
+    <div class="rail-brand">
+      <div class="rail-brand-row">
+        <h1>Bench One</h1>
+        <div class="rail-brand-actions">
+          <button class="rail-icon-btn" id="railSettingsBtn" aria-label="Settings" title="Settings">⚙</button>
+          <button class="rail-icon-btn" id="railCollapseBtn" aria-label="Close sidebar" title="Close sidebar">⟨</button>
+        </div>
+      </div>
+      <p>Electronics, from zero.</p>
+      <div class="rail-progress">
+        <div class="rail-progress-track"><div class="rail-progress-fill" id="railProgressFill"></div></div>
+        <div class="rail-progress-label" id="railProgressLabel">0% complete</div>
+      </div>
+    </div>
+    <nav id="railNav" aria-label="Chapter navigation">
+      <div class="rail-group-label">Foundations · Ch. 1</div>
+      <button class="rail-item" data-target="intro"><span class="pin"></span>Start here<span class="done-mark">✓</span><span class="num">00</span></button>
+      <button class="rail-item" data-target="static"><span class="pin"></span>Static electricity<span class="done-mark">✓</span><span class="num">01</span></button>
+      <button class="rail-item" data-target="conductors"><span class="pin"></span>Conductors & insulators<span class="done-mark">✓</span><span class="num">02</span></button>
+      <button class="rail-item" data-target="circuitdef"><span class="pin"></span>What is a circuit?<span class="done-mark">✓</span><span class="num">03</span></button>
+      <button class="rail-item" data-target="fundamentals"><span class="pin"></span>Voltage & current<span class="done-mark">✓</span><span class="num">04</span></button>
+      <button class="rail-item" data-target="resistance"><span class="pin"></span>Resistance<span class="done-mark">✓</span><span class="num">05</span></button>
+      <button class="rail-item" data-target="practical"><span class="pin"></span>Practical circuits<span class="done-mark">✓</span><span class="num">06</span></button>
+      <button class="rail-item" data-target="flowdir"><span class="pin"></span>Conventional vs. electron flow<span class="done-mark">✓</span><span class="num">07</span></button>
+
+      <div class="rail-group-label">Core Laws</div>
+      <button class="rail-item" data-target="ohmslaw"><span class="pin"></span>Ohm's law calculator<span class="done-mark">✓</span><span class="num">08</span></button>
+      <button class="rail-item" data-target="power"><span class="pin"></span>Power in circuits<span class="done-mark">✓</span><span class="num">09</span></button>
+      <button class="rail-item" data-target="circuits"><span class="pin"></span>Series & parallel<span class="done-mark">✓</span><span class="num">10</span></button>
+      <button class="rail-item" data-target="seriesparallel"><span class="pin"></span>Series-parallel combos<span class="done-mark">✓</span><span class="num">11</span></button>
+      <button class="rail-item" data-target="kirchhoff"><span class="pin"></span>Kirchhoff's laws<span class="done-mark">✓</span><span class="num">12</span></button>
+      <button class="rail-item" data-target="dividers"><span class="pin"></span>Voltage & current dividers<span class="done-mark">✓</span><span class="num">13</span></button>
+      <button class="rail-item" data-target="safety"><span class="pin"></span>Electrical safety<span class="done-mark">✓</span><span class="num">14</span></button>
+      <button class="rail-item" data-target="scinotation"><span class="pin"></span>Scientific notation & prefixes<span class="done-mark">✓</span><span class="num">15</span></button>
+
+      <div class="rail-group-label">Components</div>
+      <button class="rail-item" data-target="library"><span class="pin"></span>Component library<span class="done-mark">✓</span><span class="num">16</span></button>
+      <button class="rail-item" data-target="meters"><span class="pin"></span>Meters<span class="done-mark">✓</span><span class="num">17</span></button>
+      <button class="rail-item" data-target="resistors"><span class="pin"></span>Resistor color decoder<span class="done-mark">✓</span><span class="num">18</span></button>
+      <button class="rail-item" data-target="capacitors"><span class="pin"></span>Capacitors<span class="done-mark">✓</span><span class="num">19</span></button>
+      <button class="rail-item" data-target="magnetism"><span class="pin"></span>Magnetism & inductors<span class="done-mark">✓</span><span class="num">20</span></button>
+
+      <div class="rail-group-label">Build</div>
+      <button class="rail-item" data-target="microcontrollers"><span class="pin"></span>Microcontrollers<span class="done-mark">✓</span><span class="num">21</span></button>
+      <button class="rail-item" data-target="soldering"><span class="pin"></span>Soldering basics<span class="done-mark">✓</span><span class="num">22</span></button>
+      <button class="rail-item" data-target="troubleshoot"><span class="pin"></span>Troubleshooting<span class="done-mark">✓</span><span class="num">23</span></button>
+
+      <div class="rail-group-label">Digital Logic & Arduino C++ <span class="tier-badge advanced">Advanced</span></div>
+      <button class="rail-item" data-target="binary"><span class="pin"></span>Binary & bits<span class="done-mark">✓</span><span class="num">23</span></button>
+      <button class="rail-item" data-target="gates"><span class="pin"></span>Logic gates<span class="done-mark">✓</span><span class="num">24</span></button>
+      <button class="rail-item" data-target="adder"><span class="pin"></span>Building a half-adder<span class="done-mark">✓</span><span class="num">25</span></button>
+      <button class="rail-item" data-target="cppbasics"><span class="pin"></span>Real C++ for Arduino<span class="done-mark">✓</span><span class="num">26</span></button>
+      <button class="rail-item" data-target="digitalio"><span class="pin"></span>Digital I/O & debouncing<span class="done-mark">✓</span><span class="num">27</span></button>
+      <button class="rail-item" data-target="serial"><span class="pin"></span>Serial communication<span class="done-mark">✓</span><span class="num">28</span></button>
+      <button class="rail-item" data-target="shiftreg"><span class="pin"></span>Shift registers<span class="done-mark">✓</span><span class="num">29</span></button>
+      <button class="rail-item" data-target="pwm"><span class="pin"></span>PWM in depth<span class="done-mark">✓</span><span class="num">30</span></button>
+      <button class="rail-item" data-target="interrupts"><span class="pin"></span>Interrupts<span class="done-mark">✓</span><span class="num">31</span></button>
+      <button class="rail-item" data-target="statemachine"><span class="pin"></span>Capstone: traffic light FSM<span class="done-mark">✓</span><span class="num">32</span></button>
+
+      <div class="rail-group-label">Play & Practice</div>
+      <button class="rail-item" data-target="playground"><span class="pin"></span>Circuit playground<span class="done-mark">✓</span><span class="num">20</span></button>
+      <button class="rail-item" data-target="flashcards"><span class="pin"></span>Flashcards<span class="done-mark">✓</span><span class="num">21</span></button>
+
+      <div class="rail-group-label">Check yourself</div>
+      <button class="rail-item" data-target="quiz"><span class="pin"></span>Quiz<span class="done-mark">✓</span><span class="num">22</span></button>
+    </nav>
+    <div class="rail-resize-handle" id="railResizeHandle"></div>
+  </aside>
+
+  <!-- ===== Mobile nav ===== -->
+  <div class="mobile-nav">
+    <label for="mobileSelect" class="sr-only">Jump to section</label>
+    <select id="mobileSelect" aria-label="Jump to section">
+      <option value="intro">00 — Start here</option>
+      <option value="static">01 — Static electricity</option>
+      <option value="conductors">02 — Conductors & insulators</option>
+      <option value="circuitdef">03 — What is a circuit?</option>
+      <option value="fundamentals">04 — Voltage & current</option>
+      <option value="resistance">05 — Resistance</option>
+      <option value="practical">06 — Practical circuits</option>
+      <option value="flowdir">07 — Conventional vs. electron flow</option>
+      <option value="ohmslaw">08 — Ohm's law calculator</option>
+      <option value="power">09 — Power in circuits</option>
+      <option value="circuits">10 — Series & parallel</option>
+      <option value="seriesparallel">11 — Series-parallel combos</option>
+      <option value="kirchhoff">12 — Kirchhoff's laws</option>
+      <option value="dividers">13 — Voltage & current dividers</option>
+      <option value="safety">14 — Electrical safety</option>
+      <option value="scinotation">15 — Scientific notation & prefixes</option>
+      <option value="library">16 — Component library</option>
+      <option value="meters">17 — Meters</option>
+      <option value="resistors">18 — Resistor color decoder</option>
+      <option value="capacitors">19 — Capacitors</option>
+      <option value="magnetism">20 — Magnetism & inductors</option>
+      <option value="microcontrollers">21 — Microcontrollers</option>
+      <option value="soldering">22 — Soldering basics</option>
+      <option value="troubleshoot">23 — Troubleshooting</option>
+      <option value="playground">24 — Circuit playground</option>
+      <option value="flashcards">25 — Flashcards</option>
+      <option value="quiz">26 — Quiz</option>
+      <option value="binary">27 — Binary & bits</option>
+      <option value="gates">28 — Logic gates</option>
+      <option value="adder">29 — Building a half-adder</option>
+      <option value="cppbasics">30 — Real C++ for Arduino</option>
+      <option value="digitalio">31 — Digital I/O & debouncing</option>
+      <option value="serial">32 — Serial communication</option>
+      <option value="shiftreg">33 — Shift registers</option>
+      <option value="pwm">34 — PWM in depth</option>
+      <option value="interrupts">35 — Interrupts</option>
+      <option value="statemachine">36 — Capstone: traffic light FSM</option>
+    </select>
+  </div>
+
+  <!-- ===== Main content ===== -->
+  <main class="main" id="mainContent">
+
+    <!-- 00 INTRO -->
+    <section id="intro" class="active">
+      <div class="eyebrow">// Welcome</div>
+      <h2 class="title">Everything you need to get ahead in class.</h2>
+      <p class="dek">A hands-on walkthrough of electronics fundamentals — built for someone starting with zero background. Work through the sections in order, or jump straight to whatever your class is covering this week.</p>
+
+      <div class="hero-circuit">
+        <svg viewBox="0 0 800 200" preserveAspectRatio="none">
+          <path class="trace-path" d="M40,100 L200,100 L200,40 L400,40 L400,160 L600,160 L600,100 L760,100"/>
+          <path class="trace-flow" d="M40,100 L200,100 L200,40 L400,40 L400,160 L600,160 L600,100 L760,100"/>
+          <circle class="node hot" cx="40" cy="100" r="7"/>
+          <circle class="node" cx="200" cy="40" r="7"/>
+          <circle class="node" cx="400" cy="160" r="7"/>
+          <circle class="node" cx="600" cy="100" r="7"/>
+          <circle class="node hot" cx="760" cy="100" r="7"/>
+        </svg>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="card">
+          <h4 style="font-family:'Space Grotesk',sans-serif; font-size:14px; margin-bottom:6px;">01 · Understand</h4>
+          <p class="body-text" style="margin:0; font-size:13px;">What voltage, current, and resistance actually mean — with analogies that stick.</p>
+        </div>
+        <div class="card">
+          <h4 style="font-family:'Space Grotesk',sans-serif; font-size:14px; margin-bottom:6px;">02 · Recognize</h4>
+          <p class="body-text" style="margin:0; font-size:13px;">Identify components on sight and read their values, like resistor color bands.</p>
+        </div>
+        <div class="card">
+          <h4 style="font-family:'Space Grotesk',sans-serif; font-size:14px; margin-bottom:6px;">03 · Build</h4>
+          <p class="body-text" style="margin:0; font-size:13px;">Go from theory to a working circuit — soldering, microcontrollers, and fixing what breaks.</p>
+        </div>
+      </div>
+
+      <p class="body-text" style="margin-top:28px;">Tip: the <code class="inline">Ohm's law calculator</code> and <code class="inline">resistor decoder</code> sections are interactive — drag the sliders and change the dropdowns to see how the numbers respond in real time.</p>
+    </section>
+
+    <!-- 01 STATIC ELECTRICITY -->
+    <section id="static" hidden>
+      <div class="eyebrow">// 01 — Foundations · Ch. 1</div>
+      <h2 class="title">Static electricity</h2>
+      <p class="dek">Before circuits, before current — electricity starts with a simple fact: matter is made of charges, and charges can be moved from one place to another.</p>
+
+      <h3>Charge is a property of matter</h3>
+      <p class="body-text">Every atom has a nucleus of <b>protons</b> (positive) and <b>neutrons</b> (neutral), surrounded by <b>electrons</b> (negative). Normally an atom has equal protons and electrons, so it's neutral overall. Rub two different materials together — like a balloon on hair — and electrons physically transfer from one surface to the other. One object ends up with extra electrons (net <b>negative</b> charge), the other loses electrons (net <b>positive</b> charge). Nothing was created; charge just moved.</p>
+
+      <div class="warn-box" style="background:rgba(0,229,160,0.05); border-color:var(--trace-dim);">
+        <span class="ic" style="color:var(--trace);">i</span>
+        <p style="color:var(--muted-2);">This is exactly what <b style="color:var(--text)">All About Circuits</b>' Direct Current textbook opens with — static electricity is the simplest possible demonstration that charge is real and moveable, before any current is involved at all.</p>
+      </div>
+
+      <h3>Like charges repel, opposite charges attract</h3>
+      <p class="body-text">This one rule explains static shocks, why your hair stands up after pulling off a wool hat, and why lightning happens. Rub the balloon to charge it, then slide it toward the wall — try it again with the wall charged the same way.</p>
+
+      <div class="charge-sim card">
+        <div class="charge-stage">
+          <svg viewBox="0 0 420 220" id="chargeSvg">
+            <defs>
+              <linearGradient id="stageBg" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#131A22"/>
+                <stop offset="100%" stop-color="#0C1116"/>
+              </linearGradient>
+              <radialGradient id="balloonGrad" cx="32%" cy="26%" r="80%">
+                <stop offset="0%" stop-color="#FF9D5C"/>
+                <stop offset="45%" stop-color="#E8722E"/>
+                <stop offset="100%" stop-color="#9A4712"/>
+              </radialGradient>
+              <radialGradient id="balloonGradCharged" cx="32%" cy="26%" r="80%">
+                <stop offset="0%" stop-color="#5CFFD1"/>
+                <stop offset="45%" stop-color="#12B888"/>
+                <stop offset="100%" stop-color="#0A5C46"/>
+              </radialGradient>
+              <radialGradient id="chargeAura" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="var(--trace)" stop-opacity="0.4"/>
+                <stop offset="70%" stop-color="var(--trace)" stop-opacity="0.08"/>
+                <stop offset="100%" stop-color="var(--trace)" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="wallGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#232E3C"/>
+                <stop offset="100%" stop-color="#161E27"/>
+              </linearGradient>
+              <filter id="sparkGlow" x="-60%" y="-60%" width="220%" height="220%">
+                <feGaussianBlur stdDeviation="1.4" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+              <filter id="softShadow" x="-40%" y="-40%" width="180%" height="180%">
+                <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000" flood-opacity="0.35"/>
+              </filter>
+            </defs>
+
+            <rect x="0" y="0" width="420" height="220" fill="url(#stageBg)"/>
+            <line x1="0" y1="196" x2="420" y2="196" stroke="#1E2732" stroke-width="1"/>
+
+            <!-- ground shadow -->
+            <ellipse cx="70" cy="198" rx="28" ry="6" fill="#000" opacity="0.3" id="balloonShadow"/>
+
+            <!-- head + hair (rub target) -->
+            <g id="headGroup" transform="translate(70,166)">
+              <ellipse cx="0" cy="4" rx="24" ry="9" fill="#000" opacity="0.18"/>
+              <ellipse cx="0" cy="0" rx="23" ry="25" fill="#2E3746" stroke="#3E4C5E" stroke-width="1.5" filter="url(#softShadow)"/>
+              <ellipse cx="-7" cy="-9" rx="7" ry="9" fill="#ffffff" opacity="0.06"/>
+              <g id="hairStrands" stroke="#7C8AA0" stroke-width="2.2" stroke-linecap="round" fill="none">
+                <path d="M-17,-16 Q-22,-31 -15,-40"/>
+                <path d="M-9,-21 Q-11,-35 -4,-44"/>
+                <path d="M0,-23 Q0,-38 2,-46"/>
+                <path d="M9,-21 Q12,-35 6,-44"/>
+                <path d="M17,-16 Q22,-30 15,-40"/>
+              </g>
+              <text x="0" y="47" text-anchor="middle" fill="var(--muted-2)" font-family="JetBrains Mono" font-size="9.5" letter-spacing="0.06em">HAIR</text>
+            </g>
+
+            <!-- wall -->
+            <rect x="330" y="24" width="72" height="164" rx="5" fill="url(#wallGrad)" stroke="#3A4A5A" stroke-width="1.5" filter="url(#softShadow)"/>
+            <g id="brickLines" stroke="#2E3B49" stroke-width="1">
+              <line x1="330" y1="56" x2="402" y2="56"/><line x1="330" y1="88" x2="402" y2="88"/>
+              <line x1="330" y1="120" x2="402" y2="120"/><line x1="330" y1="152" x2="402" y2="152"/>
+              <line x1="366" y1="24" x2="366" y2="56"/><line x1="350" y1="88" x2="350" y2="120"/><line x1="382" y1="120" x2="382" y2="152"/>
+              <line x1="350" y1="152" x2="350" y2="188"/><line x1="384" y1="56" x2="384" y2="88"/>
+            </g>
+            <text x="366" y="203" text-anchor="middle" fill="var(--muted-2)" font-family="JetBrains Mono" font-size="9.5" letter-spacing="0.06em">WALL</text>
+            <g id="wallSymbols"></g>
+
+            <!-- spark / field arcs -->
+            <g id="attractLines" opacity="0" filter="url(#sparkGlow)"></g>
+
+            <!-- balloon (draggable via slider, not mouse-drag) -->
+            <g id="balloonGroup" transform="translate(60,103)">
+              <circle id="chargeAuraRing" cx="0" cy="0" r="50" fill="url(#chargeAura)" opacity="0"/>
+              <path d="M-2,38 Q4,44 0,52 Q-4,44 2,38" fill="none" stroke="#6B7480" stroke-width="1.5" stroke-linecap="round"/>
+              <ellipse cx="0" cy="52" rx="4" ry="2.5" fill="#5B6B7C"/>
+              <path d="M0,-40 C24,-40 37,-17 37,4 C37,28 19,37 0,37 C-19,37 -37,28 -37,4 C-37,-17 -24,-40 0,-40 Z" id="balloonBody" fill="url(#balloonGrad)" stroke="#3A4A5A" stroke-width="1.5" filter="url(#softShadow)"/>
+              <ellipse cx="-12" cy="-18" rx="9" ry="14" fill="#ffffff" opacity="0.3"/>
+              <ellipse cx="-7" cy="-9" rx="3.5" ry="4.5" fill="#ffffff" opacity="0.16"/>
+              <ellipse cx="9" cy="14" rx="12" ry="8" fill="#000" opacity="0.08"/>
+              <g id="balloonSymbols"></g>
+            </g>
+          </svg>
+        </div>
+
+        <div class="charge-controls">
+          <div class="charge-slider-row">
+            <span>FAR</span>
+            <label for="chargeDistSlider" class="sr-only">Distance between balloon and hair</label>
+            <input type="range" id="chargeDistSlider" min="0" max="100" value="0" aria-label="Distance between balloon and hair">
+            <span>CLOSE</span>
+          </div>
+          <div class="charge-btn-row">
+            <button class="charge-btn primary" id="rubBtn"><span class="ic">⚡</span>Rub balloon on hair</button>
+            <button class="charge-btn" id="chargeWallBtn"><span class="ic">▨</span>Charge the wall too</button>
+            <button class="charge-btn ghost" id="resetChargeBtn">Reset</button>
+          </div>
+          <div class="charge-readout" id="chargeReadout" role="status">Balloon: neutral. Slide it toward the wall — nothing happens yet.</div>
+        </div>
+      </div>
+
+      <h3>Why this matters for circuits</h3>
+      <p class="body-text">A circuit is really just a controlled, continuous version of this same charge movement — instead of one static transfer, we set up a path where charge keeps flowing steadily. Everything from here on (current, voltage, resistance) is describing that flow in more precise terms.</p>
+      <div class="mini-quiz-block" data-quiz-section="static">
+        <div class="mini-quiz-header">Quick check</div>
+        <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 02 CONDUCTORS, INSULATORS, ELECTRON FLOW -->
+    <section id="conductors" hidden>
+      <div class="eyebrow">// 02 — Foundations · Ch. 1</div>
+      <h2 class="title">Conductors, insulators, and electron flow</h2>
+      <p class="dek">Not every material lets charge move through it equally well. This single difference is why wires are made of copper and coated in plastic.</p>
+
+      <div class="grid grid-2">
+        <div class="card lattice-card">
+          <span class="comp-tag">conductor</span>
+          <h4 style="font-family:'Space Grotesk',sans-serif; font-size:16px; margin:10px 0 8px 0;">Conductors</h4>
+          <p class="body-text">Materials whose outer electrons are loosely held, so they move freely between atoms. <b>Metals</b> — copper, silver, gold, aluminum — are the best common conductors. This is why wires are metal.</p>
+          <svg class="lattice-svg" viewBox="0 0 260 110" aria-hidden="true">
+            <circle class="lattice-atom" cx="50" cy="35" r="16"/>
+            <circle class="lattice-atom" cx="130" cy="35" r="16"/>
+            <circle class="lattice-atom" cx="210" cy="35" r="16"/>
+            <circle class="lattice-atom" cx="90" cy="80" r="16"/>
+            <circle class="lattice-atom" cx="170" cy="80" r="16"/>
+            <circle class="lattice-electron loose" cx="66" cy="20" r="3.5"/>
+            <circle class="lattice-electron loose" cx="118" cy="55" r="3.5"/>
+            <circle class="lattice-electron loose" cx="192" cy="18" r="3.5"/>
+            <circle class="lattice-electron loose" cx="105" cy="95" r="3.5"/>
+            <circle class="lattice-electron loose" cx="150" cy="65" r="3.5"/>
+            <circle class="lattice-electron loose" cx="225" cy="50" r="3.5"/>
+          </svg>
+          <p class="lattice-caption" style="font-size:11.5px; color:var(--muted-2); text-align:center; margin-top:4px;">Outer electrons drift freely between atoms</p>
+        </div>
+        <div class="card lattice-card">
+          <span class="comp-tag" style="color:var(--danger); border-color:#5A2A2A; background:rgba(255,107,107,0.06);">insulator</span>
+          <h4 style="font-family:'Space Grotesk',sans-serif; font-size:16px; margin:10px 0 8px 0;">Insulators</h4>
+          <p class="body-text">Materials whose electrons are tightly bound to their atoms and don't move easily. Rubber, glass, plastic, and dry wood are common insulators — this is why wire is coated in plastic.</p>
+          <svg class="lattice-svg" viewBox="0 0 260 110" aria-hidden="true">
+            <circle class="lattice-atom insulator" cx="50" cy="35" r="16"/>
+            <circle class="lattice-atom insulator" cx="130" cy="35" r="16"/>
+            <circle class="lattice-atom insulator" cx="210" cy="35" r="16"/>
+            <circle class="lattice-atom insulator" cx="90" cy="80" r="16"/>
+            <circle class="lattice-atom insulator" cx="170" cy="80" r="16"/>
+            <g class="orbit-group" style="--ox:50px; --oy:35px;"><circle class="lattice-electron bound" cx="50" cy="19" r="3.5"/></g>
+            <g class="orbit-group" style="--ox:130px; --oy:35px;"><circle class="lattice-electron bound" cx="130" cy="19" r="3.5"/></g>
+            <g class="orbit-group" style="--ox:210px; --oy:35px;"><circle class="lattice-electron bound" cx="210" cy="19" r="3.5"/></g>
+            <g class="orbit-group" style="--ox:90px; --oy:80px;"><circle class="lattice-electron bound" cx="90" cy="64" r="3.5"/></g>
+            <g class="orbit-group" style="--ox:170px; --oy:80px;"><circle class="lattice-electron bound" cx="170" cy="64" r="3.5"/></g>
+          </svg>
+          <p class="lattice-caption" style="font-size:11.5px; color:var(--muted-2); text-align:center; margin-top:4px;">Electrons stay locked in orbit around their atom</p>
+        </div>
+      </div>
+
+      <h3>Electron flow: a chain reaction, not a sprint</h3>
+      <p class="body-text">A useful mental model: imagine a tube completely packed end-to-end with marbles. Push one marble in at one end, and a marble pops out the other end <b>almost instantly</b> — not because that exact marble traveled the whole tube, but because the push transmits through the chain. Electrons in a wire behave similarly: the electric field pushes through the conductor near light-speed, even though any individual electron drifts quite slowly.</p>
+
+      <div class="flow-tube card">
+        <svg viewBox="0 0 400 70" preserveAspectRatio="none">
+          <rect x="10" y="20" width="380" height="30" rx="15" fill="var(--card)" stroke="#2A3846" stroke-width="1.5"/>
+          <rect id="tubePushGlow" class="tube-push-glow" x="10" y="20" width="60" height="30" rx="15" fill="url(#pushGrad)"/>
+          <defs>
+            <linearGradient id="pushGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#FFB627" stop-opacity="0.35"/>
+              <stop offset="100%" stop-color="#FFB627" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <g id="electronRow"></g>
+        </svg>
+        <p class="body-text tube-caption" style="margin-top:10px; margin-bottom:0;" id="tubeLabel2">Toggle the switch to push a new electron in at the left — watch one pop out the right almost immediately, just like the marble tube.</p>
+        <div class="toggle-row" style="margin-top:10px;">
+          <div class="toggle-switch" id="tubeSwitch" role="switch" aria-pressed="false" tabindex="0"><div class="knob"></div></div>
+          <span style="font-size:12.5px; color:var(--muted-2);" id="tubeLabel">Push electron in</span>
+        </div>
+      </div>
+      <div class="mini-quiz-block" data-quiz-section="conductors">
+        <div class="mini-quiz-header">Quick check</div>
+        <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 03 WHAT ARE ELECTRIC CIRCUITS -->
+    <section id="circuitdef" hidden>
+      <div class="eyebrow">// 03 — Foundations · Ch. 1</div>
+      <h2 class="title">What are electric circuits?</h2>
+      <p class="dek">A circuit is nothing more than a complete, unbroken loop that charge can flow around.</p>
+
+      <h3>The three required ingredients</h3>
+      <div class="grid grid-3">
+        <div class="card">
+          <h4 style="font-family:'Space Grotesk',sans-serif; font-size:15px; margin-bottom:8px;">A source</h4>
+          <p style="font-size:13px; color:var(--muted-2);">Something that provides the "push" — a battery, a power supply, a solar cell. It maintains a voltage difference between its two terminals.</p>
+        </div>
+        <div class="card">
+          <h4 style="font-family:'Space Grotesk',sans-serif; font-size:15px; margin-bottom:8px;">A path</h4>
+          <p style="font-size:13px; color:var(--muted-2);">A conductor (wire) connecting the source's terminals, so charge has somewhere to actually go.</p>
+        </div>
+        <div class="card">
+          <h4 style="font-family:'Space Grotesk',sans-serif; font-size:15px; margin-bottom:8px;">A load</h4>
+          <p style="font-size:13px; color:var(--muted-2);">Something that uses the electrical energy — an LED, motor, resistor, or speaker — converting it into light, motion, or heat.</p>
+        </div>
+      </div>
+
+      <h3>Open vs. closed: the loop has to be unbroken</h3>
+      <p class="body-text">A circuit only works when the loop is <b>closed</b> — a complete, unbroken path from one battery terminal, through the load, back to the other terminal. Break that loop anywhere (a switch, a disconnected wire, a burnt-out component) and you have an <b>open circuit</b>: no path, no current, nothing happens. Flip the switch below to see the difference.</p>
+
+      <div class="card">
+        <div class="ohm-diagram" style="min-height:160px;">
+          <svg viewBox="0 0 260 140" width="100%" style="max-width:320px;">
+            <path class="trace-path" d="M30,30 L30,110 L230,110 L230,30 L170,30" />
+            <path id="circuitFlow" class="trace-flow" d="M30,30 L30,110 L230,110 L230,30 L170,30" style="opacity:0;" />
+            <rect x="10" y="60" width="20" height="20" fill="#1C2530" stroke="#FFB627" stroke-width="1.5" />
+            <text x="20" y="74" text-anchor="middle" fill="#FFB627" font-family="JetBrains Mono" font-size="9">+</text>
+            <circle class="node hot" cx="30" cy="30" r="6"/>
+            <!-- switch gap -->
+            <line id="switchOpen" x1="130" y1="30" x2="150" y2="14" stroke="#8B9AAB" stroke-width="3" stroke-linecap="round"/>
+            <line id="switchClosed" x1="130" y1="30" x2="170" y2="30" stroke="#8B9AAB" stroke-width="3" stroke-linecap="round" style="display:none;"/>
+            <circle cx="130" cy="30" r="4" fill="#8B9AAB"/>
+            <circle cx="170" cy="30" r="4" fill="#8B9AAB"/>
+          </svg>
+        </div>
+        <div class="toggle-row" style="justify-content:center; margin-top:12px;">
+          <div class="toggle-switch" id="circuitSwitch"><div class="knob"></div></div>
+          <span style="font-size:12.5px; color:var(--muted-2);" id="circuitSwitchLabel">Circuit open — no current flows</span>
+        </div>
+      </div>
+      <div class="mini-quiz-block" data-quiz-section="circuitdef">
+        <div class="mini-quiz-header">Quick check</div>
+        <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 01 FUNDAMENTALS -->
+    <section id="fundamentals" hidden>
+      <div class="eyebrow">// 04 — Foundations · Ch. 1</div>
+      <h2 class="title">Voltage and current</h2>
+      <p class="dek">Two ideas explain almost every circuit you'll ever look at. Here they are, using water as the analogy — because electricity is invisible, but water isn't.</p>
+
+      <div class="grid grid-3">
+        <div class="card">
+          <div class="comp-glyph"><svg viewBox="0 0 24 24" fill="none" stroke="#00E5A0" stroke-width="1.6"><path d="M12 2v6M12 16v6M2 12h6M16 12h6"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <h4 style="font-family:'Space Grotesk',sans-serif; font-size:15px; margin-bottom:8px;">Voltage (V)</h4>
+          <p style="font-size:13px; color:var(--muted-2); margin-bottom:0;">The "pressure" pushing electricity through a wire — like water pressure in a pipe. Measured in <b style="color:var(--text)">volts</b>. A 9V battery pushes harder than a 1.5V one.</p>
+        </div>
+        <div class="card">
+          <div class="comp-glyph"><svg viewBox="0 0 24 24" fill="none" stroke="#FFB627" stroke-width="1.6"><path d="M5 12h14M15 6l6 6-6 6"/></svg></div>
+          <h4 style="font-family:'Space Grotesk',sans-serif; font-size:15px; margin-bottom:8px;">Current (I)</h4>
+          <p style="font-size:13px; color:var(--muted-2); margin-bottom:0;">The actual <b style="color:var(--text)">flow rate</b> of electricity — how much water moves past a point per second. Measured in <b style="color:var(--text)">amps (A)</b>. Small electronics often use milliamps (mA).</p>
+        </div>
+        <div class="card">
+          <div class="comp-glyph"><svg viewBox="0 0 24 24" fill="none" stroke="#E8EDF2" stroke-width="1.6"><path d="M4 12h3l2-6 4 12 2-6h5"/></svg></div>
+          <h4 style="font-family:'Space Grotesk',sans-serif; font-size:15px; margin-bottom:8px;">Resistance (R)</h4>
+          <p style="font-size:13px; color:var(--muted-2); margin-bottom:0;">How much something <b style="color:var(--text)">restricts</b> that flow — a narrow pipe. Measured in <b style="color:var(--text)">ohms (Ω)</b>. Resistors are the component that adds this on purpose.</p>
+        </div>
+      </div>
+
+      <h3>AC vs. DC — two ways current flows</h3>
+      <div class="grid grid-2">
+        <div class="card">
+          <span class="comp-tag">DC — Direct Current</span>
+          <p class="body-text" style="margin-top:10px;">Flows in one direction only, at a steady level. This is what batteries, USB power, and most small electronics projects use — including everything you'll breadboard in class.</p>
+        </div>
+        <div class="card">
+          <span class="comp-tag">AC — Alternating Current</span>
+          <p class="body-text" style="margin-top:10px;">Flow direction switches back and forth many times a second. This is what comes out of a wall outlet, because it travels efficiently over long power-grid distances.</p>
+        </div>
+      </div>
+
+      <div class="warn-box">
+        <span class="ic">!</span>
+        <p>Never open or probe anything plugged directly into a wall outlet. All the projects in this guide use low-voltage DC (batteries, USB, or a benchtop supply under 12V), which is safe to touch.</p>
+      </div>
+      <div class="mini-quiz-block" data-quiz-section="fundamentals">
+        <div class="mini-quiz-header">Quick check</div>
+        <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 05 RESISTANCE -->
+    <section id="resistance" hidden>
+      <div class="eyebrow">// 05 — Foundations · Ch. 1</div>
+      <h2 class="title">Resistance, on its own</h2>
+      <p class="dek">Resistance isn't just a resistor's job — every material has some, and it's the third piece Ohm's law depends on.</p>
+
+      <h3>What determines a wire's resistance</h3>
+      <p class="body-text">Four factors, all intuitive once you see them:</p>
+      <div class="grid grid-2">
+        <div class="card"><p class="body-text" style="margin:0;"><b style="color:var(--text)">Material</b> — copper resists less than iron; some materials are just better conductors than others.</p></div>
+        <div class="card"><p class="body-text" style="margin:0;"><b style="color:var(--text)">Length</b> — a longer wire has more resistance. Twice the length, twice the resistance.</p></div>
+        <div class="card"><p class="body-text" style="margin:0;"><b style="color:var(--text)">Cross-sectional area</b> — a thicker wire has less resistance. Think of a wider pipe letting more water through for the same push.</p></div>
+        <div class="card"><p class="body-text" style="margin:0;"><b style="color:var(--text)">Temperature</b> — for most conductors, resistance rises as temperature rises.</p></div>
+      </div>
+
+      <h3>Conductance: the flip side</h3>
+      <p class="body-text">Resistance's inverse is <b>conductance</b> (<code class="inline">G = 1/R</code>), measured in siemens (S). High resistance means low conductance and vice versa — same physical property, just described from the opposite direction. You'll see conductance far less often than resistance, but it shows up in parallel-circuit math later.</p>
+
+      <div class="warn-box" style="background:rgba(0,229,160,0.05); border-color:var(--trace-dim);">
+        <span class="ic" style="color:var(--trace);">i</span>
+        <p style="color:var(--muted-2);">Superconductors are real materials that drop to essentially <b style="color:var(--text)">zero</b> resistance at extremely low temperatures — current can flow through them without any voltage source maintaining it, in principle forever.</p>
+      </div>
+      <div class="mini-quiz-block" data-quiz-section="resistance">
+        <div class="mini-quiz-header">Quick check</div>
+        <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 06 PRACTICAL CIRCUITS -->
+    <section id="practical" hidden>
+      <div class="eyebrow">// 06 — Foundations · Ch. 1</div>
+      <h2 class="title">Voltage and current in a practical circuit</h2>
+      <p class="dek">Theory meets the real bench: what actually happens when you connect a battery, a switch, and an LED together.</p>
+
+      <h3>Every real circuit needs a complete path — and something to limit current</h3>
+      <p class="body-text">Connect a battery directly to an LED with a bare wire and no resistor, and you've built a <b>short circuit</b> in slow motion: with almost no resistance in the path, Ohm's law (<code class="inline">I = V / R</code>) says the current spikes extremely high. That's exactly why an LED needs a series resistor: it adds enough resistance to keep the current in a safe range instead of burning out the LED (or the battery) instantly.</p>
+
+      <h3>Voltage drop: where the "push" gets used up</h3>
+      <p class="body-text">As current flows through each component in a loop, the voltage supplied by the source gets "spent" across each part it passes through — this is called a <b>voltage drop</b>. In a simple series circuit with one resistor, the entire battery voltage drops across that one resistor. Add more components in series, and the total voltage divides across all of them, proportional to each one's resistance — you'll formalize this as voltage-divider math in a later chapter.</p>
+
+      <h3>A worked example</h3>
+      <div class="card">
+        <p class="body-text">9V battery → 470Ω resistor → red LED (needs ~2V, wants ~15mA) → back to battery.</p>
+        <p class="body-text">Voltage left for the resistor to drop: <code class="inline">9V − 2V = 7V</code>.</p>
+        <p class="body-text" style="margin-bottom:0;">Current through the circuit: <code class="inline">I = V / R = 7V / 470Ω ≈ 14.9mA</code> — right in the LED's safe range. This is the exact calculation the Ohm's law calculator a few pages back does live.</p>
+      </div>
+      <div class="mini-quiz-block" data-quiz-section="practical">
+        <div class="mini-quiz-header">Quick check</div>
+        <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 07 CONVENTIONAL VS ELECTRON FLOW -->
+    <section id="flowdir" hidden>
+      <div class="eyebrow">// 07 — Foundations · Ch. 1</div>
+      <h2 class="title">Conventional versus electron flow</h2>
+      <p class="dek">A historical accident that still shows up in every textbook and every schematic you'll read.</p>
+
+      <h3>The mix-up, and why it stuck</h3>
+      <p class="body-text">In the 1700s, Benjamin Franklin guessed that charge flowed from positive to negative — and defined "positive" and "negative" based on that guess. It turns out he guessed the direction backwards: electrons (the things actually moving in a wire) are negatively charged and flow from the negative terminal to the positive terminal. But by the time this was discovered, the positive/negative naming convention and circuit diagrams were already everywhere.</p>
+
+      <div class="grid grid-2">
+        <div class="card">
+          <span class="comp-tag">the standard</span>
+          <h4 style="font-family:'Space Grotesk',sans-serif; font-size:16px; margin:10px 0 8px 0;">Conventional current</h4>
+          <p class="body-text">Defined as flowing from <b>+ to −</b> through the external circuit. This is what every schematic arrow, textbook diagram, and circuit law (including Kirchhoff's) assumes by default.</p>
+        </div>
+        <div class="card">
+          <span class="comp-tag" style="color:var(--danger); border-color:#5A2A2A; background:rgba(255,107,107,0.06);">what physically moves</span>
+          <h4 style="font-family:'Space Grotesk',sans-serif; font-size:16px; margin:10px 0 8px 0;">Electron flow</h4>
+          <p class="body-text">The actual electrons move from <b>− to +</b> through the external circuit — the literal opposite direction from the arrows on the diagram.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="flow-compare">
+          <div class="flow-compare-card">
+            <span class="flow-compare-label" style="color:#FFB627;">Conventional current · + → −</span>
+            <svg class="flow-arrow-svg" viewBox="0 0 260 60" aria-hidden="true">
+              <defs>
+                <clipPath id="wireClipConv"><rect x="14" y="0" width="232" height="60"/></clipPath>
+              </defs>
+              <line x1="14" y1="30" x2="246" y2="30" stroke="#2A3846" stroke-width="10" stroke-linecap="round"/>
+              <text x="14" y="14" fill="#FFB627" font-family="JetBrains Mono" font-size="11" font-weight="700">+</text>
+              <text x="238" y="14" fill="#8B9AAB" font-family="JetBrains Mono" font-size="11" font-weight="700">−</text>
+              <g class="flow-conventional" clip-path="url(#wireClipConv)">
+                <polygon class="flow-particle" points="14,24 26,30 14,36" fill="currentColor"/>
+                <polygon class="flow-particle" points="14,24 26,30 14,36" fill="currentColor"/>
+                <polygon class="flow-particle" points="14,24 26,30 14,36" fill="currentColor"/>
+                <polygon class="flow-particle" points="14,24 26,30 14,36" fill="currentColor"/>
+              </g>
+            </svg>
+            <p style="font-size:12px; color:var(--muted-2); margin:6px 0 0;">Arrows point + to − — the textbook direction</p>
+          </div>
+          <div class="flow-compare-card">
+            <span class="flow-compare-label" style="color:var(--trace);">Electron flow · − → +</span>
+            <svg class="flow-arrow-svg" viewBox="0 0 260 60" aria-hidden="true">
+              <defs>
+                <clipPath id="wireClipElec"><rect x="14" y="0" width="232" height="60"/></clipPath>
+              </defs>
+              <line x1="14" y1="30" x2="246" y2="30" stroke="#2A3846" stroke-width="10" stroke-linecap="round"/>
+              <text x="14" y="14" fill="#FFB627" font-family="JetBrains Mono" font-size="11" font-weight="700">+</text>
+              <text x="238" y="14" fill="#8B9AAB" font-family="JetBrains Mono" font-size="11" font-weight="700">−</text>
+              <g class="flow-electron" clip-path="url(#wireClipElec)">
+                <circle class="flow-particle" cx="246" cy="30" r="5" fill="currentColor"/>
+                <circle class="flow-particle" cx="246" cy="30" r="5" fill="currentColor"/>
+                <circle class="flow-particle" cx="246" cy="30" r="5" fill="currentColor"/>
+                <circle class="flow-particle" cx="246" cy="30" r="5" fill="currentColor"/>
+              </g>
+            </svg>
+            <p style="font-size:12px; color:var(--muted-2); margin:6px 0 0;">Electrons actually travel − to + — the reverse</p>
+          </div>
+        </div>
+        <p class="body-text" style="margin-bottom:0; text-align:center; font-size:12.5px; color:var(--muted-2);">Same wire, same physics — two conventions pointing opposite ways.</p>
+      </div>
+
+      <div class="warn-box">
+        <span class="ic">!</span>
+        <p>This doesn't change any of the math. Whether you think of current as + → − or − → +, Ohm's law, circuit analysis, and every formula in this guide give identical answers — it's a labeling convention, not a physics disagreement. Stick with conventional current (+ → −) since that's what you'll see in class and in every datasheet.</p>
+      </div>
+      <div class="mini-quiz-block" data-quiz-section="flowdir">
+        <div class="mini-quiz-header">Quick check</div>
+        <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 02 CIRCUITS -->
+    <section id="circuits" hidden>
+      <div class="eyebrow">// 09 — Core Laws</div>
+      <h2 class="title">Series vs. parallel circuits</h2>
+      <p class="dek">Every circuit is built from just two wiring patterns, combined in different ways. Knowing which one you're looking at tells you how voltage and current behave.</p>
+
+      <div class="grid grid-2">
+        <div class="card">
+          <div class="ohm-diagram" style="min-height:140px; margin-bottom:14px;">
+            <svg viewBox="0 0 220 100" width="200">
+              <path class="trace-path" d="M20,50 L60,50 M100,50 L140,50 M180,50 L200,50 L200,80 L20,80 L20,50" />
+              <rect x="60" y="38" width="40" height="24" rx="3" fill="#1C2530" stroke="#00E5A0" stroke-width="1.5"/>
+              <rect x="140" y="38" width="40" height="24" rx="3" fill="#1C2530" stroke="#00E5A0" stroke-width="1.5"/>
+              <circle cx="20" cy="50" r="5" fill="#232E3C" stroke="#3A4A5A"/>
+            </svg>
+          </div>
+          <h4 style="font-family:'Space Grotesk',sans-serif; font-size:15px; margin-bottom:8px;">Series</h4>
+          <p style="font-size:13px; color:var(--muted-2);">One path. Components are chained end-to-end, so the <b style="color:var(--text)">same current</b> flows through all of them. If one breaks, the whole circuit stops — like old-style Christmas lights.</p>
+        </div>
+        <div class="card">
+          <div class="ohm-diagram" style="min-height:140px; margin-bottom:14px;">
+            <svg viewBox="0 0 220 100" width="200">
+              <path class="trace-path" d="M20,20 L200,20 M20,80 L200,80 M20,20 L20,80 M200,20 L200,80 M70,20 L70,80 M150,20 L150,80" />
+              <rect x="55" y="35" width="30" height="30" rx="3" fill="#1C2530" stroke="#00E5A0" stroke-width="1.5"/>
+              <rect x="135" y="35" width="30" height="30" rx="3" fill="#1C2530" stroke="#00E5A0" stroke-width="1.5"/>
+              <circle cx="20" cy="20" r="5" fill="#232E3C" stroke="#3A4A5A"/>
+            </svg>
+          </div>
+          <h4 style="font-family:'Space Grotesk',sans-serif; font-size:15px; margin-bottom:8px;">Parallel</h4>
+          <p style="font-size:13px; color:var(--muted-2);">Multiple paths. Each component connects across the <b style="color:var(--text)">same two points</b>, so they all get the same voltage. If one breaks, the others keep working — like the outlets in a house.</p>
+        </div>
+      </div>
+
+      <h3>Quick rules worth memorizing</h3>
+      <div class="card">
+        <div class="grid grid-2" style="gap:20px;">
+          <div>
+            <p style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--trace); margin-bottom:6px;">SERIES</p>
+            <p class="body-text" style="margin-bottom:4px;">Current: same everywhere</p>
+            <p class="body-text" style="margin-bottom:4px;">Voltage: splits across components</p>
+            <p class="body-text" style="margin-bottom:0;">Total resistance: adds up (R1+R2+...)</p>
+          </div>
+          <div>
+            <p style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--copper); margin-bottom:6px;">PARALLEL</p>
+            <p class="body-text" style="margin-bottom:4px;">Current: splits across branches</p>
+            <p class="body-text" style="margin-bottom:4px;">Voltage: same across every branch</p>
+            <p class="body-text" style="margin-bottom:0;">Total resistance: always less than the smallest R</p>
+          </div>
+        </div>
+      </div>
+      <h3>The table method</h3>
+      <p class="body-text">Whenever you're solving a series or parallel circuit, a simple table keeps E (voltage), I (current), and R organized by component — fill in whatever you're given, apply Ohm's law across each row, then use the series/parallel rule that applies down each column.</p>
+      <div class="card" style="overflow-x:auto;">
+        <table class="value-table">
+          <thead><tr><th></th><th>R1</th><th>R2</th><th>Total</th></tr></thead>
+          <tbody>
+            <tr><td>E (V)</td><td>3</td><td>6</td><td>9</td></tr>
+            <tr><td>I (A)</td><td>0.03</td><td>0.03</td><td>0.03</td></tr>
+            <tr><td>R (Ω)</td><td>100</td><td>200</td><td>300</td></tr>
+          </tbody>
+        </table>
+        <p class="body-text" style="margin:12px 0 0 0;">Series example: current (I) is identical down its row since there's only one path. Voltage (E) is found per-component with Ohm's law, then added for the total. Resistance (R) adds directly. For parallel circuits, it's voltage (E) that stays identical across the row instead — current and conductance are what add up.</p>
+      </div>
+      <div class="mini-quiz-block" data-quiz-section="circuits">
+        <div class="mini-quiz-header">Quick check</div>
+        <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 10b SERIES-PARALLEL COMBOS -->
+    <section id="seriesparallel" hidden>
+      <div class="eyebrow">// 11 — Core Laws</div>
+      <h2 class="title">Series-parallel combination circuits</h2>
+      <p class="dek">Most real circuits aren't purely series or purely parallel — they're a mix. The trick is spotting which parts are which, then collapsing the circuit one step at a time.</p>
+
+      <h3>The reduction strategy</h3>
+      <p class="body-text">Work from the outside in: find a small group of resistors that are purely series or purely parallel with each other, combine them into a single equivalent resistance, redraw the (now simpler) circuit, and repeat. Eventually the whole network reduces to one equivalent resistor.</p>
+
+      <div class="card">
+        <div class="ohm-diagram" style="min-height:150px;">
+          <svg viewBox="0 0 320 140" width="100%" style="max-width:320px;">
+            <path class="trace-path" d="M20,70 L60,70 M60,40 L60,100 M60,40 L110,40 M60,100 L110,100 M150,40 L150,100 M110,40 L150,40 M110,100 L150,100 M150,70 L190,70 M190,70 L230,40 M190,70 L230,100 M270,40 L270,100 M230,40 L270,40 M230,100 L270,100 M270,70 L300,70 L300,120 L20,120 L20,70"/>
+            <rect x="70" y="28" width="40" height="24" rx="3" fill="#1C2530" stroke="#00E5A0" stroke-width="1.5"/>
+            <text x="90" y="45" text-anchor="middle" fill="#00E5A0" font-family="JetBrains Mono" font-size="10">R1</text>
+            <rect x="70" y="88" width="40" height="24" rx="3" fill="#1C2530" stroke="#00E5A0" stroke-width="1.5"/>
+            <text x="90" y="105" text-anchor="middle" fill="#00E5A0" font-family="JetBrains Mono" font-size="10">R2</text>
+            <rect x="210" y="28" width="40" height="24" rx="3" fill="#1C2530" stroke="#FFB627" stroke-width="1.5"/>
+            <text x="230" y="45" text-anchor="middle" fill="#FFB627" font-family="JetBrains Mono" font-size="10">R3</text>
+            <rect x="210" y="88" width="40" height="24" rx="3" fill="#1C2530" stroke="#FFB627" stroke-width="1.5"/>
+            <text x="230" y="105" text-anchor="middle" fill="#FFB627" font-family="JetBrains Mono" font-size="10">R4</text>
+            <circle cx="20" cy="70" r="5" fill="#232E3C" stroke="#3A4A5A"/>
+          </svg>
+        </div>
+        <p class="body-text" style="margin-top:12px;">R1 ∥ R2 is one parallel group; R3 ∥ R4 is another. Those two groups are in <b>series</b> with each other. Reduce each parallel pair to a single equivalent resistance, and you're left with a simple two-resistor series circuit.</p>
+      </div>
+
+      <h3>Worked example</h3>
+      <div class="card">
+        <p class="body-text">R1 = 100Ω, R2 = 100Ω (parallel) → R3 = 220Ω, R4 = 330Ω (parallel), the two groups in series, fed by a 9V source.</p>
+        <p class="body-text"><code class="inline">R1∥R2 = (100×100)/(100+100) = 50Ω</code></p>
+        <p class="body-text"><code class="inline">R3∥R4 = (220×330)/(220+330) = 132Ω</code></p>
+        <p class="body-text" style="margin-bottom:0;">Total: <code class="inline">50Ω + 132Ω = 182Ω</code>. Total current from the source: <code class="inline">I = 9V / 182Ω ≈ 49.5mA</code> — from here you can work backward to find the voltage and current at each original resistor.</p>
+      </div>
+
+      <div class="warn-box">
+        <span class="ic">!</span>
+        <p>Component failures are easier to reason about once you can see the circuit this way. An open resistor in a parallel group just removes that branch (the group's resistance rises); a short across a parallel group removes the whole group's resistance (drops to ~0Ω), which dumps extra voltage onto whatever's left in series with it.</p>
+      </div>
+
+      <div class="mini-quiz-block" data-quiz-section="seriesparallel">
+        <div class="mini-quiz-header">Quick check</div>
+        <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 10 KIRCHHOFF'S LAWS -->
+    <section id="kirchhoff" hidden>
+      <div class="eyebrow">// 12 — Core Laws</div>
+      <h2 class="title">Kirchhoff's laws</h2>
+      <p class="dek">Two rules that let you analyze any circuit, no matter how tangled — they're really just "what goes in must come out" applied to current and voltage.</p>
+
+      <h3>Kirchhoff's Current Law (KCL)</h3>
+      <p class="body-text">At any junction (node) in a circuit, the total current flowing <b>in</b> equals the total current flowing <b>out</b>. Charge can't pile up or vanish at a junction — it has to go somewhere.</p>
+
+      <div class="kcl-wrap">
+        <div class="card">
+          <div class="ohm-diagram" style="min-height:160px;">
+            <svg viewBox="0 0 220 160" width="100%" style="max-width:240px;">
+              <path class="trace-path" d="M10,80 L90,80 M110,80 L130,40 M110,80 L130,120"/>
+              <path class="trace-flow" d="M10,80 L90,80" style="animation-duration:.9s;"/>
+              <path class="trace-flow" d="M110,80 L130,40" style="animation-duration:1.4s;"/>
+              <path class="trace-flow" d="M110,80 L130,120" style="animation-duration:1.6s;"/>
+              <circle class="node hot" cx="100" cy="80" r="8"/>
+              <text x="60" y="70" fill="#8B9AAB" font-family="JetBrains Mono" font-size="11">I_in = 6A</text>
+              <text x="130" y="34" fill="#8B9AAB" font-family="JetBrains Mono" font-size="10">I₁ = 4A</text>
+              <text x="130" y="132" fill="#8B9AAB" font-family="JetBrains Mono" font-size="10">I₂ = 2A</text>
+            </svg>
+          </div>
+        </div>
+        <div>
+          <p class="body-text"><b>6A comes in, so 6A must leave</b> — split however the branch resistances demand (here, 4A + 2A). If you ever calculate currents at a junction that don't balance, you've made an arithmetic or wiring-direction mistake somewhere.</p>
+          <p class="body-text" style="margin-bottom:0;">Formula: <code class="inline">ΣI_in = ΣI_out</code></p>
+        </div>
+      </div>
+
+      <h3>Kirchhoff's Voltage Law (KVL)</h3>
+      <p class="body-text">Around any complete closed loop in a circuit, the sum of all voltage rises equals the sum of all voltage drops — put another way, the voltages around a loop add up to zero. The battery's push has to be fully "spent" by the time you get back to where you started.</p>
+
+      <div class="card">
+        <p class="body-text">Battery: 9V. Resistor 1 drops 3V. Resistor 2 drops 6V.</p>
+        <p class="body-text" style="margin-bottom:0;"><code class="inline">9V = 3V + 6V</code> — the loop balances. This is exactly the math behind series voltage dividers.</p>
+      </div>
+      <div class="mini-quiz-block" data-quiz-section="kirchhoff">
+        <div class="mini-quiz-header">Quick check</div>
+        <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 12b VOLTAGE & CURRENT DIVIDERS -->
+    <section id="dividers" hidden>
+      <div class="eyebrow">// 13 — Core Laws</div>
+      <h2 class="title">Voltage and current divider circuits</h2>
+      <p class="dek">Two of the most-used shortcuts in electronics — formulas that skip straight to "how much of the total ends up here" without solving the whole circuit first.</p>
+
+      <h3>Voltage divider (series resistors)</h3>
+      <p class="body-text">In a series chain, each resistor gets a share of the total voltage proportional to its own resistance relative to the total. This is exactly what Kirchhoff's Voltage Law guarantees — the formula just skips ahead to the answer.</p>
+      <div class="card">
+        <p class="ohm-formula" style="text-align:center;">V<sub>x</sub> = V<sub>total</sub> × (R<sub>x</sub> / R<sub>total</sub>)</p>
+      </div>
+
+      <h3>Try it: voltage divider calculator</h3>
+      <div class="divider-wrap">
+        <div class="divider-inputs card">
+          <div class="field">
+            <label><span>SUPPLY VOLTAGE</span></label>
+            <div class="ohm-val" id="vdSupplyVal">9.0 <span>V</span></div>
+            <input type="range" id="vdSupplySlider" min="1" max="24" step="0.1" value="9" aria-label="Supply voltage">
+          </div>
+          <div class="field">
+            <label><span>R1 (TOP)</span></label>
+            <div class="ohm-val" id="vdR1Val">1000 <span>Ω</span></div>
+            <input type="range" id="vdR1Slider" min="10" max="10000" step="10" value="1000" aria-label="R1 resistance">
+          </div>
+          <div class="field">
+            <label><span>R2 (BOTTOM)</span></label>
+            <div class="ohm-val" id="vdR2Val">1000 <span>Ω</span></div>
+            <input type="range" id="vdR2Slider" min="10" max="10000" step="10" value="1000" aria-label="R2 resistance">
+          </div>
+        </div>
+        <div class="card">
+          <div class="ohm-diagram" style="min-height:150px;">
+            <svg viewBox="0 0 200 170" width="100%" style="max-width:200px;">
+              <path class="trace-path" d="M100,10 L100,40 M100,70 L100,90 M100,120 L100,150 M60,90 L100,90"/>
+              <circle class="node hot" cx="100" cy="10" r="6"/>
+              <text x="110" y="14" fill="#8B9AAB" font-family="JetBrains Mono" font-size="10">+V</text>
+              <rect x="80" y="40" width="40" height="30" rx="3" fill="#1C2530" stroke="#00E5A0" stroke-width="1.5"/>
+              <text x="100" y="59" text-anchor="middle" fill="#00E5A0" font-family="JetBrains Mono" font-size="10">R1</text>
+              <circle cx="100" cy="90" r="5" fill="var(--copper)" id="vdTapNode"/>
+              <line x1="60" y1="90" x2="30" y2="90" stroke="var(--copper)" stroke-width="1.5" stroke-dasharray="3 3"/>
+              <text x="10" y="94" fill="var(--copper)" font-family="JetBrains Mono" font-size="9">tap</text>
+              <rect x="80" y="90" width="40" height="30" rx="3" fill="#1C2530" stroke="#FFB627" stroke-width="1.5"/>
+              <text x="100" y="109" text-anchor="middle" fill="#FFB627" font-family="JetBrains Mono" font-size="10">R2</text>
+              <circle cx="100" cy="150" r="6" fill="#232E3C" stroke="#3A4A5A"/>
+              <text x="110" y="154" fill="#8B9AAB" font-family="JetBrains Mono" font-size="10">GND</text>
+            </svg>
+          </div>
+          <div class="power-readout-row" style="margin-top:4px;">
+            <div class="power-stat"><div class="v" id="vdVoutVal">4.5 <span>V</span></div><div class="l">Voltage at tap</div></div>
+            <div class="power-stat"><div class="v" id="vdIVal">4.5 <span>mA</span></div><div class="l">Current through chain</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="warn-box" style="background:rgba(0,229,160,0.05); border-color:var(--trace-dim);">
+        <span class="ic" style="color:var(--trace);">i</span>
+        <p style="color:var(--muted-2);">A voltage divider only outputs a clean, predictable voltage if very little current is drawn from the tap — connecting a low-resistance load there pulls the output down. This is why real designs often use a regulator instead of a plain divider when the output needs to drive something power-hungry.</p>
+      </div>
+
+      <h3>Current divider (parallel resistors)</h3>
+      <p class="body-text">In a parallel pair, current splits between the branches — but in <b>inverse</b> proportion to resistance: more current takes the path of least resistance.</p>
+      <div class="card">
+        <p class="ohm-formula" style="text-align:center;">I<sub>1</sub> = I<sub>total</sub> × (R<sub>2</sub> / (R<sub>1</sub> + R<sub>2</sub>))</p>
+        <p class="body-text" style="text-align:center; margin-bottom:0;">Notice R2 (the <i>other</i> branch's resistance) is on top — the branch with less resistance gets more of the current.</p>
+      </div>
+
+      <div class="mini-quiz-block" data-quiz-section="dividers">
+        <div class="mini-quiz-header">Quick check</div>
+        <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 11 ELECTRICAL SAFETY -->
+    <section id="safety" hidden>
+      <div class="eyebrow">// 14 — Core Laws</div>
+      <h2 class="title">Electrical safety</h2>
+      <p class="dek">Low-voltage hobby electronics is genuinely safe — but knowing why, and where the real risks are, matters before you touch anything with a plug on it.</p>
+
+      <div class="warn-box">
+        <span class="ic">!</span>
+        <p><b>Current, not voltage, is what injures.</b> A static shock can be thousands of volts but harmless because almost no current flows. Wall power at "only" 120V/230V can be lethal because it can drive dangerous current through your body.</p>
+      </div>
+
+      <h3>Why your breadboard projects are safe</h3>
+      <p class="body-text">A 9V battery or USB power supply simply can't push enough current through your skin's resistance to cause harm — your body's resistance (thousands of ohms, dry skin) combined with Ohm's law keeps the current microscopically small. This is why every project in this guide uses low-voltage DC.</p>
+
+      <h3>Rules that matter once you go beyond the breadboard</h3>
+      <div class="grid grid-2">
+        <div class="card"><p class="body-text" style="margin:0;"><b style="color:var(--text)">Never work on anything live.</b> Unplug and verify with a multimeter before touching wall-power circuits.</p></div>
+        <div class="card"><p class="body-text" style="margin:0;"><b style="color:var(--text)">One hand rule.</b> Keep one hand in your pocket when probing higher-voltage circuits — it prevents current from having a path across your chest.</p></div>
+        <div class="card"><p class="body-text" style="margin:0;"><b style="color:var(--text)">Capacitors can store a charge</b> even after power is removed. Some can still shock you minutes or hours later.</p></div>
+        <div class="card"><p class="body-text" style="margin:0;"><b style="color:var(--text)">Dry hands, dry surroundings.</b> Wet skin has dramatically lower resistance, which allows dangerously higher current for the same voltage.</p></div>
+      </div>
+      <div class="mini-quiz-block" data-quiz-section="safety">
+        <div class="mini-quiz-header">Quick check</div>
+        <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 12 SCIENTIFIC NOTATION & METRIC PREFIXES -->
+    <section id="scinotation" hidden>
+      <div class="eyebrow">// 15 — Core Laws</div>
+      <h2 class="title">Scientific notation and metric prefixes</h2>
+      <p class="dek">Electronics deals in enormous ranges — picofarads to megaohms — so shorthand isn't optional, it's the language.</p>
+
+      <h3>The prefixes you'll actually use</h3>
+      <table class="prefix-table">
+        <tr><th>Prefix</th><th>Symbol</th><th>Multiplier</th><th>Common on</th></tr>
+        <tr><td>mega</td><td>M</td><td>×10⁶</td><td>MΩ resistors</td></tr>
+        <tr><td>kilo</td><td>k</td><td>×10³</td><td>kΩ resistors</td></tr>
+        <tr><td>milli</td><td>m</td><td>×10⁻³</td><td>mA current, mV</td></tr>
+        <tr><td>micro</td><td>µ (u)</td><td>×10⁻⁶</td><td>µF capacitors</td></tr>
+        <tr><td>nano</td><td>n</td><td>×10⁻⁹</td><td>nF capacitors</td></tr>
+        <tr><td>pico</td><td>p</td><td>×10⁻¹²</td><td>pF capacitors</td></tr>
+      </table>
+
+      <h3>Try it: unit converter</h3>
+      <p class="body-text">Enter a value and its unit prefix; see the raw base-unit number (and vice versa isn't needed — this always normalizes to base units like ohms, farads, amps).</p>
+      <div class="card">
+        <div class="notation-tool">
+          <label for="notationValue" class="sr-only">Value</label>
+          <input type="number" id="notationValue" value="4.7" step="any" aria-label="Value">
+          <label for="notationPrefix" class="sr-only">Unit prefix</label>
+          <select id="notationPrefix" aria-label="Unit prefix">
+            <option value="1e6">M (mega)</option>
+            <option value="1e3">k (kilo)</option>
+            <option value="1" selected>— (base unit)</option>
+            <option value="1e-3">m (milli)</option>
+            <option value="1e-6">µ (micro)</option>
+            <option value="1e-9">n (nano)</option>
+            <option value="1e-12">p (pico)</option>
+          </select>
+        </div>
+        <p class="notation-arrow">= base units =</p>
+        <div class="notation-out" id="notationOut">4.7</div>
+      </div>
+
+      <p class="body-text" style="margin-top:16px;">Reading a resistor as <code class="inline">4.7k</code> means 4,700 Ω. A capacitor marked <code class="inline">100n</code> means 0.0000001 farads — this is exactly why the prefix shorthand exists; nobody wants to write or read that many zeros.</p>
+      <div class="mini-quiz-block" data-quiz-section="scinotation">
+        <div class="mini-quiz-header">Quick check</div>
+        <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 03 OHM'S LAW CALC -->
+    <section id="ohmslaw" hidden>
+      <div class="eyebrow">// 08 — Interactive</div>
+      <h2 class="title">Ohm's law calculator</h2>
+      <p class="dek">The single most useful formula in electronics: <code class="inline">V = I × R</code>. Lock any two values and drag the third — watch how the rest respond.</p>
+
+      <div class="ohm-wrap">
+        <div class="ohm-inputs card">
+          <div class="field" id="fieldV">
+            <label>
+              <span>VOLTAGE (V)</span>
+              <button class="lock-btn" id="lockV" onclick="toggleLock('V')">LOCK</button>
+            </label>
+            <div class="ohm-val" id="vVal">9.0 <span>V</span></div>
+            <input type="range" id="vSlider" min="0.1" max="24" step="0.1" value="9" aria-label="Voltage">
+          </div>
+          <div class="field" id="fieldI">
+            <label>
+              <span>CURRENT (I)</span>
+              <button class="lock-btn" id="lockI" onclick="toggleLock('I')">LOCK</button>
+            </label>
+            <div class="ohm-val" id="iVal">9.0 <span>mA</span></div>
+            <input type="range" id="iSlider" min="0.1" max="500" step="0.1" value="9" aria-label="Current">
+          </div>
+          <div class="field" id="fieldR">
+            <label>
+              <span>RESISTANCE (R)</span>
+              <button class="lock-btn locked" id="lockR" onclick="toggleLock('R')">LOCK</button>
+            </label>
+            <div class="ohm-val" id="rVal">1000 <span>Ω</span></div>
+            <input type="range" id="rSlider" min="1" max="10000" step="1" value="1000" aria-label="Resistance">
+          </div>
+        </div>
+        <div>
+          <div class="ohm-diagram">
+            <svg viewBox="0 0 260 180" width="100%">
+              <path class="trace-path" d="M30,90 L80,90 M180,90 L230,90 M230,90 L230,150 L30,150 L30,90"/>
+              <path class="trace-flow" id="ohmFlow" d="M30,90 L80,90 M180,90 L230,90 M230,90 L230,150 L30,150 L30,90" style="animation-duration:1s;"/>
+              <rect x="80" y="76" width="100" height="28" rx="4" fill="#1C2530" stroke="#FFB627" stroke-width="1.6"/>
+              <text x="130" y="95" text-anchor="middle" fill="#FFB627" font-family="JetBrains Mono" font-size="11" font-weight="700">R</text>
+              <circle class="node hot" cx="30" cy="90" r="6"/>
+              <text x="14" y="94" fill="#8B9AAB" font-family="JetBrains Mono" font-size="10">+</text>
+              <circle class="node" cx="30" cy="150" r="6"/>
+              <text x="14" y="154" fill="#8B9AAB" font-family="JetBrains Mono" font-size="10">−</text>
+            </svg>
+          </div>
+          <p class="ohm-formula"><b>V</b> = <b>I</b> × <b>R</b> &nbsp;·&nbsp; <b>I</b> = V ÷ R &nbsp;·&nbsp; <b>R</b> = V ÷ I</p>
+          <div class="ohm-scenario"><span class="glyph">💡</span><p>This is roughly the setup for lighting a standard LED off a 9V battery. A <b>~1kΩ resistor</b> limits current to a safe range (under ~20mA).</p></div>
+        </div>
+      </div>
+      <div class="warn-box" style="background:rgba(0,229,160,0.05); border-color:var(--trace-dim); margin-top:14px;">
+        <span class="ic" style="color:var(--trace);">i</span>
+        <p style="color:var(--muted-2);">Ohm's law assumes a <b style="color:var(--text)">linear</b> component — resistance that stays constant as voltage changes. Plain resistors behave this way. Diodes, LEDs, and lightbulb filaments don't: their resistance shifts with voltage and temperature, so their V–I graph curves instead of forming a straight line. You'll still use <code class="inline">V = I × R</code> for them, just with an R that isn't fixed.</p>
+      </div>
+      <div class="mini-quiz-block" data-quiz-section="ohmslaw">
+        <div class="mini-quiz-header">Quick check</div>
+        <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 08b POWER IN CIRCUITS -->
+    <section id="power" hidden>
+      <div class="eyebrow">// 08b — Core Laws</div>
+      <h2 class="title">Power in electric circuits</h2>
+      <p class="dek">Voltage and current tell you about the "push" and the "flow" — power tells you the actual rate of energy being used or delivered, in watts.</p>
+
+      <h3>What power actually measures</h3>
+      <p class="body-text">Power (P) is the rate at which energy is transferred — how fast work gets done. One <b>watt</b> is one joule of energy per second. A component might see 12V and only 10mA, or 1V and 10A — very different power depending on the combination, even with similar-looking numbers.</p>
+
+      <div class="card">
+        <p class="ohm-formula" style="text-align:center;">P = I × V</p>
+        <p class="body-text" style="text-align:center; margin-bottom:0;">Combine with Ohm's law (<code class="inline">V = IR</code>) to get two more useful forms: <code class="inline">P = I²R</code> and <code class="inline">P = V²/R</code>.</p>
+      </div>
+
+      <h3>Try it: power dissipation calculator</h3>
+      <div class="power-wrap">
+        <div class="power-inputs card">
+          <div class="field">
+            <label><span>VOLTAGE ACROSS (V)</span></label>
+            <div class="ohm-val" id="pwrVVal">9.0 <span>V</span></div>
+            <input type="range" id="pwrVSlider" min="0.1" max="24" step="0.1" value="9" aria-label="Voltage across component">
+          </div>
+          <div class="field">
+            <label><span>RESISTANCE (R)</span></label>
+            <div class="ohm-val" id="pwrRVal">470 <span>Ω</span></div>
+            <input type="range" id="pwrRSlider" min="1" max="10000" step="1" value="470" aria-label="Resistance">
+          </div>
+        </div>
+        <div class="power-readout card">
+          <div class="power-readout-row">
+            <div class="power-stat"><div class="v" id="pwrIOut">19.1 <span>mA</span></div><div class="l">Current (I = V/R)</div></div>
+            <div class="power-stat"><div class="v" id="pwrPOut">0.172 <span>W</span></div><div class="l">Power dissipated</div></div>
+          </div>
+          <div class="power-bulb-stage">
+            <svg viewBox="0 0 120 90" width="100%" style="max-width:140px;">
+              <circle id="pwrBulbGlow" cx="60" cy="42" r="34" fill="var(--copper)" opacity="0.15"/>
+              <circle cx="60" cy="42" r="22" fill="#1C2530" stroke="#3A4A5A" stroke-width="1.5" id="pwrBulbBody"/>
+              <path d="M50,32 Q60,50 70,32" stroke="var(--copper)" stroke-width="1.6" fill="none" id="pwrBulbFilament"/>
+              <rect x="52" y="64" width="16" height="10" rx="2" fill="#3A4A5A"/>
+              <text x="60" y="88" text-anchor="middle" fill="var(--muted-2)" font-family="JetBrains Mono" font-size="9">resistor as heat/light</text>
+            </svg>
+          </div>
+          <div class="power-note" id="pwrNote">Typical for a small LED resistor — barely warm to the touch.</div>
+        </div>
+      </div>
+
+      <h3>Why the wattage rating on a resistor matters</h3>
+      <p class="body-text">Every resistor has a maximum power rating (often ¼W for small hobby resistors) — exceed it and the resistor overheats, drifts in value, or burns out entirely. Before wiring a circuit, it's worth a quick <code class="inline">P = I²R</code> check to confirm you're safely under that rating, especially with lower resistances or higher currents.</p>
+
+      <div class="mini-quiz-block" data-quiz-section="power">
+        <div class="mini-quiz-header">Quick check</div>
+        <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 04 COMPONENT LIBRARY -->
+    <section id="library" hidden>
+      <div class="eyebrow">// 16 — Reference</div>
+      <h2 class="title">Component library</h2>
+      <p class="dek">The parts you'll see on every breadboard, in roughly the order you'll meet them.</p>
+
+      <div class="grid grid-3">
+        <div class="comp-card">
+          <div class="comp-glyph"><svg viewBox="0 0 24 24" fill="none" stroke="#FFB627" stroke-width="1.6"><path d="M2 12h4l2-6 4 12 2-6h4M18 12h4"/></svg></div>
+          <h4>Resistor</h4>
+          <p>Limits current flow. Value shown by colored bands, measured in ohms (Ω). The most common component in any circuit.</p>
+          <span class="comp-tag">passive</span>
+        </div>
+        <div class="comp-card">
+          <div class="comp-glyph"><svg viewBox="0 0 24 24" fill="none" stroke="#00E5A0" stroke-width="1.6"><path d="M12 2 4 14h6l-1 8 9-13h-6z"/></svg></div>
+          <h4>LED</h4>
+          <p>Light-emitting diode. Lights up when current flows the right direction. Has a longer leg (+) and shorter leg (−) — polarity matters.</p>
+          <span class="comp-tag">semiconductor</span>
+        </div>
+        <div class="comp-card">
+          <div class="comp-glyph"><svg viewBox="0 0 24 24" fill="none" stroke="#E8EDF2" stroke-width="1.6"><path d="M4 4v16M9 4v16M4 12h5M15 6l6 6-6 6"/></svg></div>
+          <h4>Capacitor</h4>
+          <p>Stores a small amount of charge and releases it quickly. Used for smoothing power and filtering noise. Measured in farads (usually µF).</p>
+          <span class="comp-tag">passive</span>
+        </div>
+        <div class="comp-card">
+          <div class="comp-glyph"><svg viewBox="0 0 24 24" fill="none" stroke="#FFB627" stroke-width="1.6"><path d="M4 12h4l3-8 6 16 3-8h4"/></svg></div>
+          <h4>Diode</h4>
+          <p>A one-way valve for current. Blocks it in reverse. Used to protect circuits from backwards power or unwanted current direction.</p>
+          <span class="comp-tag">semiconductor</span>
+        </div>
+        <div class="comp-card">
+          <div class="comp-glyph"><svg viewBox="0 0 24 24" fill="none" stroke="#00E5A0" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></div>
+          <h4>Transistor</h4>
+          <p>A switch or amplifier controlled by a small signal. The building block of almost every modern chip. Three legs: base, collector, emitter.</p>
+          <span class="comp-tag">semiconductor</span>
+        </div>
+        <div class="comp-card">
+          <div class="comp-glyph"><svg viewBox="0 0 24 24" fill="none" stroke="#E8EDF2" stroke-width="1.6"><rect x="3" y="9" width="18" height="6" rx="1"/><path d="M7 9v-2M7 17v-2M17 9v-2M17 17v-2"/></svg></div>
+          <h4>Switch / button</h4>
+          <p>Manually opens or closes a circuit path. Push buttons are momentary (only on while pressed); toggle switches stay in position.</p>
+          <span class="comp-tag">mechanical</span>
+        </div>
+        <div class="comp-card">
+          <div class="comp-glyph"><svg viewBox="0 0 24 24" fill="none" stroke="#FFB627" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 4v-2M15 4v-2M9 22v-2M15 22v-2M4 9h-2M4 15h-2M22 9h-2M22 15h-2"/></svg></div>
+          <h4>IC (chip)</h4>
+          <p>Integrated circuit — hundreds to billions of tiny components packed into one package. Microcontrollers are a type of IC.</p>
+          <span class="comp-tag">semiconductor</span>
+        </div>
+        <div class="comp-card">
+          <div class="comp-glyph"><svg viewBox="0 0 24 24" fill="none" stroke="#00E5A0" stroke-width="1.6"><path d="M6 2v4M18 2v4M6 18v4M18 18v4M2 6h4M2 18h4M18 6h4M18 18h4M8 8h8v8H8z"/></svg></div>
+          <h4>Breadboard</h4>
+          <p>A reusable prototyping board with holes connected in strips underneath, so you can build circuits without soldering.</p>
+          <span class="comp-tag">tool</span>
+        </div>
+        <div class="comp-card">
+          <div class="comp-glyph"><svg viewBox="0 0 24 24" fill="none" stroke="#E8EDF2" stroke-width="1.6"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M9 6h6M9 10h6M9 14h4"/></svg></div>
+          <h4>Multimeter</h4>
+          <p>Measures voltage, current, resistance, and continuity. The single most useful diagnostic tool on the bench.</p>
+          <span class="comp-tag">tool</span>
+        </div>
+      </div>
+      <div class="mini-quiz-block" data-quiz-section="library">
+        <div class="mini-quiz-header">Quick check</div>
+        <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 05b METERS -->
+    <section id="meters" hidden>
+      <div class="eyebrow">// 17 — Reference</div>
+      <h2 class="title">Meters: how they work and how to use them</h2>
+      <p class="dek">A multimeter is really three (or four) different instruments in one case, each wired into the circuit differently. Knowing which mode does what — and how to connect it — prevents blown fuses and bad readings.</p>
+
+      <div class="grid grid-3">
+        <div class="card">
+          <span class="comp-tag">series</span>
+          <h4 style="font-family:'Space Grotesk',sans-serif; font-size:15px; margin:10px 0 8px 0;">Ammeter</h4>
+          <p class="body-text" style="margin:0;">Measures current. Must be inserted <b style="color:var(--text)">in series</b> — break the circuit and put the meter in the gap, so all the current is forced through it. Wiring it in parallel by mistake creates a near-short and can blow the meter's fuse.</p>
+        </div>
+        <div class="card">
+          <span class="comp-tag">parallel</span>
+          <h4 style="font-family:'Space Grotesk',sans-serif; font-size:15px; margin:10px 0 8px 0;">Voltmeter</h4>
+          <p class="body-text" style="margin:0;">Measures voltage difference between two points. Connected <b style="color:var(--text)">in parallel</b>, across the component — the circuit stays intact and the meter just "reads" the drop from the outside.</p>
+        </div>
+        <div class="card">
+          <span class="comp-tag" style="color:var(--danger); border-color:#5A2A2A; background:rgba(255,107,107,0.06);">power off</span>
+          <h4 style="font-family:'Space Grotesk',sans-serif; font-size:15px; margin:10px 0 8px 0;">Ohmmeter</h4>
+          <p class="body-text" style="margin:0;">Measures resistance by pushing its own small known current through the component and reading the voltage. Only ever use it on an <b style="color:var(--text)">unpowered</b> circuit — testing resistance on a live circuit gives a meaningless reading and can damage the meter.</p>
+        </div>
+      </div>
+
+      <h3>Why meter design changes the circuit slightly</h3>
+      <p class="body-text">No meter is perfectly invisible to the circuit it's measuring. An ideal ammeter would have <b>zero</b> resistance (so it doesn't add any voltage drop of its own); real ones have a small amount. An ideal voltmeter would have <b>infinite</b> resistance (so it draws zero current from the circuit it's reading); real ones draw a tiny amount. Cheap meters or very sensitive circuits are where this "loading effect" becomes noticeable — the act of measuring slightly disturbs what you're measuring.</p>
+
+      <div class="grid grid-2">
+        <div class="card">
+          <div class="ohm-diagram" style="min-height:110px;">
+            <svg viewBox="0 0 220 100" width="100%" style="max-width:220px;">
+              <path class="trace-path" d="M20,50 L70,50 M110,50 L160,50 M160,50 L200,50"/>
+              <rect x="70" y="38" width="40" height="24" rx="3" fill="#1C2530" stroke="#00E5A0" stroke-width="1.5"/>
+              <text x="90" y="55" text-anchor="middle" fill="#00E5A0" font-family="JetBrains Mono" font-size="10">LOAD</text>
+              <circle cx="180" cy="50" r="16" fill="#1C2530" stroke="var(--copper)" stroke-width="1.5"/>
+              <text x="180" y="54" text-anchor="middle" fill="var(--copper)" font-family="JetBrains Mono" font-size="11" font-weight="700">A</text>
+              <circle cx="20" cy="50" r="5" fill="#232E3C" stroke="#3A4A5A"/>
+            </svg>
+          </div>
+          <p style="font-size:12.5px; color:var(--muted-2); text-align:center; margin-top:6px;">Ammeter: in the current's path, in series</p>
+        </div>
+        <div class="card">
+          <div class="ohm-diagram" style="min-height:110px;">
+            <svg viewBox="0 0 220 100" width="100%" style="max-width:220px;">
+              <path class="trace-path" d="M20,50 L70,50 L70,20 L150,20 L150,80 L70,80 L70,50 M110,50 L150,50"/>
+              <rect x="70" y="38" width="40" height="24" rx="3" fill="#1C2530" stroke="#00E5A0" stroke-width="1.5"/>
+              <text x="90" y="55" text-anchor="middle" fill="#00E5A0" font-family="JetBrains Mono" font-size="10">LOAD</text>
+              <circle cx="185" cy="50" r="16" fill="#1C2530" stroke="var(--copper)" stroke-width="1.5"/>
+              <text x="185" y="54" text-anchor="middle" fill="var(--copper)" font-family="JetBrains Mono" font-size="11" font-weight="700">V</text>
+              <path class="trace-path" d="M150,20 L185,20 L185,34 M150,80 L185,80 L185,66"/>
+              <circle cx="20" cy="50" r="5" fill="#232E3C" stroke="#3A4A5A"/>
+            </svg>
+          </div>
+          <p style="font-size:12.5px; color:var(--muted-2); text-align:center; margin-top:6px;">Voltmeter: across the load, in parallel</p>
+        </div>
+      </div>
+
+      <div class="mini-quiz-block" data-quiz-section="meters">
+        <div class="mini-quiz-header">Quick check</div>
+        <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 05 RESISTOR DECODER -->
+    <section id="resistors" hidden>
+      <div class="eyebrow">// 18 — Interactive</div>
+      <h2 class="title">Resistor color code decoder</h2>
+      <p class="dek">Resistors are too small to print numbers on, so their value is encoded in colored bands instead. Set the bands below to decode any 4-band resistor.</p>
+
+      <div class="resistor-visual">
+        <svg id="resistorSvg" viewBox="0 0 300 80" width="280">
+          <line x1="0" y1="40" x2="60" y2="40" stroke="#8B9AAB" stroke-width="3"/>
+          <line x1="240" y1="40" x2="300" y2="40" stroke="#8B9AAB" stroke-width="3"/>
+          <rect x="60" y="18" width="180" height="44" rx="10" fill="#D8C9A3"/>
+          <rect id="band1" x="88" y="18" width="14" height="44" fill="#8B4513"/>
+          <rect id="band2" x="112" y="18" width="14" height="44" fill="#FF0000"/>
+          <rect id="band3" x="136" y="18" width="14" height="44" fill="#8B4513"/>
+          <rect id="band4" x="200" y="18" width="14" height="44" fill="#FFD700"/>
+        </svg>
+      </div>
+
+      <div class="band-select-row">
+        <div>
+          <label for="b1"><span class="band-swatch" id="swatch1"></span>BAND 1 (1st digit)</label>
+          <select id="b1" aria-label="BAND 1 (1st digit)"></select>
+        </div>
+        <div>
+          <label for="b2"><span class="band-swatch" id="swatch2"></span>BAND 2 (2nd digit)</label>
+          <select id="b2" aria-label="BAND 2 (2nd digit)"></select>
+        </div>
+        <div>
+          <label for="b3"><span class="band-swatch" id="swatch3"></span>BAND 3 (multiplier)</label>
+          <select id="b3" aria-label="BAND 3 (multiplier)"></select>
+        </div>
+        <div>
+          <label for="b4"><span class="band-swatch" id="swatch4"></span>BAND 4 (tolerance)</label>
+          <select id="b4" aria-label="BAND 4 (tolerance)"></select>
+        </div>
+      </div>
+
+      <div class="resistor-readout" id="resistorReadout">
+        1,200 Ω <span>1.2 kΩ, ±5% tolerance</span>
+      </div>
+
+      <p class="body-text" style="margin-top:18px;">Memory trick for the color order: <b style="color:var(--text)">B</b>lack <b style="color:var(--text)">B</b>rown <b style="color:var(--text)">R</b>oy <b style="color:var(--text)">O</b>f <b style="color:var(--text)">Y</b>ork <b style="color:var(--text)">G</b>ave <b style="color:var(--text)">B</b>attle <b style="color:var(--text)">V</b>ain <b style="color:var(--text)">G</b>lorious <b style="color:var(--text)">W</b>ins — for 0 through 9.</p>
+      <div class="mini-quiz-block" data-quiz-section="resistors">
+        <div class="mini-quiz-header">Quick check</div>
+        <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 15 CAPACITORS -->
+    <section id="capacitors" hidden>
+      <div class="eyebrow">// 19 — Reference</div>
+      <h2 class="title">Capacitors</h2>
+      <p class="dek">If a resistor is a narrow pipe, a capacitor is a small water tank plumbed into the circuit — it fills up, and it drains back out.</p>
+
+      <h3>How they work</h3>
+      <p class="body-text">A capacitor is two conductive plates separated by an insulator (the <b>dielectric</b>). Apply voltage, and charge builds up on the plates — no current actually crosses the gap, but the buildup behaves like current flowing while it's charging. Measured in <b>farads (F)</b>; since a farad is huge, you'll almost always see µF, nF, or pF.</p>
+
+      <h3>Charge and discharge — the RC time constant</h3>
+      <p class="body-text">Charging isn't instant — it follows a curve. The time constant <code class="inline">τ = R × C</code> tells you how fast: after 1τ, the capacitor reaches ~63% of full charge; after 5τ, it's essentially fully charged (~99%). Flip the switch below to watch it charge and discharge through a resistor.</p>
+
+      <div class="cap-sim card">
+        <div>
+          <div class="ohm-diagram" style="min-height:140px;">
+            <svg viewBox="0 0 200 120" width="100%" style="max-width:200px;">
+              <path class="trace-path" d="M20,60 L60,60 M100,60 L140,60 M140,20 L140,100 M20,20 L20,100 L140,100"/>
+              <path id="capFlow" class="trace-flow" d="M20,60 L60,60" style="opacity:0; animation-duration:0.6s;"/>
+              <rect x="60" y="48" width="40" height="24" rx="3" fill="#1C2530" stroke="#FFB627" stroke-width="1.5"/>
+              <text x="80" y="64" text-anchor="middle" fill="#FFB627" font-family="JetBrains Mono" font-size="10">R</text>
+              <line x1="150" y1="40" x2="150" y2="80" stroke="#00E5A0" stroke-width="3"/>
+              <line x1="160" y1="35" x2="160" y2="85" stroke="#00E5A0" stroke-width="3"/>
+              <circle class="node hot" cx="20" cy="60" r="5"/>
+            </svg>
+          </div>
+          <div class="toggle-row" style="justify-content:center; margin-top:10px;">
+            <div class="toggle-switch" id="capSwitch"><div class="knob"></div></div>
+            <span style="font-size:12.5px; color:var(--muted-2);" id="capSwitchLabel">Connect to charge</span>
+          </div>
+        </div>
+        <div>
+          <p class="body-text" style="margin-bottom:6px;">Charge level:</p>
+          <div class="cap-bar-track"><div class="cap-bar-fill" id="capBarFill"></div></div>
+          <p class="body-text" style="margin-top:10px;" id="capPercentText">0% charged</p>
+          <p class="body-text" style="margin-bottom:0;">Formula: <code class="inline">τ = R × C</code>. Bigger R or C means a slower charge/discharge.</p>
+        </div>
+      </div>
+
+      <h3>What capacitors are used for</h3>
+      <div class="grid grid-3">
+        <div class="card"><p style="font-size:13px; color:var(--muted-2);"><b style="color:var(--text)">Smoothing</b> — filling in the gaps in a rectified AC signal to give steadier DC.</p></div>
+        <div class="card"><p style="font-size:13px; color:var(--muted-2);"><b style="color:var(--text)">Decoupling</b> — a small local charge reserve so a chip doesn't starve during current spikes.</p></div>
+        <div class="card"><p style="font-size:13px; color:var(--muted-2);"><b style="color:var(--text)">Timing</b> — combined with a resistor, sets delays (like a classic 555-timer blink circuit).</p></div>
+      </div>
+      <div class="mini-quiz-block" data-quiz-section="capacitors">
+        <div class="mini-quiz-header">Quick check</div>
+        <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 16 MAGNETISM & INDUCTORS -->
+    <section id="magnetism" hidden>
+      <div class="eyebrow">// 20 — Reference</div>
+      <h2 class="title">Magnetism, electromagnetism, and inductors</h2>
+      <p class="dek">Moving charge and magnetism are two sides of the same phenomenon — this link is what makes motors, speakers, and inductors work.</p>
+
+      <h3>Current creates a magnetic field</h3>
+      <p class="body-text">Any wire carrying current generates a magnetic field around it (this is <b>electromagnetism</b>). Coil that wire into a loop, and the fields from each turn add together — more turns, or more current, means a stronger field. This is literally how an electromagnet works: wire wrapped around an iron core, energized by current.</p>
+
+      <div class="magnet-sim card">
+        <div class="magnet-stage">
+          <svg viewBox="0 0 260 140" width="100%">
+            <rect x="110" y="30" width="40" height="80" rx="4" fill="#8B9AAB"/>
+            <g id="coilLines"></g>
+            <g id="fieldLines"></g>
+          </svg>
+        </div>
+        <div class="magnet-slider-row">
+          <span style="font-size:11px; font-family:'JetBrains Mono',monospace; color:var(--muted-2);">CURRENT</span>
+          <label for="magnetSlider" class="sr-only">Magnet distance from coil</label>
+          <input type="range" id="magnetSlider" min="0" max="100" value="0" aria-label="Magnet distance from coil">
+          <span style="font-size:11px; font-family:'JetBrains Mono',monospace; color:var(--trace);" id="magnetReadout">0%</span>
+        </div>
+        <p class="body-text" style="text-align:center; margin:0;">Drag the slider up — more current, more visible field lines and a stronger pull.</p>
+      </div>
+
+      <h3>Inductors: the electrical inertia component</h3>
+      <p class="body-text">An inductor is just a coil of wire. Its defining behavior is opposing <b>changes</b> in current — not blocking current itself, like a resistor, but resisting a sudden change in it, storing energy in its magnetic field while current rises and releasing it while current falls. Measured in <b>henries (H)</b>.</p>
+
+      <div class="grid grid-2">
+        <div class="card"><p class="body-text" style="margin:0;"><b style="color:var(--text)">Resistor:</b> opposes current itself, in both DC and AC, no time-dependence.</p></div>
+        <div class="card"><p class="body-text" style="margin:0;"><b style="color:var(--text)">Inductor:</b> opposes changes in current — behaves almost like a wire to steady DC, but pushes back hard against sudden changes or fast AC.</p></div>
+      </div>
+
+      <p class="body-text" style="margin-top:16px;">This "resists change" behavior is why inductors show up in power supply filtering, motor circuits, and anywhere you need to smooth out sudden current spikes.</p>
+      <div class="mini-quiz-block" data-quiz-section="magnetism">
+        <div class="mini-quiz-header">Quick check</div>
+        <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 06 MICROCONTROLLERS -->
+    <section id="microcontrollers" hidden>
+      <div class="eyebrow">// 17 — Build</div>
+      <h2 class="title">Microcontrollers: Arduino & Raspberry Pi</h2>
+      <p class="dek">The two boards you'll hear about most in class — and they're not the same kind of thing.</p>
+
+      <div class="grid grid-2">
+        <div class="card">
+          <span class="comp-tag">microcontroller</span>
+          <h4 style="font-family:'Space Grotesk',sans-serif; font-size:16px; margin:10px 0 8px 0;">Arduino</h4>
+          <p class="body-text">Runs <b>one program</b> at a time, directly on the chip, with no operating system. Great for reading sensors and controlling motors/LEDs with precise timing. Programmed in a simplified C++ from a computer, then runs standalone.</p>
+        </div>
+        <div class="card">
+          <span class="comp-tag">microcomputer</span>
+          <h4 style="font-family:'Space Grotesk',sans-serif; font-size:16px; margin:10px 0 8px 0;">Raspberry Pi</h4>
+          <p class="body-text">A full tiny <b>computer</b> running Linux. Can multitask, browse the web, run Python scripts, and connect to a monitor/keyboard. Better for projects that need real computing power, like image processing.</p>
+        </div>
+      </div>
+
+      <h3>Your first Arduino program: blink an LED</h3>
+      <p class="body-text">This is the "hello world" of electronics. Here's what the code does, line by line:</p>
+      <div class="card" style="font-family:'JetBrains Mono', monospace; font-size:12.5px; line-height:1.9; color:var(--muted-2); overflow-x:auto;">
+<div><span style="color:#5B6B7C;">// runs once when the board powers on</span></div>
+<div><span style="color:#00E5A0;">void</span> setup() {</div>
+<div>&nbsp;&nbsp;pinMode(13, OUTPUT); <span style="color:#5B6B7C;">// pin 13 will send power out</span></div>
+<div>}</div>
+<div>&nbsp;</div>
+<div><span style="color:#5B6B7C;">// runs over and over, forever</span></div>
+<div><span style="color:#00E5A0;">void</span> loop() {</div>
+<div>&nbsp;&nbsp;digitalWrite(13, HIGH); <span style="color:#5B6B7C;">// turn LED on</span></div>
+<div>&nbsp;&nbsp;delay(1000); <span style="color:#5B6B7C;">// wait 1 second</span></div>
+<div>&nbsp;&nbsp;digitalWrite(13, LOW); <span style="color:#5B6B7C;">// turn LED off</span></div>
+<div>&nbsp;&nbsp;delay(1000); <span style="color:#5B6B7C;">// wait 1 second</span></div>
+<div>}</div>
+      </div>
+      <p class="body-text" style="margin-top:12px;"><code class="inline">setup()</code> runs once. <code class="inline">loop()</code> repeats forever — that's the pattern behind almost every Arduino sketch you'll write.</p>
+      <div class="mini-quiz-block" data-quiz-section="microcontrollers">
+        <div class="mini-quiz-header">Quick check</div>
+        <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 07 SOLDERING -->
+    <section id="soldering" hidden>
+      <div class="eyebrow">// 18 — Build</div>
+      <h2 class="title">Soldering basics</h2>
+      <p class="dek">Soldering permanently joins components to a circuit using melted metal alloy. It looks intimidating; it isn't, once you've done it once correctly.</p>
+
+      <div class="warn-box">
+        <span class="ic">!</span>
+        <p>The iron tip reaches 300–400°C (570–750°F). Always rest it in its stand when not actively soldering, work in a ventilated area, and keep it away from cords, skin, and anything flammable.</p>
+      </div>
+
+      <h3>What's in your toolkit</h3>
+      <div class="grid grid-3">
+        <div class="card"><p style="font-size:13px; color:var(--muted-2);"><b style="color:var(--text)">Soldering iron</b> — the heated tool that melts solder onto joints.</p></div>
+        <div class="card"><p style="font-size:13px; color:var(--muted-2);"><b style="color:var(--text)">Solder</b> — the thin wire of metal alloy that melts and forms the joint.</p></div>
+        <div class="card"><p style="font-size:13px; color:var(--muted-2);"><b style="color:var(--text)">Helping hands / vice</b> — holds your board steady so both hands are free.</p></div>
+      </div>
+
+      <h3>The process</h3>
+      <ol class="steps">
+        <li class="step">
+          <div class="step-num">1</div>
+          <div><h4>Heat the joint, not the solder</h4><p>Touch the iron tip to both the component lead and the pad at once for 1–2 seconds. This heats the metal you're joining, not just the solder itself.</p></div>
+        </li>
+        <li class="step">
+          <div class="step-num">2</div>
+          <div><h4>Feed solder into the joint</h4><p>Touch the solder wire to the heated joint (not the iron tip directly). It should melt and flow smoothly around the connection.</p></div>
+        </li>
+        <li class="step">
+          <div class="step-num">3</div>
+          <div><h4>Remove solder, then iron</h4><p>Pull the solder wire away first, then the iron a moment later. This gives the joint time to form cleanly.</p></div>
+        </li>
+        <li class="step">
+          <div class="step-num">4</div>
+          <div><h4>Let it cool, don't blow on it</h4><p>Hold the joint still for a few seconds while it solidifies. Moving it while still molten creates a weak "cold joint."</p></div>
+        </li>
+      </ol>
+
+      <h3>What a good joint looks like</h3>
+      <p class="body-text">Shiny, smooth, and shaped like a small volcano cone around the lead — not a dull grey blob (cold joint) and not a giant ball (too much solder).</p>
+      <div class="mini-quiz-block" data-quiz-section="soldering">
+        <div class="mini-quiz-header">Quick check</div>
+        <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 08 TROUBLESHOOTING -->
+    <section id="troubleshoot" hidden>
+      <div class="eyebrow">// 19 — Build</div>
+      <h2 class="title">Troubleshooting a dead circuit</h2>
+      <p class="dek">Almost every "it doesn't work" moment follows the same diagnostic path. Work through it top to bottom before assuming a part is broken.</p>
+
+      <div class="flow-node q"><b>Is power actually reaching the board?</b><p class="body-text" style="margin:6px 0 0 0;">Check with a multimeter, or a known-working LED, right at the power source.</p></div>
+      <div class="flow-connector"></div>
+      <div class="flow-branch">
+        <div class="card"><span class="yn no">NO</span><p>Check the battery/power supply, the power switch, and the cable. This alone fixes a huge share of "broken" circuits.</p></div>
+        <div class="card"><span class="yn yes">YES</span><p>Good — power's live. Move to checking the connections.</p></div>
+      </div>
+
+      <div class="flow-node q"><b>Are all connections solid?</b><p class="body-text" style="margin:6px 0 0 0;">Loose breadboard wires and cold solder joints cause more failures than bad components.</p></div>
+      <div class="flow-connector"></div>
+      <div class="flow-branch">
+        <div class="card"><span class="yn no">NO</span><p>Re-seat every wire firmly. On a breadboard, check you're in the correct connected rows/columns.</p></div>
+        <div class="card"><span class="yn yes">YES</span><p>Good — connections are solid. Move to checking orientation.</p></div>
+      </div>
+
+      <div class="flow-node q"><b>Are polarized parts oriented correctly?</b><p class="body-text" style="margin:6px 0 0 0;">LEDs, diodes, electrolytic capacitors, and ICs all care which way they face.</p></div>
+      <div class="flow-connector"></div>
+      <div class="flow-branch">
+        <div class="card"><span class="yn no">NO</span><p>Flip the part around. For an LED, the longer leg goes to positive (+).</p></div>
+        <div class="card"><span class="yn yes">YES</span><p>Good. Now isolate — test one section of the circuit at a time.</p></div>
+      </div>
+
+      <div class="flow-node"><b>Still stuck? Divide and conquer.</b><p class="body-text" style="margin:6px 0 0 0;">Disconnect components one at a time and retest. If a working sub-circuit stops working when you add one part, that part (or its wiring) is the likely culprit.</p></div>
+
+      <h3>Reading a multimeter</h3>
+      <div class="grid grid-3">
+        <div class="card"><p style="font-size:13px; color:var(--muted-2);"><b style="color:var(--text)">Voltage (V)</b> — probes placed across (in parallel with) a component. No circuit break needed.</p></div>
+        <div class="card"><p style="font-size:13px; color:var(--muted-2);"><b style="color:var(--text)">Continuity</b> — beeps if there's a complete path. Great for checking wires and fuses.</p></div>
+        <div class="card"><p style="font-size:13px; color:var(--muted-2);"><b style="color:var(--text)">Resistance (Ω)</b> — only measure this with power disconnected from the circuit.</p></div>
+      </div>
+      <div class="mini-quiz-block" data-quiz-section="troubleshoot">
+        <div class="mini-quiz-header">Quick check</div>
+        <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 23 BINARY & BITS -->
+    <section id="binary" hidden>
+      <div class="eyebrow">// 23 — Digital Logic & Arduino C++ <span class="tier-badge advanced">Advanced</span></div>
+      <h2 class="title">Binary & bits</h2>
+      <p class="dek">Everything past this point in the guide runs on two voltage levels: high and low. Before gates, before code, you need to think the way the hardware does — in bits.</p>
+
+      <h3>Why two levels, not ten</h3>
+      <p class="body-text">A wire is either carrying enough voltage to count as "on" (roughly 5V or 3.3V, depending on the board) or not (near 0V). Building reliable circuits that distinguish ten different voltage levels is hard and noise-prone; distinguishing <b>two</b> is easy and robust. That two-level system is <b>binary</b> — base 2, using only the digits 0 and 1, where each digit is called a <b>bit</b>.</p>
+
+      <h3>Reading a binary number</h3>
+      <p class="body-text">Decimal place values are powers of 10 (1, 10, 100...). Binary place values are powers of 2 (1, 2, 4, 8, 16, 32, 64, 128...). To read a binary number, add up the place values where there's a 1.</p>
+
+      <div class="card">
+        <p class="body-text">Example: <code class="inline">1011</code> in binary = <code class="inline">(1×8) + (0×4) + (1×2) + (1×1) = 8 + 0 + 2 + 1 = 11</code> in decimal.</p>
+      </div>
+
+      <h3>Try it: 8-bit toggle board</h3>
+      <p class="body-text">Click any bit to flip it. Watch the decimal value and the place-value math update live. This is exactly the range of a single <code class="inline">byte</code> — the most common unit of memory on a microcontroller.</p>
+
+      <div class="card">
+        <div class="bin-board" id="binBoard"></div>
+        <div class="bin-readout">
+          <div class="bin-decimal" id="binDecimal">0</div>
+          <div class="bin-sum" id="binSum">0</div>
+        </div>
+        <div class="charge-btn-row" style="margin-top:14px;">
+          <button class="charge-btn" id="binRandomBtn">Randomize</button>
+          <button class="charge-btn" id="binClearBtn">Clear</button>
+          <button class="charge-btn" id="binMaxBtn">Set to 255</button>
+        </div>
+      </div>
+
+      <h3>The ranges you'll actually see</h3>
+      <div class="grid grid-3">
+        <div class="card"><p style="font-size:13px; color:var(--muted-2);"><b style="color:var(--text)">1 bit</b> — 2 values (0–1). A single pin: HIGH or LOW.</p></div>
+        <div class="card"><p style="font-size:13px; color:var(--muted-2);"><b style="color:var(--text)">8 bits (1 byte)</b> — 256 values (0–255). A single <code class="inline">byte</code> variable, or one analog reading scaled down.</p></div>
+        <div class="card"><p style="font-size:13px; color:var(--muted-2);"><b style="color:var(--text)">10 bits</b> — 1,024 values (0–1023). What Arduino's <code class="inline">analogRead()</code> returns.</p></div>
+      </div>
+
+      <div class="warn-box" style="background:rgba(0,229,160,0.05); border-color:var(--trace-dim);">
+        <span class="ic" style="color:var(--trace);">i</span>
+        <p style="color:var(--muted-2);">Hex (base 16, digits 0–9 then A–F) shows up constantly in embedded work because one hex digit maps to exactly 4 bits — <code class="inline" style="color:var(--trace);">0xFF</code> is a tidy way to write all-eight-bits-on (255) instead of <code class="inline" style="color:var(--trace);">0b11111111</code>.</p>
+      </div>
+      <div class="mini-quiz-block" data-quiz-section="binary">
+        <div class="mini-quiz-header">Quick check</div>
+        <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 24 LOGIC GATES -->
+    <section id="gates" hidden>
+      <div class="eyebrow">// 24 — Digital Logic & Arduino C++ <span class="tier-badge advanced">Advanced</span></div>
+      <h2 class="title">Logic gates</h2>
+      <p class="dek">A logic gate is a tiny circuit that takes one or two binary inputs and produces one binary output, based on a fixed rule. Every microcontroller, and every computer ever built, is these gates wired together at massive scale.</p>
+
+      <h3>Try it: gate playground</h3>
+      <p class="body-text">Pick a gate, then flip the input switches — watch the output LED and truth table respond live.</p>
+
+      <div class="gate-btn-row" id="gateBtnRow">
+        <button class="gate-btn active" data-gate="AND">AND</button>
+        <button class="gate-btn" data-gate="OR">OR</button>
+        <button class="gate-btn" data-gate="NOT">NOT</button>
+        <button class="gate-btn" data-gate="XOR">XOR</button>
+        <button class="gate-btn" data-gate="NAND">NAND</button>
+        <button class="gate-btn" data-gate="NOR">NOR</button>
+      </div>
+
+      <div class="gate-wrap">
+        <div class="card">
+          <div class="ohm-diagram" style="min-height:140px;">
+            <svg viewBox="0 0 220 140" width="100%" style="max-width:240px;" id="gateSvg"></svg>
+          </div>
+          <div class="gate-io-row" id="gateIoRow"></div>
+        </div>
+        <div class="card">
+          <p class="body-text" id="gateDescription" style="margin-bottom:14px;"></p>
+          <table class="truth-table" id="gateTruthTable"></table>
+        </div>
+      </div>
+
+      <h3>The six gates, at a glance</h3>
+      <div class="grid grid-3">
+        <div class="card"><p style="font-size:13px; color:var(--muted-2);"><b style="color:var(--text)">AND</b> — output is 1 only if <i>every</i> input is 1. Think: both switches must be on.</p></div>
+        <div class="card"><p style="font-size:13px; color:var(--muted-2);"><b style="color:var(--text)">OR</b> — output is 1 if <i>any</i> input is 1.</p></div>
+        <div class="card"><p style="font-size:13px; color:var(--muted-2);"><b style="color:var(--text)">NOT</b> — one input, flips it. The only single-input gate here.</p></div>
+        <div class="card"><p style="font-size:13px; color:var(--muted-2);"><b style="color:var(--text)">XOR</b> — 1 only if the inputs <i>differ</i>. Used to detect change.</p></div>
+        <div class="card"><p style="font-size:13px; color:var(--muted-2);"><b style="color:var(--text)">NAND</b> — AND, then inverted. Famous because you can build any other gate from just NANDs.</p></div>
+        <div class="card"><p style="font-size:13px; color:var(--muted-2);"><b style="color:var(--text)">NOR</b> — OR, then inverted.</p></div>
+      </div>
+      <div class="mini-quiz-block" data-quiz-section="gates">
+        <div class="mini-quiz-header">Quick check</div>
+        <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 25 HALF ADDER -->
+    <section id="adder" hidden>
+      <div class="eyebrow">// 25 — Digital Logic & Arduino C++ <span class="tier-badge advanced">Advanced</span></div>
+      <h2 class="title">Building a half-adder</h2>
+      <p class="dek">Here's where gates stop being a toy and start being a computer. Combine an XOR and an AND gate, and you get a circuit that adds two single bits — the literal building block of every calculation a processor ever performs.</p>
+
+      <h3>The problem: add two bits</h3>
+      <p class="body-text">Adding two 1-bit numbers can produce a 2-bit result: <code class="inline">1 + 1 = 10</code> in binary (that's 2 in decimal). So the circuit needs two outputs: a <b>Sum</b> bit and a <b>Carry</b> bit.</p>
+
+      <div class="grid grid-2">
+        <div class="card">
+          <p class="body-text" style="margin-bottom:6px;"><b style="color:var(--text)">Sum</b> — is 1 when exactly one input is 1, but not both. That's exactly what <b>XOR</b> does.</p>
+        </div>
+        <div class="card">
+          <p class="body-text" style="margin-bottom:6px;"><b style="color:var(--text)">Carry</b> — is 1 only when <i>both</i> inputs are 1 (the case that overflows into the next place value). That's exactly what <b>AND</b> does.</p>
+        </div>
+      </div>
+
+      <h3>Try it: flip the inputs</h3>
+      <div class="card">
+        <div class="ohm-diagram" style="min-height:170px;">
+          <svg viewBox="0 0 320 170" width="100%" style="max-width:380px;" id="adderSvg"></svg>
+        </div>
+        <div class="gate-io-row" id="adderIoRow" style="margin-top:16px;"></div>
+      </div>
+
+      <table class="truth-table" style="margin-top:16px;" id="adderTruthTable"></table>
+
+      <div class="warn-box" style="background:rgba(0,229,160,0.05); border-color:var(--trace-dim);">
+        <span class="ic" style="color:var(--trace);">i</span>
+        <p style="color:var(--muted-2);">This is called a <b style="color:var(--text)">half</b>-adder because it can't accept a carry-in from a previous column. Chain several together with an extra OR gate per stage (making each a "full adder") and you can add numbers of any width — which is precisely what happens inside a CPU's arithmetic logic unit.</p>
+      </div>
+      <div class="mini-quiz-block" data-quiz-section="adder">
+        <div class="mini-quiz-header">Quick check</div>
+        <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 26 REAL C++ FOR ARDUINO -->
+    <section id="cppbasics" hidden>
+      <div class="eyebrow">// 26 — Digital Logic & Arduino C++ <span class="tier-badge advanced">Advanced</span></div>
+      <h2 class="title">Real C++ for Arduino</h2>
+      <p class="dek">The blink sketch back in chapter 17 was "hello world." This is the actual language underneath it — variables, types, and functions, the way you'll really use them.</p>
+
+      <h3>Variables have types, and types matter</h3>
+      <p class="body-text">Unlike some beginner-friendly languages, C++ makes you declare what <i>kind</i> of data a variable holds, and that choice affects both memory usage and behavior — critical on a chip with only a few kilobytes of RAM.</p>
+
+      <div class="code-block">
+<div><span class="cmt">// each of these reserves a different amount of memory</span></div>
+<div><span class="tp">int</span> ledPin = 13;        <span class="cmt">// whole numbers, ~2 bytes, -32,768 to 32,767</span></div>
+<div><span class="tp">byte</span> brightness = 200;  <span class="cmt">// 1 byte, 0 to 255 only — perfect for PWM values</span></div>
+<div><span class="tp">float</span> voltage = 3.3;    <span class="cmt">// decimals, 4 bytes</span></div>
+<div><span class="tp">bool</span> isOn = <span class="kw">true</span>;      <span class="cmt">// just true/false, 1 byte</span></div>
+<div><span class="tp">unsigned long</span> lastTime = 0; <span class="cmt">// big non-negative numbers — used for millis() timestamps</span></div>
+      </div>
+
+      <h3>Functions: named, reusable blocks</h3>
+      <p class="body-text">You've already used two functions Arduino requires — <code class="inline">setup()</code> and <code class="inline">loop()</code> — but you can write your own. A function has a <b>return type</b> (what kind of value it hands back, or <code class="inline">void</code> for nothing), a name, and parameters in parentheses.</p>
+
+      <div class="code-block">
+<div><span class="tp">int</span> <span class="fn">celsiusToFahrenheit</span>(<span class="tp">int</span> celsius) {</div>
+<div>&nbsp;&nbsp;<span class="kw">return</span> (celsius * 9 / 5) + 32;</div>
+<div>}</div>
+<div>&nbsp;</div>
+<div><span class="tp">void</span> setup() {</div>
+<div>&nbsp;&nbsp;Serial.begin(9600);</div>
+<div>&nbsp;&nbsp;<span class="tp">int</span> tempF = <span class="fn">celsiusToFahrenheit</span>(20); <span class="cmt">// call it, store the result</span></div>
+<div>&nbsp;&nbsp;Serial.println(tempF); <span class="cmt">// prints 68</span></div>
+<div>}</div>
+      </div>
+
+      <h3>Conditionals and comparison</h3>
+      <p class="body-text">The same <code class="inline">if</code> / <code class="inline">else if</code> / <code class="inline">else</code> structure from most languages, plus the comparison operators you'll use constantly on sensor readings: <code class="inline">== != &lt; &gt; &lt;= &gt;=</code>.</p>
+
+      <div class="code-block">
+<div><span class="tp">int</span> lightLevel = analogRead(A0); <span class="cmt">// 0–1023 from a photoresistor</span></div>
+<div>&nbsp;</div>
+<div><span class="kw">if</span> (lightLevel &lt; 200) {</div>
+<div>&nbsp;&nbsp;Serial.println(<span class="str">"Dark — turning on the LED"</span>);</div>
+<div>&nbsp;&nbsp;digitalWrite(ledPin, HIGH);</div>
+<div>} <span class="kw">else if</span> (lightLevel &lt; 700) {</div>
+<div>&nbsp;&nbsp;Serial.println(<span class="str">"Dim"</span>);</div>
+<div>} <span class="kw">else</span> {</div>
+<div>&nbsp;&nbsp;Serial.println(<span class="str">"Bright — LED off"</span>);</div>
+<div>&nbsp;&nbsp;digitalWrite(ledPin, LOW);</div>
+<div>}</div>
+      </div>
+
+      <h3>Loops: repeat without repeating yourself</h3>
+      <p class="body-text">A <code class="inline">for</code> loop runs a fixed number of times — useful for stepping through an array of pins or values. A <code class="inline">while</code> loop runs as long as a condition holds.</p>
+
+      <div class="code-block">
+<div><span class="cmt">// fade an LED up in 5 steps, without writing 5 separate lines</span></div>
+<div><span class="kw">for</span> (<span class="tp">int</span> i = 0; i &lt; 5; i++) {</div>
+<div>&nbsp;&nbsp;analogWrite(ledPin, i * 50);</div>
+<div>&nbsp;&nbsp;delay(200);</div>
+<div>}</div>
+      </div>
+
+      <h3>Try it: predict the output</h3>
+      <p class="body-text">Read the code, guess what prints, then reveal the answer. This is exactly how you should read any unfamiliar sketch before uploading it.</p>
+      <div id="ccContainer"></div>
+      <div class="mini-quiz-block" data-quiz-section="cppbasics">
+        <div class="mini-quiz-header">Quick check</div>
+        <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 27 DIGITAL I/O & DEBOUNCING -->
+    <section id="digitalio" hidden>
+      <div class="eyebrow">// 27 — Digital Logic & Arduino C++ <span class="tier-badge advanced">Advanced</span></div>
+      <h2 class="title">Digital I/O, pull-ups, and debouncing</h2>
+      <p class="dek">Reading a button seems trivial — until your circuit reports six presses for one tap. This is the most common "my code is broken" bug in embedded electronics, and it isn't a code bug at all.</p>
+
+      <h3>pinMode has three options, not two</h3>
+      <div class="grid grid-3">
+        <div class="card"><p style="font-size:13px; color:var(--muted-2);"><b style="color:var(--text)">OUTPUT</b> — the pin actively drives HIGH or LOW. Used for LEDs, motors, anything you're controlling.</p></div>
+        <div class="card"><p style="font-size:13px; color:var(--muted-2);"><b style="color:var(--text)">INPUT</b> — the pin reads voltage, but is left "floating" if nothing's connected — it can pick up electrical noise and read randomly.</p></div>
+        <div class="card"><p style="font-size:13px; color:var(--muted-2);"><b style="color:var(--text)">INPUT_PULLUP</b> — the pin reads voltage, with a built-in resistor quietly holding it HIGH until something pulls it LOW. This is what you want for a button.</p></div>
+      </div>
+
+      <p class="body-text">With <code class="inline">INPUT_PULLUP</code>, wiring gets simpler too: connect the button between the pin and ground — no external resistor needed. The pin reads <code class="inline">HIGH</code> normally and <code class="inline">LOW</code> when pressed (backwards from what you might expect at first).</p>
+
+      <h3>The problem: switch bounce</h3>
+      <p class="body-text">A mechanical switch doesn't cleanly transition from open to closed. The metal contacts physically bounce for a few milliseconds, generating a rapid on-off-on-off flicker before settling. Your microcontroller reads fast enough to see every one of those bounces as a separate press.</p>
+
+      <div class="card">
+        <p class="body-text" style="margin-bottom:10px;">Press the button below (not debounced) and watch the raw signal — then compare it to the debounced version.</p>
+        <div class="bounce-demo" id="bounceDemo">
+          <div class="bounce-btn-wrap">
+            <button class="bounce-press-btn" id="bouncePressBtn">PRESS</button>
+          </div>
+          <div class="bounce-traces">
+            <div class="bounce-trace-row">
+              <span class="bounce-trace-label">Raw signal</span>
+              <div class="bounce-trace-track"><svg viewBox="0 0 300 40" id="bounceRawSvg"><path id="bounceRawPath" fill="none" stroke="var(--danger)" stroke-width="2"/></svg></div>
+              <span class="bounce-count" id="bounceRawCount">0 presses seen</span>
+            </div>
+            <div class="bounce-trace-row">
+              <span class="bounce-trace-label">Debounced</span>
+              <div class="bounce-trace-track"><svg viewBox="0 0 300 40" id="bounceCleanSvg"><path id="bounceCleanPath" fill="none" stroke="var(--trace)" stroke-width="2"/></svg></div>
+              <span class="bounce-count" id="bounceCleanCount">0 presses seen</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3>The fix, in code</h3>
+      <p class="body-text">Ignore any change that happens too soon after the last one — enforce a minimum time gap using <code class="inline">millis()</code>, Arduino's running clock in milliseconds since power-on.</p>
+
+      <div class="code-block">
+<div><span class="tp">const</span> <span class="tp">int</span> buttonPin = 2;</div>
+<div><span class="tp">unsigned long</span> lastPressTime = 0;</div>
+<div><span class="tp">const</span> <span class="tp">unsigned long</span> DEBOUNCE_MS = 50; <span class="cmt">// bounce settles well within 50ms</span></div>
+<div>&nbsp;</div>
+<div><span class="tp">void</span> setup() {</div>
+<div>&nbsp;&nbsp;pinMode(buttonPin, INPUT_PULLUP);</div>
+<div>&nbsp;&nbsp;Serial.begin(9600);</div>
+<div>}</div>
+<div>&nbsp;</div>
+<div><span class="tp">void</span> loop() {</div>
+<div>&nbsp;&nbsp;<span class="kw">if</span> (digitalRead(buttonPin) == LOW) {</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">if</span> (millis() - lastPressTime &gt; DEBOUNCE_MS) {</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Serial.println(<span class="str">"Button pressed"</span>);</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lastPressTime = millis();</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;}</div>
+<div>&nbsp;&nbsp;}</div>
+<div>}</div>
+      </div>
+
+      <div class="warn-box">
+        <span class="ic">!</span>
+        <p>Notice this uses <code class="inline" style="color:#E8B4B4; border-color:#5A2A2A;">millis()</code>, not <code class="inline" style="color:#E8B4B4; border-color:#5A2A2A;">delay()</code>. A <code class="inline" style="color:#E8B4B4; border-color:#5A2A2A;">delay()</code> call freezes the entire chip — no sensors, no other logic — which is fine for a blink demo but breaks any real project doing more than one thing at once.</p>
+      </div>
+      <div class="mini-quiz-block" data-quiz-section="digitalio">
+        <div class="mini-quiz-header">Quick check</div>
+        <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 28 SERIAL COMMUNICATION -->
+    <section id="serial" hidden>
+      <div class="eyebrow">// 28 — Digital Logic & Arduino C++ <span class="tier-badge advanced">Advanced</span></div>
+      <h2 class="title">Serial communication</h2>
+      <p class="dek">The Serial Monitor is your window into a running Arduino — the closest thing embedded development has to console.log. It's also how you'll debug ninety percent of "why isn't this working" moments.</p>
+
+      <h3>Setting it up</h3>
+      <p class="body-text"><code class="inline">Serial.begin(9600)</code> in <code class="inline">setup()</code> opens the connection at 9600 baud (bits per second) — both the board and your computer's monitor need to agree on this number. From there, <code class="inline">Serial.print()</code> writes without a line break, <code class="inline">Serial.println()</code> adds one.</p>
+
+      <h3>Try it: run the sketch</h3>
+      <p class="body-text">This simulates a temperature sensor sketch printing readings once a second. Hit run and watch the monitor fill in, exactly like the real Arduino IDE.</p>
+
+      <div class="serial-wrap">
+        <button class="serial-btn" id="serialRunBtn">▶ Run sketch</button>
+        <div class="serial-screen" id="serialScreen"><span class="serial-line dim">// Serial Monitor — 9600 baud</span></div>
+      </div>
+
+      <div class="code-block" style="margin-top:16px;">
+<div><span class="tp">void</span> setup() {</div>
+<div>&nbsp;&nbsp;Serial.begin(9600);</div>
+<div>&nbsp;&nbsp;Serial.println(<span class="str">"Sensor ready."</span>);</div>
+<div>}</div>
+<div>&nbsp;</div>
+<div><span class="tp">void</span> loop() {</div>
+<div>&nbsp;&nbsp;<span class="tp">float</span> tempC = readTemperature(); <span class="cmt">// pretend sensor call</span></div>
+<div>&nbsp;&nbsp;Serial.print(<span class="str">"Temp: "</span>);</div>
+<div>&nbsp;&nbsp;Serial.print(tempC);</div>
+<div>&nbsp;&nbsp;Serial.println(<span class="str">" C"</span>);</div>
+<div>&nbsp;&nbsp;<span class="kw">if</span> (tempC &gt; 28.0) {</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;Serial.println(<span class="str">"WARNING: overheating"</span>);</div>
+<div>&nbsp;&nbsp;}</div>
+<div>&nbsp;&nbsp;delay(1000);</div>
+<div>}</div>
+      </div>
+
+      <p class="body-text" style="margin-top:14px;">Serial isn't only for output — <code class="inline">Serial.read()</code> lets your sketch receive characters typed into the monitor, which is how you'll build simple command interfaces later (type <code class="inline">"on"</code> to trigger something, for instance).</p>
+      <div class="mini-quiz-block" data-quiz-section="serial">
+        <div class="mini-quiz-header">Quick check</div>
+        <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 29 SHIFT REGISTERS -->
+    <section id="shiftreg" hidden>
+      <div class="eyebrow">// 29 — Digital Logic & Arduino C++ <span class="tier-badge advanced">Advanced</span></div>
+      <h2 class="title">Shift registers</h2>
+      <p class="dek">An Arduino Uno has about 14 usable digital pins. What happens when a project needs to control 20 LEDs? You stop wiring pins one-to-one and start shifting bits.</p>
+
+      <h3>The idea: serial in, parallel out</h3>
+      <p class="body-text">A shift register (the classic chip is the <b>74HC595</b>) takes bits in one at a time on a single data pin, and once all its internal slots are filled, it presents them simultaneously on multiple output pins. Feed it 8 bits serially, get 8 outputs in parallel — from just 3 control pins on the Arduino, no matter how many registers you chain together.</p>
+
+      <h3>Try it: shift a byte in</h3>
+      <p class="body-text">Click "Shift in a 1" or "Shift in a 0" to push a new bit — watch it enter on the right and push everything else left, exactly like a line of people shuffling down a bench.</p>
+
+      <div class="card">
+        <div class="sr-stage" id="srStage"></div>
+        <div class="charge-btn-row" style="justify-content:center;">
+          <button class="charge-btn" id="srShiftOneBtn">Shift in a 1</button>
+          <button class="charge-btn" id="srShiftZeroBtn">Shift in a 0</button>
+          <button class="charge-btn" id="srClearBtn">Clear</button>
+        </div>
+        <p class="body-text" style="margin-top:14px; margin-bottom:0; text-align:center;" id="srReadout">Register empty — 0b00000000</p>
+      </div>
+
+      <h3>The three pins you wire it with</h3>
+      <div class="grid grid-3">
+        <div class="card"><p style="font-size:13px; color:var(--muted-2);"><b style="color:var(--text)">Data</b> — the bit value being sent, one at a time.</p></div>
+        <div class="card"><p style="font-size:13px; color:var(--muted-2);"><b style="color:var(--text)">Clock</b> — pulses once per bit, telling the register "read the data pin now."</p></div>
+        <div class="card"><p style="font-size:13px; color:var(--muted-2);"><b style="color:var(--text)">Latch</b> — pulses once after all 8 bits are in, to update the outputs all at once (avoiding a visible ripple).</p></div>
+      </div>
+
+      <div class="code-block">
+<div><span class="cmt">// shiftOut() handles the bit-by-bit clocking for you</span></div>
+<div>digitalWrite(latchPin, LOW);</div>
+<div>shiftOut(dataPin, clockPin, MSBFIRST, 0b10110010);</div>
+<div>digitalWrite(latchPin, HIGH); <span class="cmt">// outputs update here, all at once</span></div>
+      </div>
+      <div class="mini-quiz-block" data-quiz-section="shiftreg">
+        <div class="mini-quiz-header">Quick check</div>
+        <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 30 PWM IN DEPTH -->
+    <section id="pwm" hidden>
+      <div class="eyebrow">// 30 — Digital Logic & Arduino C++ <span class="tier-badge advanced">Advanced</span></div>
+      <h2 class="title">PWM, in depth</h2>
+      <p class="dek">A digital pin can only be fully on or fully off — so how does <code class="inline">analogWrite()</code> fade an LED smoothly? It cheats, very fast, and your eyes fall for it.</p>
+
+      <h3>The trick: switch fast enough that it blurs together</h3>
+      <p class="body-text">PWM (pulse-width modulation) flips the pin on and off roughly 500–1000 times per second. What varies is the <b>duty cycle</b> — the percentage of each cycle spent HIGH versus LOW. A 25% duty cycle looks noticeably dimmer than 75%, even though both are technically just on/off switching, because your eye (or a motor, or a speaker) averages it out.</p>
+
+      <div class="pwm-wrap">
+        <div class="pwm-led-stage">
+          <svg viewBox="0 0 120 120" width="140">
+            <circle cx="60" cy="60" r="30" fill="var(--trace)" id="pwmLedGlow" opacity="0.1"/>
+            <circle cx="60" cy="60" r="16" fill="#1C2530" stroke="var(--trace)" stroke-width="2" id="pwmLedCore"/>
+          </svg>
+        </div>
+        <div>
+          <div class="slider-field">
+            <label>DUTY CYCLE <b id="pwmDutyLabel">50%</b></label>
+            <input type="range" id="pwmDutySlider" min="0" max="255" value="128" aria-label="PWM duty cycle">
+          </div>
+          <div class="pwm-code-line">analogWrite(ledPin, <span class="n" id="pwmCodeVal">128</span>);</div>
+        </div>
+      </div>
+
+      <h3>What the wave actually looks like</h3>
+      <div class="card">
+        <div class="viz-card" style="margin-bottom:0;">
+          <svg viewBox="0 0 400 100" id="pwmWaveSvg"></svg>
+        </div>
+      </div>
+
+      <p class="body-text" style="margin-top:16px;"><code class="inline">analogWrite()</code> takes a value 0–255 — not volts, not a percentage, just where you land on that 0–255 scale (0 = always off, 255 = always on). Only certain pins support it, marked with a <code class="inline">~</code> on the board silkscreen.</p>
+
+      <div class="warn-box" style="background:rgba(0,229,160,0.05); border-color:var(--trace-dim);">
+        <span class="ic" style="color:var(--trace);">i</span>
+        <p style="color:var(--muted-2);">PWM isn't just for LEDs. The exact same principle drives DC motor speed control and generates the control pulses that servos read as a target angle.</p>
+      </div>
+      <div class="mini-quiz-block" data-quiz-section="pwm">
+        <div class="mini-quiz-header">Quick check</div>
+        <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 31 INTERRUPTS -->
+    <section id="interrupts" hidden>
+      <div class="eyebrow">// 31 — Digital Logic & Arduino C++ <span class="tier-badge advanced">Advanced</span></div>
+      <h2 class="title">Interrupts</h2>
+      <p class="dek">Polling — repeatedly checking "has this happened yet?" in <code class="inline">loop()</code> — works fine until <code class="inline">loop()</code> gets busy doing something slow. Interrupts are how the chip catches an event it would otherwise miss entirely.</p>
+
+      <h3>The problem with polling</h3>
+      <p class="body-text">If your code is in the middle of a 2-second <code class="inline">delay()</code> (or any long-running operation) when a button gets pressed, <code class="inline">digitalRead()</code> never gets a chance to notice — the press happened while the chip's attention was elsewhere. Polling only sees what's true <i>right now, at the exact instant it checks</i>.</p>
+
+      <div class="card">
+        <p class="body-text" style="margin-bottom:12px;">Press the button while the loop is "busy" (the progress bar is animating) and compare what each approach catches.</p>
+        <div class="interrupt-demo" id="interruptDemo">
+          <div class="interrupt-col">
+            <div class="interrupt-col-title">Polling loop()</div>
+            <div class="cap-bar-track" style="margin-bottom:8px;"><div class="cap-bar-fill" id="pollBusyBar" style="background:var(--copper); box-shadow:0 0 8px var(--copper);"></div></div>
+            <div class="interrupt-result" id="pollResult">Presses caught: 0</div>
+          </div>
+          <div class="interrupt-col">
+            <div class="interrupt-col-title">Interrupt-driven</div>
+            <div class="cap-bar-track" style="margin-bottom:8px;"><div class="cap-bar-fill" id="isrBusyBar" style="background:var(--copper); box-shadow:0 0 8px var(--copper);"></div></div>
+            <div class="interrupt-result" id="isrResult">Presses caught: 0</div>
+          </div>
+        </div>
+        <div class="charge-btn-row" style="justify-content:center; margin-top:14px;">
+          <button class="charge-btn" id="interruptPressBtn">Press button (during busy work)</button>
+          <button class="charge-btn" id="interruptResetBtn">Reset demo</button>
+        </div>
+      </div>
+
+      <h3>Attaching an interrupt</h3>
+      <p class="body-text"><code class="inline">attachInterrupt()</code> tells the chip: "no matter what you're doing, if this pin changes state, pause and run this function immediately." That function is called an <b>ISR</b> (interrupt service routine).</p>
+
+      <div class="code-block">
+<div><span class="tp">volatile</span> <span class="tp">bool</span> buttonPressed = <span class="kw">false</span>; <span class="cmt">// volatile: can change outside normal flow</span></div>
+<div>&nbsp;</div>
+<div><span class="tp">void</span> setup() {</div>
+<div>&nbsp;&nbsp;pinMode(2, INPUT_PULLUP);</div>
+<div>&nbsp;&nbsp;attachInterrupt(digitalPinToInterrupt(2), <span class="fn">onButtonPress</span>, FALLING);</div>
+<div>&nbsp;&nbsp;Serial.begin(9600);</div>
+<div>}</div>
+<div>&nbsp;</div>
+<div><span class="tp">void</span> <span class="fn">onButtonPress</span>() {</div>
+<div>&nbsp;&nbsp;buttonPressed = <span class="kw">true</span>; <span class="cmt">// keep ISRs short — just set a flag</span></div>
+<div>}</div>
+<div>&nbsp;</div>
+<div><span class="tp">void</span> loop() {</div>
+<div>&nbsp;&nbsp;<span class="kw">if</span> (buttonPressed) {</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;Serial.println(<span class="str">"Caught it, even during a delay!"</span>);</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;buttonPressed = <span class="kw">false</span>;</div>
+<div>&nbsp;&nbsp;}</div>
+<div>&nbsp;&nbsp;<span class="cmt">// ... rest of loop can still take as long as it needs</span></div>
+<div>}</div>
+      </div>
+
+      <div class="warn-box">
+        <span class="ic">!</span>
+        <p>ISRs should be short. They interrupt everything else, including other interrupts — a slow ISR (or one with its own <code class="inline" style="color:#E8B4B4; border-color:#5A2A2A;">delay()</code>) can make the whole chip feel unresponsive. Set a flag and let <code class="inline" style="color:#E8B4B4; border-color:#5A2A2A;">loop()</code> handle the real work.</p>
+      </div>
+      <div class="mini-quiz-block" data-quiz-section="interrupts">
+        <div class="mini-quiz-header">Quick check</div>
+        <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 32 CAPSTONE: TRAFFIC LIGHT FSM -->
+    <section id="statemachine" hidden>
+      <div class="eyebrow">// 32 — Digital Logic & Arduino C++ <span class="tier-badge master">Master</span></div>
+      <h2 class="title">Capstone: a traffic light state machine</h2>
+      <p class="dek">Everything in this track converges here. A finite state machine (FSM) is just a system that's always in exactly one named state, with defined rules for what triggers a move to the next one — and it's how real embedded firmware is structured.</p>
+
+      <h3>The states, and the rule between them</h3>
+      <p class="body-text">A traffic light only needs three states, and the transitions only depend on <i>time</i> in this simple version (a real intersection also reacts to sensors, which is a natural next step once you're comfortable here).</p>
+
+      <div class="fsm-diagram card">
+        <svg viewBox="0 0 460 160" id="fsmSvg"></svg>
+      </div>
+
+      <h3>The full sketch</h3>
+      <p class="body-text">Notice there's no <code class="inline">delay()</code> anywhere — a real traffic controller can't freeze the whole chip for 4 seconds while also watching a pedestrian button. It uses the same <code class="inline">millis()</code> timing pattern from the debouncing lesson, just driving a state variable instead of a button flag.</p>
+
+      <div class="code-block">
+<div><span class="kw">enum</span> LightState { RED, GREEN, YELLOW };</div>
+<div>LightState currentState = RED;</div>
+<div><span class="tp">unsigned long</span> stateStartTime = 0;</div>
+<div>&nbsp;</div>
+<div><span class="tp">const</span> <span class="tp">unsigned long</span> RED_MS = 4000;</div>
+<div><span class="tp">const</span> <span class="tp">unsigned long</span> GREEN_MS = 3000;</div>
+<div><span class="tp">const</span> <span class="tp">unsigned long</span> YELLOW_MS = 1000;</div>
+<div>&nbsp;</div>
+<div><span class="tp">void</span> setup() {</div>
+<div>&nbsp;&nbsp;pinMode(REDPIN, OUTPUT); pinMode(YELLOWPIN, OUTPUT); pinMode(GREENPIN, OUTPUT);</div>
+<div>&nbsp;&nbsp;stateStartTime = millis();</div>
+<div>}</div>
+<div>&nbsp;</div>
+<div><span class="tp">void</span> loop() {</div>
+<div>&nbsp;&nbsp;<span class="tp">unsigned long</span> elapsed = millis() - stateStartTime;</div>
+<div>&nbsp;</div>
+<div>&nbsp;&nbsp;<span class="kw">switch</span> (currentState) {</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">case</span> RED:</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">if</span> (elapsed &gt;= RED_MS) { currentState = GREEN; stateStartTime = millis(); }</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">break</span>;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">case</span> GREEN:</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">if</span> (elapsed &gt;= GREEN_MS) { currentState = YELLOW; stateStartTime = millis(); }</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">break</span>;</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">case</span> YELLOW:</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">if</span> (elapsed &gt;= YELLOW_MS) { currentState = RED; stateStartTime = millis(); }</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">break</span>;</div>
+<div>&nbsp;&nbsp;}</div>
+<div>&nbsp;</div>
+<div>&nbsp;&nbsp;digitalWrite(REDPIN, currentState == RED);</div>
+<div>&nbsp;&nbsp;digitalWrite(YELLOWPIN, currentState == YELLOW);</div>
+<div>&nbsp;&nbsp;digitalWrite(GREENPIN, currentState == GREEN);</div>
+<div>}</div>
+      </div>
+
+      <h3>Run the simulation</h3>
+      <p class="body-text">Watch the actual light, the state diagram, and a live trace of what <code class="inline">loop()</code> is doing on every pass — all driven by the same logic as the code above.</p>
+
+      <div class="card">
+        <div class="fsm-sim-row">
+          <div class="fsm-light-stage">
+            <svg viewBox="0 0 70 170" width="80">
+              <rect x="5" y="5" width="60" height="160" rx="14" fill="#1C2530" stroke="#2A3846" stroke-width="2"/>
+              <circle cx="35" cy="40" r="19" id="fsmBulbRed" fill="#3A1616" />
+              <circle cx="35" cy="88" r="19" id="fsmBulbYellow" fill="#3A2E10" />
+              <circle cx="35" cy="136" r="19" id="fsmBulbGreen" fill="#123321" />
+            </svg>
+          </div>
+          <div class="fsm-trace-col">
+            <div class="status-badge info" id="fsmStateBadge" style="margin-bottom:10px;">STATE: RED</div>
+            <div class="serial-screen" id="fsmTrace" style="height:130px;"><span class="serial-line dim">// state trace</span></div>
+          </div>
+        </div>
+        <div class="charge-btn-row" style="justify-content:center; margin-top:14px;">
+          <button class="charge-btn active" id="fsmRunBtn">⏸ Pause</button>
+          <button class="charge-btn" id="fsmResetBtn">Reset</button>
+        </div>
+      </div>
+
+      <div class="warn-box" style="background:rgba(0,229,160,0.05); border-color:var(--trace-dim);">
+        <span class="ic" style="color:var(--trace);">i</span>
+        <p style="color:var(--muted-2);">This pattern — an <code class="inline" style="color:var(--trace);">enum</code> of named states, a <code class="inline" style="color:var(--trace);">switch</code> deciding behavior per state, and timing instead of blocking delays — scales to real projects: game logic, menu systems, communication protocols. You now have every piece used to build it: binary, gates, C++ syntax, digital I/O, timing, and structure.</p>
+      </div>
+      <div class="mini-quiz-block" data-quiz-section="statemachine">
+        <div class="mini-quiz-header">Quick check</div>
+        <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 20 CIRCUIT PLAYGROUND -->
+    <section id="playground" hidden>
+      <div class="eyebrow">// 20 — Play</div>
+      <h2 class="title">Circuit playground</h2>
+      <p class="dek">A free board, not a fill-in-the-blanks loop. Drag parts on from the tray, switch to Wire mode to connect their terminals, and tap any part to see what it does. Complete a loop back to the battery and real Ohm's-law behavior plays out — mistakes included.</p>
+
+      <div class="pg-mode-row" id="pgModeRow">
+        <button class="pg-mode-btn active" data-mode="build">🖐️ Build <span class="hint">drag parts · tap for info</span></button>
+        <button class="pg-mode-btn" data-mode="wire">— Wire <span class="hint">tap two terminals to connect</span></button>
+      </div>
+
+      <div class="pg-palette" id="pgPalette">
+        <div class="pg-chip" draggable="true" data-type="battery"><span class="swatch">🔋</span>Battery</div>
+        <div class="pg-chip" draggable="true" data-type="resistor"><span class="swatch">▭</span>Resistor</div>
+        <div class="pg-chip" draggable="true" data-type="led"><span class="swatch">◆</span>LED</div>
+        <div class="pg-chip" draggable="true" data-type="switch"><span class="swatch">⏻</span>Switch</div>
+        <div class="pg-chip" draggable="true" data-type="wire"><span class="swatch">—</span>Wire link</div>
+      </div>
+      <div class="pg-subrow" id="pgResistorSub" style="display:none;">
+        <button class="pg-sub active" data-val="220">220 Ω</button>
+        <button class="pg-sub" data-val="1000">1 kΩ</button>
+        <button class="pg-sub" data-val="10000">10 kΩ</button>
+      </div>
+      <div class="pg-subrow" id="pgLedSub" style="display:none;">
+        <button class="pg-sub active" data-val="red">Red</button>
+        <button class="pg-sub" data-val="green">Green</button>
+      </div>
+
+      <div class="pg-board card" id="pgBoard">
+        <svg viewBox="0 0 640 320" id="pgSvg">
+          <g id="pgWires"></g>
+          <g id="pgParts"></g>
+        </svg>
+        <div class="pg-canvas-hint" id="pgHint">Drag a part from the tray above onto this board to start.</div>
+        <div class="pg-info-pop" id="pgInfoPop"><div class="name" id="pgInfoName"></div><div id="pgInfoBody"></div></div>
+      </div>
+
+      <div class="pg-readout-row">
+        <div class="pg-readout"><div class="v" id="pgV">0.0 V</div><div class="l">Total voltage</div></div>
+        <div class="pg-readout"><div class="v" id="pgR">— Ω</div><div class="l">Total resistance</div></div>
+        <div class="pg-readout"><div class="v" id="pgI">0 mA</div><div class="l">Current</div></div>
+      </div>
+      <div class="pg-status" id="pgStatus">Place parts, then switch to Wire mode to connect them into one loop.</div>
+      <div class="pg-clear-row">
+        <button class="pg-clear-btn" id="pgClearBtn">Clear board</button>
+        <button class="pg-clear-btn" id="pgDemoBtn">Load LED demo</button>
+      </div>
+
+      <div class="mini-quiz-block" data-quiz-section="playground">
+        <div class="mini-quiz-header">Quick check</div>
+        <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 21 FLASHCARDS -->
+    <section id="flashcards" hidden>
+      <div class="eyebrow">// 21 — Play</div>
+      <h2 class="title">Flashcards</h2>
+      <p class="dek">Spaced repetition: cards you get right come back less often, cards you struggle with come back sooner. Rate honestly — it only works if you do.</p>
+
+      <div class="fc-stats-row">
+        <div class="fc-stat"><div class="num" id="fcDueCount">0</div><div class="lbl">Due now</div></div>
+        <div class="fc-stat"><div class="num" id="fcTotalCount">0</div><div class="lbl">Total cards</div></div>
+        <div class="fc-stat"><div class="num" id="fcMasteredCount">0</div><div class="lbl">Mastered (box 5)</div></div>
+      </div>
+
+      <div id="fcActiveArea">
+        <div class="fc-progress-track"><div class="fc-progress-fill" id="fcProgressFill" style="width:0%"></div></div>
+        <div class="fc-stage">
+          <div class="fc-card" id="fcCard">
+            <div class="fc-face front">
+              <div class="fc-tag" id="fcFrontTag">Chapter</div>
+              <div class="fc-text" id="fcFrontText">Question</div>
+              <div class="fc-hint">Tap to reveal</div>
+            </div>
+            <div class="fc-face back">
+              <div class="fc-tag" id="fcBackTag">Answer</div>
+              <div class="fc-answer" id="fcBackText">Answer text</div>
+            </div>
+          </div>
+        </div>
+        <div class="fc-rate-row" id="fcRateRow" style="visibility:hidden;">
+          <button class="fc-rate-btn again" data-r="1">Again<small>&lt; 1 min</small></button>
+          <button class="fc-rate-btn hard" data-r="2">Hard<small>1 day</small></button>
+          <button class="fc-rate-btn good" data-r="3">Good<small>3 days</small></button>
+          <button class="fc-rate-btn easy" data-r="4">Easy<small>7+ days</small></button>
+        </div>
+      </div>
+      <div id="fcEmptyArea" class="fc-empty" style="display:none;">
+        <div class="big">All caught up!</div>
+        <p>No cards due right now. Come back later, or review anyway.</p>
+        <div class="charge-btn-row" style="justify-content:center; margin-top:14px;">
+          <button class="charge-btn" id="fcReviewAnywayBtn">Review anyway</button>
+          <button class="charge-btn" id="fcResetProgressBtn">Reset progress</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 09 QUIZ -->
+    <section id="quiz" hidden>
+      <div class="eyebrow">// 22 — Check yourself</div>
+      <h2 class="title">Quick quiz</h2>
+      <p class="dek">Ten questions covering everything above. No pressure — wrong answers show the reasoning.</p>
+
+      <div class="quiz-score" id="quizScore">Score: 0 / 0 answered</div>
+      <div id="quizContainer"></div>
+    </section>
+
+    <!-- Prev / Next -->
+    <div class="section-nav">
+      <button class="nav-btn" id="prevBtn"><span class="arrow">←</span> Previous</button>
+      <button class="nav-btn" id="nextBtn">Next <span class="arrow">→</span></button>
+    </div>
+
+  </main>
+</div>
+
+<!-- ===== Settings modal ===== -->
+<div class="modal-overlay" id="settingsOverlay" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+    <div class="modal-header">
+      <h3 id="settingsTitle">Settings</h3>
+      <button class="modal-close" id="settingsCloseBtn" aria-label="Close settings">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="settings-row">
+        <div>
+          <div class="settings-row-title">Sidebar width</div>
+          <div class="settings-row-sub">Drag the sidebar's right edge, or reset it here.</div>
+        </div>
+        <button class="settings-btn" id="resetWidthBtn">Reset</button>
+      </div>
+      <div class="settings-row">
+        <div>
+          <div class="settings-row-title">Lesson & quiz progress</div>
+          <div class="settings-row-sub">Clears completed lessons, mini-quiz answers, and quiz score.</div>
+        </div>
+        <button class="settings-btn danger" id="clearLessonProgressBtn">Clear</button>
+      </div>
+      <div class="settings-row">
+        <div>
+          <div class="settings-row-title">Flashcard progress</div>
+          <div class="settings-row-sub">Resets spaced-repetition boxes for all cards.</div>
+        </div>
+        <button class="settings-btn danger" id="clearFlashcardsBtn">Clear</button>
+      </div>
+      <div class="settings-row">
+        <div>
+          <div class="settings-row-title">Everything</div>
+          <div class="settings-row-sub">Clears all progress and preferences.</div>
+        </div>
+        <button class="settings-btn danger" id="clearAllBtn">Clear all</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Certificate modal ===== -->
+<div class="modal-overlay" id="certOverlay" hidden>
+  <div class="modal cert-modal" role="dialog" aria-modal="true" aria-labelledby="certTitle">
+    <button class="modal-close" id="certCloseBtn" aria-label="Close certificate">✕</button>
+    <div class="cert-paper" id="certPaper">
+      <div class="cert-eyebrow">// certificate of completion</div>
+      <div class="cert-brand">Bench One</div>
+      <div class="cert-line">This certifies that</div>
+      <div class="cert-name" id="certName">A Learner</div>
+      <div class="cert-line">completed the full Electronics quiz with a final score of</div>
+      <div class="cert-score" id="certScore">10 / 10</div>
+      <div class="cert-date" id="certDate"></div>
+    </div>
+    <div class="cert-actions">
+      <label class="cert-name-input-label">Name on certificate
+        <input type="text" id="certNameInput" placeholder="Your name" maxlength="40">
+      </label>
+      <button class="charge-btn" id="certDownloadBtn">Download PNG</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
