@@ -91,7 +91,171 @@ const LessonProgress = (function(){
   return { markDone, clear, render };
 })();
 
-/* ===================== Navigation ===================== */
+/* ===================== Sub-lesson registry ===================== */
+// Single source of truth for "Go deeper" sub-lessons per chapter. Drives the
+// rail dropdown population; chapters not listed simply get no expand arrow.
+// title/desc mirror the in-page .subsection-link-card copy in index.html.
+const subLessons = {
+  static: [
+    { id: 'static-sub-coulomb', title: "Coulomb's law" },
+    { id: 'static-sub-esd', title: 'Electrostatic discharge' },
+    { id: 'static-sub-triboelectric', title: 'Triboelectric series' },
+  ],
+  conductors: [
+    { id: 'conductors-sub-semiconductors', title: 'Semiconductors: the in-between material' },
+    { id: 'conductors-sub-super', title: 'Superconductivity: zero resistance' },
+  ],
+  circuitdef: [
+    { id: 'circuitdef-sub-short', title: 'Short circuits: when the load gets skipped' },
+    { id: 'circuitdef-sub-schematic', title: 'Reading a schematic' },
+  ],
+  fundamentals: [
+    { id: 'fundamentals-sub-waterworks', title: 'The water analogy, taken further' },
+    { id: 'fundamentals-sub-acdc', title: 'AC and DC, drawn as waveforms' },
+  ],
+  resistance: [
+    { id: 'resistance-sub-materials', title: 'Comparing real materials' },
+    { id: 'resistance-sub-tempco', title: 'Temperature and resistance' },
+  ],
+  circuits: [
+    { id: 'circuits-sub-equiv', title: "Equivalent resistance, one step further" },
+    { id: 'circuits-sub-why', title: "Why parallel outlets don't dim each other" },
+  ],
+  seriesparallel: [
+    { id: 'seriesparallel-sub-ladder', title: "Ladder networks: a common trap" },
+    { id: 'seriesparallel-sub-order', title: "Does reduction order matter?" },
+  ],
+  kirchhoff: [
+    { id: 'kirchhoff-sub-kcl', title: "Kirchhoff's Current Law, visually" },
+    { id: 'kirchhoff-sub-kvl', title: "Kirchhoff's Voltage Law, visually" },
+  ],
+  dividers: [
+    { id: 'dividers-sub-loading', title: "Loading effects: why the tap voltage sags" },
+    { id: 'dividers-sub-sensors', title: "Dividers as sensor circuits" },
+  ],
+  safety: [
+    { id: 'safety-sub-ohm-body', title: "Ohm's law and the human body" },
+    { id: 'safety-sub-ground', title: "What grounding actually protects you from" },
+  ],
+  scinotation: [
+    { id: 'scinotation-sub-sci', title: "Scientific notation itself, refreshed" },
+    { id: 'scinotation-sub-errors', title: "Common unit mistakes to watch for" },
+  ],
+  ohmslaw: [
+    { id: 'ohmslaw-sub-triangle', title: "The Ohm's law triangle memory trick" },
+    { id: 'ohmslaw-sub-nonlinear', title: "When Ohm's law bends: non-linear components" },
+  ],
+  power: [
+    { id: 'power-sub-heat', title: "Where the power actually goes: heat" },
+    { id: 'power-sub-efficiency', title: "Power and efficiency in real designs" },
+  ],
+  library: [
+    { id: 'library-sub-datasheets', title: "Reading a datasheet without getting lost" },
+    { id: 'library-sub-polarity', title: "Polarity: the mistake every beginner makes once" },
+  ],
+  meters: [
+    { id: 'meters-sub-ranges', title: "Auto-ranging vs. manual ranging meters" },
+    { id: 'meters-sub-mistakes', title: "The classic multimeter mistake: measuring current wrong" },
+  ],
+  resistors: [
+    { id: 'resistors-sub-5band', title: "5-band and 6-band resistors" },
+    { id: 'resistors-sub-smd', title: "Surface-mount resistors: numbers instead of colors" },
+  ],
+  capacitors: [
+    { id: 'capacitors-sub-types', title: "Ceramic vs. electrolytic vs. tantalum" },
+    { id: 'capacitors-sub-ac', title: "Capacitors in AC circuits" },
+  ],
+  magnetism: [
+    { id: 'magnetism-sub-motor', title: "How this becomes a motor" },
+    { id: 'magnetism-sub-backemf', title: "Inductors and the fight against current change" },
+  ],
+  microcontrollers: [
+    { id: 'microcontrollers-sub-choose', title: "Which board should you actually start with?" },
+    { id: 'microcontrollers-sub-clock', title: "What 'clock speed' actually means for a microcontroller" },
+  ],
+  soldering: [
+    { id: 'soldering-sub-joint', title: "What a good solder joint actually looks like" },
+    { id: 'soldering-sub-desolder', title: "Removing solder: desoldering basics" },
+  ],
+  troubleshoot: [
+    { id: 'troubleshoot-sub-halfsplit', title: "The half-split method for longer chains" },
+    { id: 'troubleshoot-sub-symptoms', title: "Reading symptoms backwards to likely causes" },
+  ],
+  binary: [
+    { id: 'binary-sub-conversion', title: "Converting between binary and decimal by hand" },
+    { id: 'binary-sub-hex', title: "Hexadecimal: binary's shorthand" },
+  ],
+  gates: [
+    { id: 'gates-sub-other-gates', title: "NAND, NOR, XNOR: the inverted family" },
+    { id: 'gates-sub-truth', title: "Reading and building truth tables" },
+  ],
+  adder: [
+    { id: 'adder-sub-full', title: "From half-adder to full-adder" },
+    { id: 'adder-sub-cpu', title: "How this scales up to a real processor" },
+  ],
+  cppbasics: [
+    { id: 'cppbasics-sub-types', title: "Data types: why int, float, and bool aren't interchangeable" },
+    { id: 'cppbasics-sub-scope', title: "Variable scope: why your sketch behaves differently inside vs. outside loop()" },
+  ],
+  digitalio: [
+    { id: 'digitalio-sub-pullup', title: "Internal pull-ups: skipping the extra resistor" },
+    { id: 'digitalio-sub-debounce-code', title: "Debouncing in code vs. debouncing in hardware" },
+  ],
+  serial: [
+    { id: 'serial-sub-baud', title: "Baud rate: why both ends have to agree" },
+    { id: 'serial-sub-parsing', title: "Reading structured data over serial" },
+  ],
+  shiftreg: [
+    { id: 'shiftreg-sub-spi-like', title: "How shift registers 'speak' to the Arduino" },
+    { id: 'shiftreg-sub-chaining', title: "Chaining multiple shift registers" },
+  ],
+  pwm: [
+    { id: 'pwm-sub-frequency', title: "PWM frequency and why it matters" },
+    { id: 'pwm-sub-dac', title: "PWM vs. a true analog output (DAC)" },
+  ],
+  interrupts: [
+    { id: 'interrupts-sub-isr-rules', title: "The rules for writing a safe ISR" },
+    { id: 'interrupts-sub-vs-polling', title: "Interrupts vs. polling: picking the right tool" },
+  ],
+  statemachine: [
+    { id: 'statemachine-sub-why-fsm', title: "Why state machines beat a pile of if-statements" },
+    { id: 'statemachine-sub-beyond', title: "Where state machines show up next" },
+  ],
+  practical: [
+    { id: 'practical-sub-currentlimit', title: "Why every LED circuit needs a resistor, quantified" },
+    { id: 'practical-sub-multiple', title: "Voltage drop across multiple components" },
+  ],
+  flowdir: [
+    { id: 'flowdir-sub-why-matters', title: "Does the direction convention ever actually matter?" },
+    { id: 'flowdir-sub-history', title: "Franklin's guess, and why it wasn't corrected" },
+  ],
+};
+
+/* ===================== Rail chapter dropdowns ===================== */
+(function(){
+  document.querySelectorAll('.rail-subnav').forEach(nav => {
+    const chapter = nav.dataset.subnavFor;
+    const subs = subLessons[chapter];
+    if(!subs || !subs.length){
+      const row = nav.previousElementSibling;
+      if(row && row.classList.contains('rail-item-row')) row.classList.add('no-subs');
+      return;
+    }
+    nav.innerHTML = subs.map(s =>
+      `<button class="rail-subitem" data-target="${s.id}">${s.title}<span class="sub-done">✓</span></button>`
+    ).join('');
+  });
+
+  document.querySelectorAll('.rail-expand-btn').forEach(btn => {
+    const chapter = btn.dataset.chapter;
+    const nav = document.querySelector(`.rail-subnav[data-subnav-for="${chapter}"]`);
+    btn.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+})();
+
 const order = [
   'intro','static','conductors','circuitdef','fundamentals','resistance','practical','flowdir',
   'ohmslaw','power','circuits','seriesparallel','kirchhoff','dividers','safety','scinotation',
@@ -101,30 +265,60 @@ const order = [
   'binary','gates','adder','cppbasics','digitalio','serial','shiftreg','pwm','interrupts','statemachine'
 ];
 const railItems = document.querySelectorAll('.rail-item');
+const railSubitems = document.querySelectorAll('.rail-subitem');
 const mobileSelect = document.getElementById('mobileSelect');
 const sections = document.querySelectorAll('section');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 
+function parentChapterOf(subId){
+  const section = document.getElementById(subId);
+  return section ? section.dataset.parentChapter : null;
+}
+
+window.showSection = showSection;
 function showSection(id){
   sections.forEach(s => {
     const active = s.id === id;
     s.classList.toggle('active', active);
     s.toggleAttribute('hidden', !active);
   });
+
+  const parentChapter = parentChapterOf(id);
+  const railTarget = parentChapter || id;
+
   railItems.forEach(b => {
-    const active = b.dataset.target === id;
+    const active = b.dataset.target === railTarget;
     b.classList.toggle('active', active);
     if(active) b.setAttribute('aria-current', 'page');
     else b.removeAttribute('aria-current');
   });
-  mobileSelect.value = id;
+  railSubitems.forEach(b => b.classList.toggle('active', b.dataset.target === id));
+
+  if(parentChapter){
+    const nav = document.querySelector(`.rail-subnav[data-subnav-for="${parentChapter}"]`);
+    const expandBtn = document.querySelector(`.rail-expand-btn[data-chapter="${parentChapter}"]`);
+    if(nav && !nav.classList.contains('open')){
+      nav.classList.add('open');
+      if(expandBtn) expandBtn.setAttribute('aria-expanded', 'true');
+    }
+  }
+
+  // Mobile select only lists top-level chapters; skip assignment for subsection pages
+  // rather than silently leaving a stale/mismatched value in the dropdown.
+  if(!parentChapter) mobileSelect.value = id;
+
   window.scrollTo({top:0, behavior:'instant'});
   const idx = order.indexOf(id);
-  prevBtn.disabled = idx === 0;
-  nextBtn.disabled = idx === order.length - 1;
-  prevBtn.onclick = () => idx > 0 && showSection(order[idx-1]);
-  nextBtn.onclick = () => idx < order.length-1 && showSection(order[idx+1]);
+  const inMainOrder = idx !== -1;
+  prevBtn.hidden = !inMainOrder;
+  nextBtn.hidden = !inMainOrder;
+  if(inMainOrder){
+    prevBtn.disabled = idx === 0;
+    nextBtn.disabled = idx === order.length - 1;
+    prevBtn.onclick = () => idx > 0 && showSection(order[idx-1]);
+    nextBtn.onclick = () => idx < order.length-1 && showSection(order[idx+1]);
+  }
   const heading = document.querySelector('#'+id+' h1, #'+id+' h2');
   if(heading){
     heading.setAttribute('tabindex', '-1');
@@ -132,9 +326,35 @@ function showSection(id){
   }
   const announcer = document.getElementById('routeAnnouncer');
   if(announcer) announcer.textContent = (heading ? heading.textContent : id) + ' section loaded';
+
+  if(parentChapter) markSubsectionVisited(id);
 }
 
+// Visited-state for sub-lessons is intentionally separate from LessonProgress:
+// it's a "you've seen this" breadcrumb, not a graded chapter-completion signal.
+const SUBVISIT_KEY = 'benchone_subsections_visited';
+function markSubsectionVisited(subId){
+  let visited;
+  try{ visited = JSON.parse(localStorage.getItem(SUBVISIT_KEY)) || {}; }catch(e){ visited = {}; }
+  if(visited[subId]) return;
+  visited[subId] = true;
+  localStorage.setItem(SUBVISIT_KEY, JSON.stringify(visited));
+  applySubsectionVisitedState();
+}
+function applySubsectionVisitedState(){
+  let visited;
+  try{ visited = JSON.parse(localStorage.getItem(SUBVISIT_KEY)) || {}; }catch(e){ visited = {}; }
+  document.querySelectorAll('.rail-subitem').forEach(b => b.classList.toggle('done', !!visited[b.dataset.target]));
+  document.querySelectorAll('.subsection-link-card').forEach(c => c.classList.toggle('done', !!visited[c.dataset.target]));
+}
+applySubsectionVisitedState();
+
 railItems.forEach(btn => btn.addEventListener('click', () => showSection(btn.dataset.target)));
+railSubitems.forEach(btn => btn.addEventListener('click', () => showSection(btn.dataset.target)));
+document.querySelectorAll('.subsection-link-card, .sub-back-link, .subsection-nav-row [data-target]').forEach(btn => {
+  const target = btn.dataset.target || btn.dataset.backTo;
+  btn.addEventListener('click', () => showSection(target));
+});
 mobileSelect.addEventListener('change', e => showSection(e.target.value));
 showSection('intro');
 
@@ -504,6 +724,23 @@ updateResistor();
   render();
 })();
 
+/* ===================== Coulomb's law subsection slider ===================== */
+(function(){
+  const slider = document.getElementById('coulombDistSlider');
+  const distLabel = document.getElementById('coulombDistLabel');
+  const forceVal = document.getElementById('coulombForceVal');
+  if(!slider) return;
+  function render(){
+    const pct = parseFloat(slider.value);
+    distLabel.textContent = pct + '%';
+    const r = Math.max(pct/100, 0.05);
+    const force = 1 / (r*r);
+    forceVal.textContent = force.toFixed(1) + '×';
+  }
+  slider.addEventListener('input', render);
+  render();
+})();
+
 /* ===================== Toggle-switch keyboard support (generic) ===================== */
 document.querySelectorAll('.toggle-switch[role="switch"]').forEach(el => {
   el.addEventListener('keydown', e => {
@@ -644,29 +881,48 @@ document.querySelectorAll('.toggle-switch[role="switch"]').forEach(el => {
   const readout = document.getElementById('magnetReadout');
   const coilLines = document.getElementById('coilLines');
   const fieldLines = document.getElementById('fieldLines');
+  const glow = document.getElementById('coreGlowCircle');
   if(!slider) return;
-  for(let i=0;i<6;i++){
-    const y = 30 + i*13;
-    const l = document.createElementNS('http://www.w3.org/2000/svg','line');
-    l.setAttribute('x1',105); l.setAttribute('y1',y); l.setAttribute('x2',155); l.setAttribute('y2',y);
-    l.setAttribute('stroke','#8B9AAB'); l.setAttribute('stroke-width','2');
+
+  const coilTurns = 7;
+  for(let i=0;i<coilTurns;i++){
+    const y = 40 + i*14;
+    const l = document.createElementNS('http://www.w3.org/2000/svg','path');
+    l.setAttribute('d', `M138,${y} Q160,${y-8} 182,${y}`);
+    l.setAttribute('fill','none');
+    l.setAttribute('stroke','#8B9AAB');
+    l.setAttribute('stroke-width','3');
+    l.setAttribute('stroke-linecap','round');
     coilLines.appendChild(l);
   }
+
   function render(){
     const pct = parseFloat(slider.value)/100;
     readout.textContent = Math.round(pct*100) + '%';
+
+    glow.setAttribute('r', (pct*36).toFixed(1));
+
     fieldLines.innerHTML = '';
-    const count = Math.round(pct*5);
+    const count = Math.round(pct*6);
     for(let i=0;i<count;i++){
-      const r = 20 + i*14;
-      const e = document.createElementNS('http://www.w3.org/2000/svg','ellipse');
-      e.setAttribute('cx',130); e.setAttribute('cy',70); e.setAttribute('rx', r); e.setAttribute('ry', r*0.65);
-      e.setAttribute('fill','none'); e.setAttribute('stroke','var(--trace)'); e.setAttribute('stroke-width','1.5');
-      e.setAttribute('opacity', (0.8 - i*0.12).toFixed(2));
-      fieldLines.appendChild(e);
+      const rx = 26 + i*16;
+      const ry = rx*0.78;
+      [ -1, 1 ].forEach(dir => {
+        const e = document.createElementNS('http://www.w3.org/2000/svg','path');
+        const x1 = 160, y1 = 90 - ry;
+        const x2 = 160, y2 = 90 + ry;
+        const cx = 160 + dir*rx*1.4;
+        e.setAttribute('d', `M${x1},${y1} Q${cx},90 ${x2},${y2}`);
+        e.setAttribute('fill','none');
+        e.setAttribute('stroke','var(--trace)');
+        e.setAttribute('stroke-width','1.4');
+        e.setAttribute('opacity', (0.75 - i*0.1).toFixed(2));
+        fieldLines.appendChild(e);
+      });
     }
-    coilLines.querySelectorAll('line').forEach(l => {
+    coilLines.querySelectorAll('path').forEach(l => {
       l.setAttribute('stroke', pct > 0.05 ? 'var(--copper)' : '#8B9AAB');
+      l.style.filter = pct > 0.05 ? `drop-shadow(0 0 ${(pct*3).toFixed(1)}px var(--copper))` : '';
     });
   }
   slider.addEventListener('input', render);
@@ -1286,96 +1542,179 @@ document.querySelectorAll('.toggle-switch[role="switch"]').forEach(el => {
 /* ===================== Mini end-of-chapter quizzes ===================== */
 const miniQuizData = {
   static: [
-    { q:"Rubbing a balloon on your hair transfers...", opts:["Protons","Electrons","Neutrons","Nothing — it's magnetism"], correct:1, explain:"Electrons move between surfaces during friction; protons stay locked in the nucleus." },
-    { q:"An object with extra electrons is...", opts:["Positively charged","Negatively charged","Neutral","Radioactive"], correct:1, explain:"Extra electrons means more negative charge than positive — net negative." },
+    { type:'mc', q:"Rubbing a balloon on your hair transfers...", opts:["Protons","Electrons","Neutrons","Nothing — it's magnetism"], correct:1, explain:"Electrons move between surfaces during friction; protons stay locked in the nucleus." },
+    { type:'mc', q:"An object with extra electrons is...", opts:["Positively charged","Negatively charged","Neutral","Radioactive"], correct:1, explain:"Extra electrons means more negative charge than positive — net negative." },
+    { type:'fill', q:"Fill in the blank: like charges ______ each other.", answers:["repel"], explain:"Like charges push apart. Opposite charges attract." },
+    { type:'match', q:"Match each particle to its charge.", pairs:[
+      {left:"Proton", right:"Positive"},
+      {left:"Electron", right:"Negative"},
+      {left:"Neutron", right:"No charge"},
+    ], explain:"Protons are positive, electrons are negative, neutrons carry no charge." },
   ],
   conductors: [
     { q:"Why is copper used for wiring?", opts:["It's cheap and colorful","Its outer electrons move freely","It's a strong insulator","It never gets hot"], correct:1, explain:"Metals like copper have loosely-held outer electrons, making them excellent conductors." },
     { q:"The marble-tube analogy explains why...", opts:["Electrons travel at light speed individually","A push transmits through a wire almost instantly, even though drift is slow","Wires need to be cooled","Conductors block current"], correct:1, explain:"The electric field pushes through near light-speed; any one electron drifts comparatively slowly." },
+    { type:'match', q:"Match each material to its category.", pairs:[
+      {left:"Copper", right:"Conductor"},
+      {left:"Rubber", right:"Insulator"},
+      {left:"Glass", right:"Insulator"},
+    ], explain:"Metals like copper conduct freely; rubber and glass hold their electrons tightly and insulate." },
+    { type:'fill', q:"Fill in the blank: wire is coated in plastic because plastic is a good electrical ______.", answers:["insulator"], explain:"Plastic's tightly-bound electrons keep current from escaping the wire, protecting people and other conductors nearby." },
   ],
   circuitdef: [
     { q:"Which three things does every working circuit need?", opts:["Source, path, load","Battery, LED, resistor only","Voltage, current, ohms","Switch, wire, ground"], correct:0, explain:"A source (push), a path (conductor), and a load (something using the energy)." },
     { q:"An open circuit means...", opts:["Maximum current is flowing","The loop is broken — no current flows","The battery is fully charged","Nothing, it's a synonym for closed"], correct:1, explain:"Open = the loop isn't complete, so no current can flow anywhere in it." },
+    { type:'match', q:"Match each circuit part to its role.", pairs:[
+      {left:"Battery", right:"Source"},
+      {left:"Wire", right:"Path"},
+      {left:"LED", right:"Load"},
+    ], explain:"The source pushes charge, the path carries it, and the load consumes the energy to do something useful." },
+    { type:'fill', q:"Fill in the blank: a circuit with a break in its loop is called an ______ circuit.", answers:["open"], explain:"An open circuit has no complete path, so current can't flow anywhere in the loop." },
   ],
   fundamentals: [
     { q:"Voltage is best compared to...", opts:["Water flow rate","Water pressure","Pipe width","Water temperature"], correct:1, explain:"Voltage is the 'push' — like pressure driving water through a pipe." },
     { q:"What does DC stand for, and what does it mean?", opts:["Direct Current — flows one direction, steady","Dual Current — flows both ways at once","Digital Current — used in computers only","Delayed Current — arrives late"], correct:0, explain:"DC flows in a single direction at a steady level, like a battery." },
+    { type:'match', q:"Match each quantity to its unit.", pairs:[
+      {left:"Voltage", right:"Volts"},
+      {left:"Current", right:"Amps"},
+      {left:"Resistance", right:"Ohms"},
+    ], explain:"Voltage is measured in volts, current in amps, and resistance in ohms — the three core units in every circuit." },
+    { type:'fill', q:"Fill in the blank: current is the ______ of charge past a point in a circuit.", answers:["flow","rate of flow","movement"], explain:"Current measures how much charge moves past a given point per second — the 'flow rate' in the water analogy." },
   ],
   resistance: [
     { q:"A longer wire has...", opts:["Less resistance","More resistance","The same resistance as any length","No resistance at all"], correct:1, explain:"Resistance scales with length — twice the wire, twice the resistance." },
     { q:"Conductance is...", opts:["The same thing as voltage","The inverse of resistance (1/R)","Only relevant in AC circuits","Measured in ohms"], correct:1, explain:"Conductance (siemens) is 1/R — high resistance means low conductance." },
+    { type:'match', q:"Match each wire property to its effect on resistance.", pairs:[
+      {left:"Longer wire", right:"More resistance"},
+      {left:"Thicker wire", right:"Less resistance"},
+      {left:"Hotter wire (most metals)", right:"More resistance"},
+    ], explain:"Length and heat increase resistance; a larger cross-sectional area (thickness) decreases it." },
+    { type:'fill', q:"Fill in the blank: resistance is measured in ______.", answers:["ohms","ohm"], explain:"The ohm (Ω) is the standard unit of electrical resistance." },
   ],
   practical: [
     { q:"Why does an LED need a series resistor?", opts:["To make it brighter","To limit current so it doesn't burn out","To reverse its polarity","It doesn't — it's optional decoration"], correct:1, explain:"Without a resistor, near-zero circuit resistance lets current spike dangerously high." },
     { q:"In a 9V–resistor–2V LED loop, how much voltage does the resistor drop?", opts:["9V","2V","7V","11V"], correct:2, explain:"The LED takes 2V, leaving 9V − 2V = 7V for the resistor to drop." },
+    { type:'fill', q:"Fill in the blank: in a series loop, the voltage drops across all components must add up to the total ______ voltage.", answers:["source","supply","battery"], explain:"Kirchhoff's voltage law: everything the source provides must be accounted for by drops around the loop." },
   ],
   flowdir: [
     { q:"Conventional current is defined as flowing from...", opts:["− to +","+ to −","Neither — it doesn't move","Only during AC"], correct:1, explain:"Conventional current flows + to − by (historical) definition." },
     { q:"Does using conventional vs. electron flow change the math?", opts:["Yes, formulas differ", "No — same answers, just a labeling convention", "Only for AC circuits", "Only for capacitors"], correct:1, explain:"It's a direction convention, not a physics disagreement — every formula still works." },
+    { type:'match', q:"Match each flow convention to its direction.", pairs:[
+      {left:"Conventional current", right:"Positive to negative"},
+      {left:"Electron flow", right:"Negative to positive"},
+    ], explain:"Conventional current (used in nearly all textbooks and formulas) runs opposite to the actual direction electrons move." },
   ],
   circuits: [
     { q:"In a series circuit, what's the same through every component?", opts:["Voltage","Current","Power","Nothing is the same"], correct:1, explain:"One path means the same current flows through every component in the chain." },
     { q:"In a parallel circuit, what's the same across every branch?", opts:["Current","Voltage","Resistance","Total power"], correct:1, explain:"Every branch connects across the same two points, so they all see the same voltage." },
+    { type:'match', q:"Match each circuit type to what stays constant across all its components.", pairs:[
+      {left:"Series circuit", right:"Current"},
+      {left:"Parallel circuit", right:"Voltage"},
+    ], explain:"Series has one shared path (same current everywhere); parallel has shared connection points (same voltage everywhere)." },
   ],
   seriesparallel: [
     { q:"To solve a series-parallel circuit, the general strategy is to...", opts:["Guess and check", "Find pure series or parallel groups and reduce them to single equivalent resistors, one step at a time", "Always assume it's fully parallel", "Ignore the parallel parts"], correct:1, explain:"Collapse the circuit gradually: combine a purely series or purely parallel group into one resistance, redraw, and repeat until only one resistor remains." },
     { q:"If a resistor in a parallel group fails open, what happens to that group's resistance?", opts:["It drops to zero","It rises, since one path is now removed","It stays exactly the same","The whole circuit stops working"], correct:1, explain:"Removing a parallel branch leaves fewer paths for current, so the group's overall resistance goes up." },
+    { type:'fill', q:"Fill in the blank: to simplify a series-parallel circuit, you reduce each pure section to a single ______ resistance.", answers:["equivalent"], explain:"Each simplifiable group collapses into one equivalent resistor, which you then treat as a single component in the next step." },
   ],
   kirchhoff: [
     { q:"Kirchhoff's Current Law says that at a junction...", opts:["Voltage in equals voltage out","Current in equals current out","Resistance is zero","Power is conserved but current isn't"], correct:1, explain:"Charge can't pile up at a junction — total current in equals total current out." },
     { q:"Kirchhoff's Voltage Law says that around a closed loop...", opts:["Voltages add up to zero","Current is always maximum","Resistance cancels out","Only the largest resistor matters"], correct:0, explain:"Sum of rises equals sum of drops — the loop's voltages balance to zero." },
+    { type:'match', q:"Match each law to what it conserves.", pairs:[
+      {left:"Kirchhoff's Current Law", right:"Charge at a junction"},
+      {left:"Kirchhoff's Voltage Law", right:"Energy around a loop"},
+    ], explain:"KCL is charge conservation at a node; KVL is energy conservation around any closed path." },
   ],
   dividers: [
     { q:"In a voltage divider, a resistor's share of the total voltage is proportional to...", opts:["Its own resistance divided by the total resistance","The current through it alone","The total voltage only","Nothing — every resistor gets equal voltage"], correct:0, explain:"Vx = Vtotal × (Rx / Rtotal) — a bigger share of the total resistance means a bigger share of the total voltage." },
     { q:"In a current divider, which branch carries more current?", opts:["The one with more resistance","The one with less resistance","Both always carry equal current","Whichever is closer to the battery"], correct:1, explain:"Current takes the path of least resistance — the lower-resistance branch gets the larger share of current." },
+    { type:'fill', q:"Fill in the blank: a voltage divider splits voltage proportionally between resistors wired in ______.", answers:["series"], explain:"Voltage dividers rely on series resistors sharing the total voltage in proportion to their resistance." },
   ],
   safety: [
     { q:"What actually causes injury in a shock?", opts:["Voltage alone","Current through the body","Wire color","Resistance alone"], correct:1, explain:"Current — not voltage by itself — is what causes physiological harm." },
     { q:"Why can a capacitor still shock you after power is off?", opts:["It generates its own new power","It can still hold stored charge","Capacitors are always dangerous","This is a myth"], correct:1, explain:"Capacitors store charge and can retain it well after the source is disconnected." },
+    { type:'fill', q:"Fill in the blank: current, not voltage, is what actually causes physiological ______.", answers:["harm","injury","damage"], explain:"A high voltage with tiny current (like a static shock) is usually harmless; it's the current that does damage to tissue." },
   ],
   scinotation: [
     { q:"4.7k on a resistor means:", opts:["4.7 Ω","470 Ω","4,700 Ω","47,000 Ω"], correct:2, explain:"'k' is kilo, ×1000 — so 4.7k = 4,700 ohms." },
     { q:"Which prefix is smaller: µ (micro) or n (nano)?", opts:["µ is smaller","n is smaller","They're equal","Neither is a real prefix"], correct:1, explain:"nano (10⁻⁹) is a thousand times smaller than micro (10⁻⁶)." },
+    { type:'match', q:"Match each prefix to its multiplier.", pairs:[
+      {left:"kilo (k)", right:"×1,000"},
+      {left:"milli (m)", right:"×0.001"},
+      {left:"mega (M)", right:"×1,000,000"},
+    ], explain:"Metric prefixes scale a base unit up or down by consistent powers of ten." },
   ],
   ohmslaw: [
     { q:"Ohm's law is written as:", opts:["V = I + R","V = I × R","V = R / I","I = V + R"], correct:1, explain:"V = I × R. Rearranged: I = V/R and R = V/I." },
     { q:"If R stays fixed and V increases, what happens to I?", opts:["I increases","I decreases","I stays the same","I becomes negative"], correct:0, explain:"I = V/R — with R constant, more voltage means proportionally more current." },
+    { type:'match', q:"Match each Ohm's law rearrangement to what it solves for.", pairs:[
+      {left:"V = I × R", right:"Voltage"},
+      {left:"I = V / R", right:"Current"},
+      {left:"R = V / I", right:"Resistance"},
+    ], explain:"All three are the same relationship rearranged to isolate a different variable." },
   ],
   power: [
     { q:"Power is calculated as:", opts:["P = I + V","P = I × V","P = V / I","P = I − V"], correct:1, explain:"P = I × V. Combined with Ohm's law this also gives P = I²R and P = V²/R." },
     { q:"A resistor rated ¼W is dissipating 0.4W. What happens?", opts:["Nothing, it's fine","It's over its rating and may overheat or fail","It becomes a better conductor","It stores the extra energy"], correct:1, explain:"Exceeding a resistor's power rating causes overheating, value drift, or outright failure — you'd need a higher-wattage part." },
+    { type:'fill', q:"Fill in the blank: power is measured in ______.", answers:["watts","watt"], explain:"The watt (W) is the standard unit of electrical power, equal to one joule per second." },
   ],
   library: [
     { q:"Why does an LED have a longer and a shorter leg?", opts:["Style only","To mark polarity — current flows one way","For higher voltage","No functional meaning"], correct:1, explain:"LEDs are diodes — current only flows one direction; the longer leg is positive." },
     { q:"A breadboard is mainly used for...", opts:["Measuring voltage","Prototyping circuits without soldering","Storing charge","Generating current"], correct:1, explain:"Breadboards let you build and rewire circuits quickly, with no permanent joints." },
+    { type:'match', q:"Match each component to its main function.", pairs:[
+      {left:"Resistor", right:"Limits current"},
+      {left:"Capacitor", right:"Stores charge"},
+      {left:"LED", right:"Emits light, one direction only"},
+    ], explain:"Each component has a distinct role — recognizing these on sight is core to reading any schematic." },
   ],
   meters: [
     { q:"How should an ammeter be connected to measure current?", opts:["In parallel across the component","In series, breaking the circuit to insert it","It doesn't matter","Only across the battery terminals"], correct:1, explain:"An ammeter must be in series so all the circuit's current is forced through it — wiring it in parallel by mistake can blow its fuse." },
     { q:"Why should you only use an ohmmeter on an unpowered circuit?", opts:["It looks nicer that way","It pushes its own small current through the component, which a live circuit would interfere with","Ohmmeters don't work at all otherwise","There's no real reason"], correct:1, explain:"An ohmmeter measures resistance by applying its own known current — testing on a powered circuit gives a meaningless reading and can damage the meter." },
+    { type:'match', q:"Match each measurement to how the meter should be connected.", pairs:[
+      {left:"Voltage", right:"In parallel"},
+      {left:"Current", right:"In series"},
+    ], explain:"A voltmeter reads the difference across two points (parallel); an ammeter must be inline with the current path (series)." },
   ],
   resistors: [
     { q:"What does a resistor's color code tell you?", opts:["Physical size","Resistance value and tolerance","Power rating only","Current direction"], correct:1, explain:"The bands encode significant digits, a multiplier, and a tolerance." },
     { q:"A gold 4th band means:", opts:["±1% tolerance","±5% tolerance","±10% tolerance","No tolerance info"], correct:1, explain:"Gold is the standard color for ±5% tolerance." },
+    { type:'fill', q:"Fill in the blank: on a 4-band resistor, the last colored band represents ______.", answers:["tolerance"], explain:"The final band tells you how far the actual resistance may vary from the printed value, e.g. ±5%." },
   ],
   capacitors: [
     { q:"A capacitor stores energy in...", opts:["A chemical reaction","An electric field between two plates","A magnetic field","A spinning motor"], correct:1, explain:"Two conductive plates separated by a dielectric build up charge — an electric field." },
     { q:"After 1 time constant (τ), a charging capacitor reaches about:", opts:["10%","37%","63%","100%"], correct:2, explain:"1τ = ~63% charged; 5τ is considered essentially fully charged." },
+    { type:'match', q:"Match each energy-storing component to what it stores energy in.", pairs:[
+      {left:"Capacitor", right:"Electric field"},
+      {left:"Inductor", right:"Magnetic field"},
+      {left:"Battery", right:"Chemical reaction"},
+    ], explain:"Each component stores usable energy through a different physical mechanism." },
   ],
   magnetism: [
     { q:"What creates a magnetic field around a wire?", opts:["Voltage alone","Current flowing through it","Resistance","Capacitance"], correct:1, explain:"Any current-carrying wire generates a magnetic field — the basis of electromagnetism." },
     { q:"An inductor mainly opposes...", opts:["Current itself, like a resistor","Changes in current","Static charge","Nothing — it's just a wire"], correct:1, explain:"Inductors resist sudden changes in current, storing/releasing energy in a magnetic field." },
+    { type:'fill', q:"Fill in the blank: an inductor is basically a coil of wire, often wound around a ______ core to strengthen its magnetic field.", answers:["iron","ferrite"], explain:"Iron or ferrite cores concentrate the magnetic field, making the inductor far stronger than an air-core coil of the same size." },
   ],
   microcontrollers: [
     { q:"What does Arduino's setup() function do?", opts:["Runs forever in a loop","Runs once at power-on","Only runs on button press","Deletes the program"], correct:1, explain:"setup() runs a single time at power-on/reset — ideal for one-time configuration." },
     { q:"A Raspberry Pi differs from an Arduino because it...", opts:["Can't run any code","Is a full computer running an OS like Linux","Only works with LEDs","Has no GPIO pins"], correct:1, explain:"A Pi is a tiny multitasking computer; an Arduino runs one program directly on the chip." },
+    { type:'match', q:"Match each Arduino function to when it runs.", pairs:[
+      {left:"setup()", right:"Once, at power-on"},
+      {left:"loop()", right:"Repeatedly, forever"},
+    ], explain:"setup() configures the board a single time; loop() then runs continuously for as long as the board has power." },
   ],
   soldering: [
     { q:"Why heat the joint, not just the solder?", opts:["It looks better","Creates a strong, clean electrical connection","It's faster","Uses less solder"], correct:1, explain:"Heating the metal being joined lets solder flow into a proper bond, not sit as a cold joint." },
     { q:"A good solder joint looks like:", opts:["A dull grey blob","A shiny, smooth volcano cone","A giant ball of solder","Exactly like the wire underneath, invisible"], correct:1, explain:"Shiny and cone-shaped means the joint formed cleanly; dull/blobby usually means a cold joint." },
+    { type:'fill', q:"Fill in the blank: a weak, dull, poorly-bonded solder joint is called a ______ joint.", answers:["cold"], explain:"A cold joint forms when the metal wasn't hot enough for the solder to properly bond, leaving a fragile, unreliable connection." },
   ],
   troubleshoot: [
     { q:"First troubleshooting step for a dead circuit?", opts:["Replace all components","Confirm power is reaching the board","Resolder everything","Buy a new breadboard"], correct:1, explain:"Confirming live power rules out the single most common cause before touching anything else." },
     { q:"When should you measure resistance (Ω) with a multimeter?", opts:["Anytime, power on or off","Only with power disconnected","Only while soldering","Never, it's unsafe"], correct:1, explain:"Measuring resistance with power connected gives inaccurate readings and can damage the meter." },
+    { type:'match', q:"Match each troubleshooting check to the tool you'd use.", pairs:[
+      {left:"Is power reaching the board?", right:"Voltmeter"},
+      {left:"Is a resistor's value correct?", right:"Ohmmeter (unpowered)"},
+      {left:"How much current is a branch drawing?", right:"Ammeter (in series)"},
+    ], explain:"Different questions need different meter modes and connection methods — matching the right tool to the question is half of troubleshooting." },
   ],
   playground: [
     { q:"You place an LED and a battery with no resistor. What happens?", opts:["Nothing — it needs a switch too","The LED burns out from too much current","The LED glows dimly, safely","The battery won't connect"], correct:1, explain:"With ~0Ω resistance in the loop, current spikes far past the LED's safe limit." },
@@ -1384,85 +1723,72 @@ const miniQuizData = {
   binary: [
     { q:"What are the only two digits used in binary?", opts:["1 and 2","0 and 1","0 and 9","A and B"], correct:1, explain:"Binary is base 2 — every value is built from just 0 and 1, matching a wire's two voltage states." },
     { q:"An 8-bit byte can represent how many distinct values?", opts:["8","16","100","256"], correct:3, explain:"8 bits gives 2⁸ = 256 possible combinations, from 0 to 255." },
+    { type:'fill', q:"Fill in the blank: binary is base ______.", answers:["2","two"], explain:"Base 2 means only two possible digits per place value — 0 and 1 — matching a circuit's off/on states." },
   ],
   gates: [
     { q:"Which gate outputs 1 only when every input is 1?", opts:["OR","AND","NOT","XOR"], correct:1, explain:"AND requires all inputs to be 1 — like switches wired in series, all must close." },
     { q:"XOR outputs 1 when...", opts:["Both inputs are the same","The inputs differ","Both inputs are 0","Never"], correct:1, explain:"XOR (exclusive OR) is 1 only when its two inputs are different from each other." },
+    { type:'match', q:"Match each logic gate to its behavior.", pairs:[
+      {left:"AND", right:"1 only if all inputs are 1"},
+      {left:"OR", right:"1 if any input is 1"},
+      {left:"NOT", right:"Flips a single input"},
+    ], explain:"These three gates are the basic building blocks every other logic function can be built from." },
   ],
   adder: [
     { q:"In a half-adder, which gate produces the SUM output?", opts:["AND","OR","XOR","NOT"], correct:2, explain:"XOR is 1 exactly when the inputs differ — which matches when a bit-sum should be 1 without carrying." },
     { q:"Why is it called a 'half' adder?", opts:["It only has one input","It can't accept a carry-in from a previous column","It's only half built","It doesn't produce a carry"], correct:1, explain:"A half-adder handles two input bits but has no way to include a carry from a prior stage — that requires a full adder." },
+    { type:'fill', q:"Fill in the blank: a half-adder's CARRY output uses an ______ gate.", answers:["and","AND"], explain:"AND is 1 only when both inputs are 1 — exactly the case where a bit-sum overflows into a carry." },
   ],
   cppbasics: [
     { q:"Which type would you use for a value that's always 0-255, like a brightness level?", opts:["float","bool","byte","String"], correct:2, explain:"byte stores exactly 0–255 in a single byte of memory — efficient and exactly matching PWM's range." },
     { q:"What does a function's return type of void mean?", opts:["It returns a random value","It returns nothing","It always returns 0","It causes an error"], correct:1, explain:"void means the function performs an action but doesn't hand back a value to the caller." },
+    { type:'match', q:"Match each C++ type to what it stores.", pairs:[
+      {left:"bool", right:"true or false"},
+      {left:"byte", right:"0 to 255"},
+      {left:"float", right:"A decimal number"},
+    ], explain:"Picking the right type keeps memory use tight, which matters on a microcontroller's limited RAM." },
   ],
   digitalio: [
     { q:"Why use INPUT_PULLUP instead of plain INPUT for a button?", opts:["It's required by law","It prevents a floating pin from reading random noise","It makes the button faster","It only works with LEDs"], correct:1, explain:"INPUT_PULLUP holds the pin reliably HIGH until pulled LOW, avoiding the noisy floating-pin problem of plain INPUT." },
     { q:"What causes 'switch bounce'?", opts:["Software bugs","The mechanical contacts physically flickering before settling","Bad C++ syntax","Low battery voltage"], correct:1, explain:"Physical metal contacts don't close cleanly — they bounce for a few milliseconds, which fast digital reads can misread as many presses." },
+    { type:'fill', q:"Fill in the blank: filtering out switch bounce in software is called ______.", answers:["debouncing","debounce"], explain:"Debouncing ignores rapid, spurious signal changes right after a press, waiting for the reading to settle before treating it as valid." },
   ],
   serial: [
     { q:"What does Serial.begin(9600) do?", opts:["Sets the LED brightness","Opens communication at 9600 baud","Deletes previous serial output","Starts a for loop"], correct:1, explain:"It opens the serial connection at a set speed (baud rate) that both board and monitor must agree on." },
     { q:"Difference between Serial.print() and Serial.println()?", opts:["No difference","println() adds a line break after","print() is faster","println() only works with numbers"], correct:1, explain:"println() appends a newline after the text; print() does not, so the next output continues on the same line." },
+    { type:'fill', q:"Fill in the blank: for two devices to talk over serial correctly, they must agree on the same ______ rate.", answers:["baud"], explain:"Baud rate is the communication speed — if sender and receiver don't match, the data comes through as garbage." },
   ],
   shiftreg: [
     { q:"What problem do shift registers solve?", opts:["Making LEDs brighter","Controlling many outputs from just a few microcontroller pins","Speeding up analogRead","Storing data permanently"], correct:1, explain:"A shift register expands a handful of control pins into many parallel outputs, sending bits in serially." },
     { q:"What does the latch pin do?", opts:["Sends the data bits","Updates all outputs at once after shifting is complete","Powers the chip","Resets the register to zero"], correct:1, explain:"Latching applies all the shifted-in bits to the outputs simultaneously, avoiding a visible ripple effect." },
+    { type:'match', q:"Match each 74HC595 pin to its job.", pairs:[
+      {left:"Data pin", right:"Sends bits in, one at a time"},
+      {left:"Clock pin", right:"Shifts in the next bit"},
+      {left:"Latch pin", right:"Applies all bits to the outputs at once"},
+    ], explain:"These three pins are all a shift register needs to turn a serial bitstream into many parallel outputs." },
   ],
   pwm: [
     { q:"What does PWM actually vary to create a dimming effect?", opts:["The voltage level","The duty cycle (% of time spent HIGH)","The wire thickness","The resistor color"], correct:1, explain:"PWM switches fully on/off very fast; the percentage of time spent HIGH (duty cycle) is what your eye perceives as brightness." },
     { q:"What range of values does analogWrite() accept?", opts:["0 to 1","0 to 100","0 to 255","0 to 1023"], correct:2, explain:"analogWrite() takes 0–255, where 0 is always off and 255 is always on." },
+    { type:'fill', q:"Fill in the blank: the percentage of time a PWM signal spends HIGH is called its ______ cycle.", answers:["duty"], explain:"Duty cycle is the fraction of each cycle spent on — 50% duty means on half the time, off half the time." },
   ],
   interrupts: [
     { q:"Why might a polling loop() miss a button press?", opts:["Polling is always broken","If loop() is busy (e.g. in a delay()) when the press happens, it's never checked","Buttons don't work with polling","It only happens with LEDs"], correct:1, explain:"Polling only sees what's true at the exact moment it checks — a press during a long-running operation goes unnoticed." },
     { q:"What should an ISR (interrupt service routine) generally do?", opts:["Run a long calculation","Stay short — usually just set a flag","Call delay() to wait", "Print detailed debug logs"], correct:1, explain:"ISRs interrupt everything else, so keeping them short (like setting a flag for loop() to handle) keeps the chip responsive." },
+    { type:'match', q:"Match each approach to how it notices a button press.", pairs:[
+      {left:"Polling", right:"Checks the pin repeatedly in loop()"},
+      {left:"Interrupt", right:"Fires immediately, regardless of what code is running"},
+    ], explain:"Polling can miss brief events if the chip is busy elsewhere; interrupts guarantee the event is caught the instant it happens." },
   ],
   statemachine: [
     { q:"In the traffic light FSM, what triggers a state change?", opts:["A random number","Enough time elapsing in the current state","Pressing reset","Nothing — it never changes"], correct:1, explain:"Each state has a duration; once elapsed time reaches that duration, the code transitions to the next state." },
     { q:"Why does the FSM sketch use millis() instead of delay()?", opts:["millis() is shorter to type","delay() would freeze the whole chip, blocking other logic","millis() is more accurate","There's no real difference"], correct:1, explain:"delay() blocks everything; millis()-based timing lets the chip keep checking other things (like a pedestrian button) while still tracking state duration." },
+    { type:'fill', q:"Fill in the blank: a system that moves between a fixed set of named states, one at a time, is called a ______ machine.", answers:["state","finite state"], explain:"A finite state machine (FSM) is exactly this pattern — a defined set of states with clear rules for transitioning between them." },
   ],
 };
 
 function renderAllMiniQuizzes(){
-  document.querySelectorAll('.mini-quiz-block').forEach(block => {
-    const container = block.querySelector('.mini-quiz-container');
-    if(container.dataset.rendered) return;
-    container.dataset.rendered = '1';
-    const items = miniQuizData[block.dataset.quizSection];
-    if(!items) return;
-    let answeredInBlock = 0;
-    items.forEach((item, qi) => {
-      const card = document.createElement('div');
-      card.className = 'mq-card';
-      card.innerHTML = `
-        <div class="mq-q">${item.q}</div>
-        <div class="mq-opts">
-          ${item.opts.map((opt,oi) => `<button class="mq-opt" data-o="${oi}"><span class="opt-mark"></span><span>${opt}</span></button>`).join('')}
-        </div>
-        <div class="mq-explain">${item.explain}</div>
-      `;
-      const buttons = card.querySelectorAll('.mq-opt');
-      buttons.forEach((btn, oi) => {
-        btn.addEventListener('click', () => {
-          if(buttons[0].disabled) return;
-          const isCorrect = oi === item.correct;
-          buttons.forEach(b => b.disabled = true);
-          buttons[item.correct].classList.add('correct');
-          if(!isCorrect){
-            btn.classList.add('wrong');
-            card.classList.add('shake');
-            setTimeout(() => card.classList.remove('shake'), 400);
-          } else {
-            card.classList.add('pulse-good');
-          }
-          card.querySelector('.mq-explain').classList.add('show');
-          answeredInBlock++;
-          if(answeredInBlock >= items.length) LessonProgress.markDone(block.dataset.quizSection);
-        });
-      });
-      container.appendChild(card);
-    });
-  });
+  QuizEngine.renderAll(miniQuizData);
 }
 renderAllMiniQuizzes();
 
@@ -1487,6 +1813,9 @@ renderAllMiniQuizzes();
   document.getElementById('clearLessonProgressBtn').addEventListener('click', () => {
     if(!confirm('Clear all lesson and quiz progress?')) return;
     LessonProgress.clear();
+    QuizEngine.clearResults();
+    localStorage.removeItem(SUBVISIT_KEY);
+    applySubsectionVisitedState();
     document.querySelectorAll('.mini-quiz-container').forEach(c => { c.innerHTML = ''; delete c.dataset.rendered; });
     renderAllMiniQuizzes();
     answeredCount = 0; correctCount = 0;
@@ -1584,9 +1913,33 @@ quizContainer.addEventListener('click', e => {
 
   if(answeredCount >= quizData.length){
     LessonProgress.markDone('quiz');
-    showCertificate(correctCount, quizData.length);
+    requestPledgeThenCertificate(correctCount, quizData.length);
   }
 });
+
+/* ===================== Academic honesty pledge ===================== */
+// Gate the certificate behind an explicit pledge, same pattern freeCodeCamp
+// uses before issuing verified certifications. Re-prompting every pass
+// keeps the pledge meaningful rather than a one-time checkbox.
+function requestPledgeThenCertificate(score, total){
+  const overlay = document.getElementById('pledgeOverlay');
+  const checkbox = document.getElementById('pledgeCheckbox');
+  const acceptBtn = document.getElementById('pledgeAcceptBtn');
+  checkbox.checked = false;
+  acceptBtn.disabled = true;
+  overlay.hidden = false;
+
+  function onCheck(){ acceptBtn.disabled = !checkbox.checked; }
+  function onAccept(){
+    if(!checkbox.checked) return;
+    overlay.hidden = true;
+    checkbox.removeEventListener('change', onCheck);
+    acceptBtn.removeEventListener('click', onAccept);
+    showCertificate(score, total);
+  }
+  checkbox.addEventListener('change', onCheck);
+  acceptBtn.addEventListener('click', onAccept);
+}
 
 /* ===================== Certificate of completion ===================== */
 function showCertificate(score, total){

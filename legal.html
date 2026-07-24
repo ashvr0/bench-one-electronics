@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Legal &amp; privacy — BenchOne</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0D1117;
+    --surface:#151C24;
+    --card:#1C2530;
+    --card-hi:#232E3C;
+    --trace:#00E5A0;
+    --trace-dim:#0A5C46;
+    --copper:#FFB627;
+    --copper-dim:#7A5E1A;
+    --text:#E8EDF2;
+    --muted:#5B6B7C;
+    --muted-2:#8B9AAB;
+    --danger:#FF6B6B;
+    --radius:10px;
+    --dot: rgba(91,107,124,0.35);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:
+      radial-gradient(circle at 1px 1px, var(--dot) 1px, transparent 1px),
+      radial-gradient(ellipse 900px 500px at 15% -5%, rgba(0,229,160,0.05), transparent 60%),
+      radial-gradient(ellipse 900px 500px at 100% 20%, rgba(255,182,39,0.035), transparent 60%);
+    background-size: 22px 22px, auto, auto;
+    background-color: var(--bg);
+    background-attachment: fixed;
+    color:var(--text);
+    font-family:'Inter', sans-serif;
+    min-height:100vh;
+    line-height:1.6;
+  }
+  ::selection{ background:var(--trace); color:#04140F; }
+
+  .page{
+    max-width:720px;
+    margin:0 auto;
+    padding:56px 24px 90px;
+  }
+
+  .back-link{
+    display:inline-flex; align-items:center; gap:6px;
+    font-family:'JetBrains Mono', monospace; font-size:12.5px;
+    color:var(--muted-2); text-decoration:none;
+    margin-bottom:28px; transition:color .15s ease;
+  }
+  .back-link:hover{ color:var(--trace); }
+
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--copper);
+    letter-spacing:0.06em; margin-bottom:12px;
+  }
+  h1{
+    font-family:'Space Grotesk', sans-serif; font-size:28px; font-weight:700;
+    margin-bottom:10px;
+  }
+  .dek{
+    font-size:14.5px; color:var(--muted-2); margin-bottom:8px; max-width:560px;
+  }
+  .updated{
+    font-family:'JetBrains Mono', monospace; font-size:11.5px; color:var(--muted);
+    margin-bottom:36px;
+  }
+
+  h2{
+    font-family:'Space Grotesk', sans-serif; font-size:17px; font-weight:600;
+    margin:38px 0 12px;
+    display:flex; align-items:center; gap:10px;
+  }
+  h2 .num{
+    font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--trace);
+    background:rgba(0,229,160,0.08); border:1px solid var(--trace-dim);
+    border-radius:6px; padding:2px 7px;
+  }
+  p{ font-size:13.5px; color:var(--muted-2); margin-bottom:12px; }
+  p b{ color:var(--text); }
+  p code{
+    font-family:'JetBrains Mono', monospace; font-size:12px;
+    background:var(--card); border:1px solid #263241; padding:1px 6px; border-radius:5px;
+    color:var(--copper);
+  }
+  ul{ margin:0 0 12px 20px; }
+  li{ font-size:13.5px; color:var(--muted-2); margin-bottom:6px; }
+  li b{ color:var(--text); }
+  a.inline{ color:var(--trace); text-decoration:none; border-bottom:1px dashed var(--trace-dim); }
+  a.inline:hover{ border-bottom-style:solid; }
+
+  .card{
+    background:linear-gradient(160deg, var(--card-hi), var(--card) 60%);
+    border:1px solid #2C3B4C; border-radius:var(--radius);
+    padding:16px 18px; margin:14px 0;
+  }
+  .card p:last-child{ margin-bottom:0; }
+
+  .warn-box{
+    display:flex; gap:12px; align-items:flex-start;
+    background:rgba(255,107,107,0.06); border:1px solid #5A2A2A;
+    border-radius:var(--radius); padding:14px 16px; margin:16px 0;
+  }
+  .warn-box .ic{
+    flex-shrink:0; width:22px; height:22px; border-radius:50%;
+    background:rgba(255,107,107,0.15); color:var(--danger);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'JetBrains Mono', monospace; font-size:13px; font-weight:700;
+  }
+  .warn-box p{ margin:0; color:var(--muted-2); font-size:13px; }
+  .warn-box p b{ color:var(--text); }
+
+  .info-box{
+    display:flex; gap:12px; align-items:flex-start;
+    background:rgba(0,229,160,0.05); border:1px solid var(--trace-dim);
+    border-radius:var(--radius); padding:14px 16px; margin:16px 0;
+  }
+  .info-box .ic{
+    flex-shrink:0; width:22px; height:22px; border-radius:50%;
+    background:rgba(0,229,160,0.15); color:var(--trace);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'JetBrains Mono', monospace; font-size:13px; font-weight:700;
+  }
+  .info-box p{ margin:0; color:var(--muted-2); font-size:13px; }
+  .info-box p b{ color:var(--text); }
+
+  .data-table{
+    width:100%; border-collapse:collapse; font-size:12.5px; margin:14px 0;
+    background:var(--card); border:1px solid #263241; border-radius:var(--radius); overflow:hidden;
+  }
+  .data-table th, .data-table td{
+    text-align:left; padding:10px 12px; border-bottom:1px solid #22303D;
+  }
+  .data-table th{
+    font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--muted-2);
+    background:var(--surface); letter-spacing:0.04em;
+  }
+  .data-table td{ color:var(--muted-2); }
+  .data-table td b{ color:var(--text); }
+  .data-table tr:last-child td{ border-bottom:none; }
+
+  footer.page-footer{
+    margin-top:50px; padding-top:22px; border-top:1px dashed #263241;
+    font-family:'JetBrains Mono', monospace; font-size:11.5px; color:var(--muted);
+  }
+
+  @media (max-width:600px){
+    .page{ padding:36px 18px 70px; }
+    h1{ font-size:23px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <a class="back-link" href="index.html">← Back to the guide</a>
+
+  <div class="eyebrow">// Legal</div>
+  <h1>Legal, privacy &amp; terms</h1>
+  <p class="dek">The short version: this is a free educational guide, everything you do here stays on your own device, and nothing here is a substitute for professional advice.</p>
+  <div class="updated">Last updated: July 2026</div>
+
+  <h2><span class="num">01</span>Copyright &amp; content license</h2>
+  <p>The text, illustrations, interactive diagrams, quizzes, and code that make up this guide (<b>BenchOne</b>) are original works created for this project. Reasonable references and analogies drawn from public electronics education (in the tradition of open resources like <i>All About Circuits</i>) are used as teaching context, not reproduced verbatim.</p>
+  <p>You're welcome to use this guide for your own learning, share links to it, and reference it in coursework or teaching. Please don't republish the content wholesale as your own or resell it. If you'd like to reuse, remix, or build on any part of it beyond personal use, just ask first.</p>
+
+  <h2><span class="num">02</span>Privacy — what data this site collects</h2>
+  <div class="info-box">
+    <span class="ic">i</span>
+    <p><b>Short version: nothing leaves your browser.</b> There's no account system, no server-side database, no analytics, and no tracking pixels anywhere in this guide.</p>
+  </div>
+  <p>Everything the guide remembers about your progress is stored using your browser's built-in <code>localStorage</code> — a small storage space tied to your specific browser, on your specific device. None of it is transmitted anywhere, and Anthropic, or whoever hosts this file, has no visibility into it.</p>
+
+  <table class="data-table">
+    <tr><th>What's stored locally</th><th>Why</th></tr>
+    <tr><td><b>Quiz results &amp; scores</b></td><td>So chapter quizzes stay passed/failed between visits</td></tr>
+    <tr><td><b>Lesson progress</b> (done/not done)</td><td>Powers the sidebar checkmarks and progress bar</td></tr>
+    <tr><td><b>Subsection "visited" state</b></td><td>Marks which "Go deeper" pages you've already opened</td></tr>
+    <tr><td><b>Sidebar width &amp; collapsed state</b></td><td>Remembers your layout preference</td></tr>
+  </table>
+
+  <p>You can clear all of it at any time by clearing your browser's site data for this page, or using your browser's private/incognito mode to browse without saving anything at all.</p>
+
+  <p style="margin-top:16px;"><b>One minor exception:</b> this page loads fonts (Inter, Space Grotesk, JetBrains Mono) from Google Fonts' servers, which — like any font CDN — can see that a request came from your browser (standard web request info like IP address). No cookies or tracking are set for this beyond what's needed to serve the font file.</p>
+
+  <h2><span class="num">03</span>Educational use only — not professional advice</h2>
+  <div class="warn-box">
+    <span class="ic">!</span>
+    <p><b>This guide is for learning, not for professional guidance.</b> In particular, the electrical safety chapter is a general educational overview — it is <b>not</b> a substitute for training from a qualified electrician, your school's lab safety guidelines, or your equipment's official documentation.</p>
+  </div>
+  <p>Circuit examples, component values, and code samples are provided for learning purposes and are believed accurate, but electronics work (even low-voltage hobby work) carries inherent risk. Always follow your instructor's or workplace's safety rules, use appropriate protective equipment when instructed, and never treat this guide as your only safety reference before working with mains voltage or unfamiliar equipment.</p>
+
+  <h2><span class="num">04</span>No warranty</h2>
+  <p>This guide is provided "as is," without warranty of any kind, express or implied — including but not limited to accuracy, completeness, or fitness for a particular purpose. While care has been taken to keep the physics, math, and code correct, mistakes are possible in any educational material. If you spot an error, feedback is welcome.</p>
+
+  <h2><span class="num">05</span>Third-party links &amp; references</h2>
+  <p>Any mentions of outside resources, textbooks, or tools (such as references to <i>All About Circuits</i>) are provided for educational context. This guide isn't affiliated with, endorsed by, or sponsored by those third parties, and isn't responsible for the content or availability of external sites.</p>
+
+  <h2><span class="num">06</span>Changes to this page</h2>
+  <p>Since this is a static, self-contained guide rather than a live service, this page won't change often — but if the guide's data practices or license terms ever change, this page will be updated to reflect that, with the "last updated" date above revised accordingly.</p>
+
+  <h2><span class="num">07</span>Contact</h2>
+  <p>Questions about content reuse, corrections, or anything on this page can be directed to whoever provided you this guide or hosts the site you found it on.</p>
+
+  <footer class="page-footer">
+    © 2026 BenchOne. Educational content — see terms above.
+  </footer>
+</div>
+
+</body>
+</html>

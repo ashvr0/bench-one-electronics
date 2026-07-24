@@ -31,6 +31,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="quiz-engine.css">
 </head>
 <body>
 <a href="#mainContent" class="skip-link">Skip to content</a>
@@ -57,55 +58,88 @@
     </div>
     <nav id="railNav" aria-label="Chapter navigation">
       <div class="rail-group-label">Foundations · Ch. 1</div>
-      <button class="rail-item" data-target="intro"><span class="pin"></span>Start here<span class="done-mark">✓</span><span class="num">00</span></button>
-      <button class="rail-item" data-target="static"><span class="pin"></span>Static electricity<span class="done-mark">✓</span><span class="num">01</span></button>
-      <button class="rail-item" data-target="conductors"><span class="pin"></span>Conductors & insulators<span class="done-mark">✓</span><span class="num">02</span></button>
-      <button class="rail-item" data-target="circuitdef"><span class="pin"></span>What is a circuit?<span class="done-mark">✓</span><span class="num">03</span></button>
-      <button class="rail-item" data-target="fundamentals"><span class="pin"></span>Voltage & current<span class="done-mark">✓</span><span class="num">04</span></button>
-      <button class="rail-item" data-target="resistance"><span class="pin"></span>Resistance<span class="done-mark">✓</span><span class="num">05</span></button>
-      <button class="rail-item" data-target="practical"><span class="pin"></span>Practical circuits<span class="done-mark">✓</span><span class="num">06</span></button>
-      <button class="rail-item" data-target="flowdir"><span class="pin"></span>Conventional vs. electron flow<span class="done-mark">✓</span><span class="num">07</span></button>
+      <div class="rail-item-row no-subs"><button class="rail-item" data-target="intro"><span class="pin"></span>Start here<span class="done-mark">✓</span><span class="num">00</span></button></div>
+      <div class="rail-item-row"><button class="rail-item" data-target="static"><span class="pin"></span>Static electricity<span class="done-mark">✓</span><span class="num">01</span></button><button class="rail-expand-btn" aria-expanded="false" aria-label="Show sub-lessons for static" data-chapter="static"><span class="chev">›</span></button></div>
+      <div class="rail-subnav" data-subnav-for="static"></div>
+      <div class="rail-item-row"><button class="rail-item" data-target="conductors"><span class="pin"></span>Conductors & insulators<span class="done-mark">✓</span><span class="num">02</span></button><button class="rail-expand-btn" aria-expanded="false" aria-label="Show sub-lessons for conductors" data-chapter="conductors"><span class="chev">›</span></button></div>
+      <div class="rail-subnav" data-subnav-for="conductors"></div>
+      <div class="rail-item-row"><button class="rail-item" data-target="circuitdef"><span class="pin"></span>What is a circuit?<span class="done-mark">✓</span><span class="num">03</span></button><button class="rail-expand-btn" aria-expanded="false" aria-label="Show sub-lessons for circuitdef" data-chapter="circuitdef"><span class="chev">›</span></button></div>
+      <div class="rail-subnav" data-subnav-for="circuitdef"></div>
+      <div class="rail-item-row"><button class="rail-item" data-target="fundamentals"><span class="pin"></span>Voltage & current<span class="done-mark">✓</span><span class="num">04</span></button><button class="rail-expand-btn" aria-expanded="false" aria-label="Show sub-lessons for fundamentals" data-chapter="fundamentals"><span class="chev">›</span></button></div>
+      <div class="rail-subnav" data-subnav-for="fundamentals"></div>
+      <div class="rail-item-row"><button class="rail-item" data-target="resistance"><span class="pin"></span>Resistance<span class="done-mark">✓</span><span class="num">05</span></button><button class="rail-expand-btn" aria-expanded="false" aria-label="Show sub-lessons for resistance" data-chapter="resistance"><span class="chev">›</span></button></div>
+      <div class="rail-subnav" data-subnav-for="resistance"></div>
+      <div class="rail-item-row"><button class="rail-item" data-target="practical"><span class="pin"></span>Practical circuits<span class="done-mark">✓</span><span class="num">06</span></button><button class="rail-expand-btn" aria-expanded="false" aria-label="Show sub-lessons for practical" data-chapter="practical"><span class="chev">›</span></button></div>
+      <div class="rail-subnav" data-subnav-for="practical"></div>
+      <div class="rail-item-row"><button class="rail-item" data-target="flowdir"><span class="pin"></span>Conventional vs. electron flow<span class="done-mark">✓</span><span class="num">07</span></button><button class="rail-expand-btn" aria-expanded="false" aria-label="Show sub-lessons for flowdir" data-chapter="flowdir"><span class="chev">›</span></button></div>
+      <div class="rail-subnav" data-subnav-for="flowdir"></div>
 
       <div class="rail-group-label">Core Laws</div>
-      <button class="rail-item" data-target="ohmslaw"><span class="pin"></span>Ohm's law calculator<span class="done-mark">✓</span><span class="num">08</span></button>
-      <button class="rail-item" data-target="power"><span class="pin"></span>Power in circuits<span class="done-mark">✓</span><span class="num">09</span></button>
-      <button class="rail-item" data-target="circuits"><span class="pin"></span>Series & parallel<span class="done-mark">✓</span><span class="num">10</span></button>
-      <button class="rail-item" data-target="seriesparallel"><span class="pin"></span>Series-parallel combos<span class="done-mark">✓</span><span class="num">11</span></button>
-      <button class="rail-item" data-target="kirchhoff"><span class="pin"></span>Kirchhoff's laws<span class="done-mark">✓</span><span class="num">12</span></button>
-      <button class="rail-item" data-target="dividers"><span class="pin"></span>Voltage & current dividers<span class="done-mark">✓</span><span class="num">13</span></button>
-      <button class="rail-item" data-target="safety"><span class="pin"></span>Electrical safety<span class="done-mark">✓</span><span class="num">14</span></button>
-      <button class="rail-item" data-target="scinotation"><span class="pin"></span>Scientific notation & prefixes<span class="done-mark">✓</span><span class="num">15</span></button>
+      <div class="rail-item-row"><button class="rail-item" data-target="ohmslaw"><span class="pin"></span>Ohm's law calculator<span class="done-mark">✓</span><span class="num">08</span></button><button class="rail-expand-btn" aria-expanded="false" aria-label="Show sub-lessons for ohmslaw" data-chapter="ohmslaw"><span class="chev">›</span></button></div>
+      <div class="rail-subnav" data-subnav-for="ohmslaw"></div>
+      <div class="rail-item-row"><button class="rail-item" data-target="power"><span class="pin"></span>Power in circuits<span class="done-mark">✓</span><span class="num">09</span></button><button class="rail-expand-btn" aria-expanded="false" aria-label="Show sub-lessons for power" data-chapter="power"><span class="chev">›</span></button></div>
+      <div class="rail-subnav" data-subnav-for="power"></div>
+      <div class="rail-item-row"><button class="rail-item" data-target="circuits"><span class="pin"></span>Series & parallel<span class="done-mark">✓</span><span class="num">10</span></button><button class="rail-expand-btn" aria-expanded="false" aria-label="Show sub-lessons for circuits" data-chapter="circuits"><span class="chev">›</span></button></div>
+      <div class="rail-subnav" data-subnav-for="circuits"></div>
+      <div class="rail-item-row"><button class="rail-item" data-target="seriesparallel"><span class="pin"></span>Series-parallel combos<span class="done-mark">✓</span><span class="num">11</span></button><button class="rail-expand-btn" aria-expanded="false" aria-label="Show sub-lessons for seriesparallel" data-chapter="seriesparallel"><span class="chev">›</span></button></div>
+      <div class="rail-subnav" data-subnav-for="seriesparallel"></div>
+      <div class="rail-item-row"><button class="rail-item" data-target="kirchhoff"><span class="pin"></span>Kirchhoff's laws<span class="done-mark">✓</span><span class="num">12</span></button><button class="rail-expand-btn" aria-expanded="false" aria-label="Show sub-lessons for kirchhoff" data-chapter="kirchhoff"><span class="chev">›</span></button></div>
+      <div class="rail-subnav" data-subnav-for="kirchhoff"></div>
+      <div class="rail-item-row"><button class="rail-item" data-target="dividers"><span class="pin"></span>Voltage & current dividers<span class="done-mark">✓</span><span class="num">13</span></button><button class="rail-expand-btn" aria-expanded="false" aria-label="Show sub-lessons for dividers" data-chapter="dividers"><span class="chev">›</span></button></div>
+      <div class="rail-subnav" data-subnav-for="dividers"></div>
+      <div class="rail-item-row"><button class="rail-item" data-target="safety"><span class="pin"></span>Electrical safety<span class="done-mark">✓</span><span class="num">14</span></button><button class="rail-expand-btn" aria-expanded="false" aria-label="Show sub-lessons for safety" data-chapter="safety"><span class="chev">›</span></button></div>
+      <div class="rail-subnav" data-subnav-for="safety"></div>
+      <div class="rail-item-row"><button class="rail-item" data-target="scinotation"><span class="pin"></span>Scientific notation & prefixes<span class="done-mark">✓</span><span class="num">15</span></button><button class="rail-expand-btn" aria-expanded="false" aria-label="Show sub-lessons for scinotation" data-chapter="scinotation"><span class="chev">›</span></button></div>
+      <div class="rail-subnav" data-subnav-for="scinotation"></div>
 
       <div class="rail-group-label">Components</div>
-      <button class="rail-item" data-target="library"><span class="pin"></span>Component library<span class="done-mark">✓</span><span class="num">16</span></button>
-      <button class="rail-item" data-target="meters"><span class="pin"></span>Meters<span class="done-mark">✓</span><span class="num">17</span></button>
-      <button class="rail-item" data-target="resistors"><span class="pin"></span>Resistor color decoder<span class="done-mark">✓</span><span class="num">18</span></button>
-      <button class="rail-item" data-target="capacitors"><span class="pin"></span>Capacitors<span class="done-mark">✓</span><span class="num">19</span></button>
-      <button class="rail-item" data-target="magnetism"><span class="pin"></span>Magnetism & inductors<span class="done-mark">✓</span><span class="num">20</span></button>
+      <div class="rail-item-row"><button class="rail-item" data-target="library"><span class="pin"></span>Component library<span class="done-mark">✓</span><span class="num">16</span></button><button class="rail-expand-btn" aria-expanded="false" aria-label="Show sub-lessons for library" data-chapter="library"><span class="chev">›</span></button></div>
+      <div class="rail-subnav" data-subnav-for="library"></div>
+      <div class="rail-item-row"><button class="rail-item" data-target="meters"><span class="pin"></span>Meters<span class="done-mark">✓</span><span class="num">17</span></button><button class="rail-expand-btn" aria-expanded="false" aria-label="Show sub-lessons for meters" data-chapter="meters"><span class="chev">›</span></button></div>
+      <div class="rail-subnav" data-subnav-for="meters"></div>
+      <div class="rail-item-row"><button class="rail-item" data-target="resistors"><span class="pin"></span>Resistor color decoder<span class="done-mark">✓</span><span class="num">18</span></button><button class="rail-expand-btn" aria-expanded="false" aria-label="Show sub-lessons for resistors" data-chapter="resistors"><span class="chev">›</span></button></div>
+      <div class="rail-subnav" data-subnav-for="resistors"></div>
+      <div class="rail-item-row"><button class="rail-item" data-target="capacitors"><span class="pin"></span>Capacitors<span class="done-mark">✓</span><span class="num">19</span></button><button class="rail-expand-btn" aria-expanded="false" aria-label="Show sub-lessons for capacitors" data-chapter="capacitors"><span class="chev">›</span></button></div>
+      <div class="rail-subnav" data-subnav-for="capacitors"></div>
+      <div class="rail-item-row"><button class="rail-item" data-target="magnetism"><span class="pin"></span>Magnetism & inductors<span class="done-mark">✓</span><span class="num">20</span></button><button class="rail-expand-btn" aria-expanded="false" aria-label="Show sub-lessons for magnetism" data-chapter="magnetism"><span class="chev">›</span></button></div>
+      <div class="rail-subnav" data-subnav-for="magnetism"></div>
 
       <div class="rail-group-label">Build</div>
-      <button class="rail-item" data-target="microcontrollers"><span class="pin"></span>Microcontrollers<span class="done-mark">✓</span><span class="num">21</span></button>
-      <button class="rail-item" data-target="soldering"><span class="pin"></span>Soldering basics<span class="done-mark">✓</span><span class="num">22</span></button>
-      <button class="rail-item" data-target="troubleshoot"><span class="pin"></span>Troubleshooting<span class="done-mark">✓</span><span class="num">23</span></button>
+      <div class="rail-item-row"><button class="rail-item" data-target="microcontrollers"><span class="pin"></span>Microcontrollers<span class="done-mark">✓</span><span class="num">21</span></button><button class="rail-expand-btn" aria-expanded="false" aria-label="Show sub-lessons for microcontrollers" data-chapter="microcontrollers"><span class="chev">›</span></button></div>
+      <div class="rail-subnav" data-subnav-for="microcontrollers"></div>
+      <div class="rail-item-row"><button class="rail-item" data-target="soldering"><span class="pin"></span>Soldering basics<span class="done-mark">✓</span><span class="num">22</span></button><button class="rail-expand-btn" aria-expanded="false" aria-label="Show sub-lessons for soldering" data-chapter="soldering"><span class="chev">›</span></button></div>
+      <div class="rail-subnav" data-subnav-for="soldering"></div>
+      <div class="rail-item-row"><button class="rail-item" data-target="troubleshoot"><span class="pin"></span>Troubleshooting<span class="done-mark">✓</span><span class="num">23</span></button><button class="rail-expand-btn" aria-expanded="false" aria-label="Show sub-lessons for troubleshoot" data-chapter="troubleshoot"><span class="chev">›</span></button></div>
+      <div class="rail-subnav" data-subnav-for="troubleshoot"></div>
 
       <div class="rail-group-label">Digital Logic & Arduino C++ <span class="tier-badge advanced">Advanced</span></div>
-      <button class="rail-item" data-target="binary"><span class="pin"></span>Binary & bits<span class="done-mark">✓</span><span class="num">23</span></button>
-      <button class="rail-item" data-target="gates"><span class="pin"></span>Logic gates<span class="done-mark">✓</span><span class="num">24</span></button>
-      <button class="rail-item" data-target="adder"><span class="pin"></span>Building a half-adder<span class="done-mark">✓</span><span class="num">25</span></button>
-      <button class="rail-item" data-target="cppbasics"><span class="pin"></span>Real C++ for Arduino<span class="done-mark">✓</span><span class="num">26</span></button>
-      <button class="rail-item" data-target="digitalio"><span class="pin"></span>Digital I/O & debouncing<span class="done-mark">✓</span><span class="num">27</span></button>
-      <button class="rail-item" data-target="serial"><span class="pin"></span>Serial communication<span class="done-mark">✓</span><span class="num">28</span></button>
-      <button class="rail-item" data-target="shiftreg"><span class="pin"></span>Shift registers<span class="done-mark">✓</span><span class="num">29</span></button>
-      <button class="rail-item" data-target="pwm"><span class="pin"></span>PWM in depth<span class="done-mark">✓</span><span class="num">30</span></button>
-      <button class="rail-item" data-target="interrupts"><span class="pin"></span>Interrupts<span class="done-mark">✓</span><span class="num">31</span></button>
-      <button class="rail-item" data-target="statemachine"><span class="pin"></span>Capstone: traffic light FSM<span class="done-mark">✓</span><span class="num">32</span></button>
+      <div class="rail-item-row"><button class="rail-item" data-target="binary"><span class="pin"></span>Binary & bits<span class="done-mark">✓</span><span class="num">23</span></button><button class="rail-expand-btn" aria-expanded="false" aria-label="Show sub-lessons for binary" data-chapter="binary"><span class="chev">›</span></button></div>
+      <div class="rail-subnav" data-subnav-for="binary"></div>
+      <div class="rail-item-row"><button class="rail-item" data-target="gates"><span class="pin"></span>Logic gates<span class="done-mark">✓</span><span class="num">24</span></button><button class="rail-expand-btn" aria-expanded="false" aria-label="Show sub-lessons for gates" data-chapter="gates"><span class="chev">›</span></button></div>
+      <div class="rail-subnav" data-subnav-for="gates"></div>
+      <div class="rail-item-row"><button class="rail-item" data-target="adder"><span class="pin"></span>Building a half-adder<span class="done-mark">✓</span><span class="num">25</span></button><button class="rail-expand-btn" aria-expanded="false" aria-label="Show sub-lessons for adder" data-chapter="adder"><span class="chev">›</span></button></div>
+      <div class="rail-subnav" data-subnav-for="adder"></div>
+      <div class="rail-item-row"><button class="rail-item" data-target="cppbasics"><span class="pin"></span>Real C++ for Arduino<span class="done-mark">✓</span><span class="num">26</span></button><button class="rail-expand-btn" aria-expanded="false" aria-label="Show sub-lessons for cppbasics" data-chapter="cppbasics"><span class="chev">›</span></button></div>
+      <div class="rail-subnav" data-subnav-for="cppbasics"></div>
+      <div class="rail-item-row"><button class="rail-item" data-target="digitalio"><span class="pin"></span>Digital I/O & debouncing<span class="done-mark">✓</span><span class="num">27</span></button><button class="rail-expand-btn" aria-expanded="false" aria-label="Show sub-lessons for digitalio" data-chapter="digitalio"><span class="chev">›</span></button></div>
+      <div class="rail-subnav" data-subnav-for="digitalio"></div>
+      <div class="rail-item-row"><button class="rail-item" data-target="serial"><span class="pin"></span>Serial communication<span class="done-mark">✓</span><span class="num">28</span></button><button class="rail-expand-btn" aria-expanded="false" aria-label="Show sub-lessons for serial" data-chapter="serial"><span class="chev">›</span></button></div>
+      <div class="rail-subnav" data-subnav-for="serial"></div>
+      <div class="rail-item-row"><button class="rail-item" data-target="shiftreg"><span class="pin"></span>Shift registers<span class="done-mark">✓</span><span class="num">29</span></button><button class="rail-expand-btn" aria-expanded="false" aria-label="Show sub-lessons for shiftreg" data-chapter="shiftreg"><span class="chev">›</span></button></div>
+      <div class="rail-subnav" data-subnav-for="shiftreg"></div>
+      <div class="rail-item-row"><button class="rail-item" data-target="pwm"><span class="pin"></span>PWM in depth<span class="done-mark">✓</span><span class="num">30</span></button><button class="rail-expand-btn" aria-expanded="false" aria-label="Show sub-lessons for pwm" data-chapter="pwm"><span class="chev">›</span></button></div>
+      <div class="rail-subnav" data-subnav-for="pwm"></div>
+      <div class="rail-item-row"><button class="rail-item" data-target="interrupts"><span class="pin"></span>Interrupts<span class="done-mark">✓</span><span class="num">31</span></button><button class="rail-expand-btn" aria-expanded="false" aria-label="Show sub-lessons for interrupts" data-chapter="interrupts"><span class="chev">›</span></button></div>
+      <div class="rail-subnav" data-subnav-for="interrupts"></div>
+      <div class="rail-item-row"><button class="rail-item" data-target="statemachine"><span class="pin"></span>Capstone: traffic light FSM<span class="done-mark">✓</span><span class="num">32</span></button><button class="rail-expand-btn" aria-expanded="false" aria-label="Show sub-lessons for statemachine" data-chapter="statemachine"><span class="chev">›</span></button></div>
+      <div class="rail-subnav" data-subnav-for="statemachine"></div>
 
       <div class="rail-group-label">Play & Practice</div>
-      <button class="rail-item" data-target="playground"><span class="pin"></span>Circuit playground<span class="done-mark">✓</span><span class="num">20</span></button>
-      <button class="rail-item" data-target="flashcards"><span class="pin"></span>Flashcards<span class="done-mark">✓</span><span class="num">21</span></button>
+      <div class="rail-item-row no-subs"><button class="rail-item" data-target="playground"><span class="pin"></span>Circuit playground<span class="done-mark">✓</span><span class="num">20</span></button></div>
+      <div class="rail-item-row no-subs"><button class="rail-item" data-target="flashcards"><span class="pin"></span>Flashcards<span class="done-mark">✓</span><span class="num">21</span></button></div>
 
       <div class="rail-group-label">Check yourself</div>
-      <button class="rail-item" data-target="quiz"><span class="pin"></span>Quiz<span class="done-mark">✓</span><span class="num">22</span></button>
+      <div class="rail-item-row no-subs"><button class="rail-item" data-target="quiz"><span class="pin"></span>Quiz<span class="done-mark">✓</span><span class="num">22</span></button></div>
     </nav>
     <div class="rail-resize-handle" id="railResizeHandle"></div>
   </aside>
@@ -313,9 +347,115 @@
 
       <h3>Why this matters for circuits</h3>
       <p class="body-text">A circuit is really just a controlled, continuous version of this same charge movement — instead of one static transfer, we set up a path where charge keeps flowing steadily. Everything from here on (current, voltage, resistance) is describing that flow in more precise terms.</p>
+
+      <h3>Go deeper</h3>
+      <p class="body-text" style="margin-bottom:14px;">Optional detours — expand "Static electricity" in the sidebar, or jump in below.</p>
+      <div class="subsection-links" data-subsection-chapter="static">
+        <button class="subsection-link-card" data-target="static-sub-coulomb">
+          <span class="sl-title">Coulomb's law: how strong is the pull?</span>
+          <span class="sl-desc">Inverse-square law, interactive force-vs-distance slider</span>
+        </button>
+        <button class="subsection-link-card" data-target="static-sub-esd">
+          <span class="sl-title">Electrostatic discharge and real-world risk</span>
+          <span class="sl-desc">Why ESD silently kills chips, and how techs prevent it</span>
+        </button>
+        <button class="subsection-link-card" data-target="static-sub-triboelectric">
+          <span class="sl-title">The triboelectric series</span>
+          <span class="sl-desc">Why some materials always steal electrons from others</span>
+        </button>
+      </div>
+
       <div class="mini-quiz-block" data-quiz-section="static">
         <div class="mini-quiz-header">Quick check</div>
         <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 01a SUBSECTION: Static electricity → Coulomb's law -->
+    <section id="static-sub-coulomb" hidden class="subsection-page" data-parent-chapter="static">
+      <button class="sub-back-link" data-back-to="static">← Back to Static electricity</button>
+      <div class="eyebrow">// 01 — Go deeper</div>
+      <h2 class="title">Coulomb's law: how strong is the pull?</h2>
+      <p class="dek">The force between two charges follows an inverse-square law — double the distance, and the force drops to a quarter, not half.</p>
+
+      <p class="body-text">This is <b>Coulomb's law</b>: <code class="inline">F = k × (q1 × q2) / r²</code>, where k is a constant, q1 and q2 are the charge amounts, and r is the distance between them. Two things make the force stronger: bigger charges, or a shorter distance — and distance matters far more, since it's squared.</p>
+
+      <div class="card">
+        <div class="slider-field">
+          <label>DISTANCE <b id="coulombDistLabel">50%</b></label>
+          <input type="range" id="coulombDistSlider" min="5" max="100" value="50" aria-label="Distance between charges">
+        </div>
+        <div class="power-readout-row">
+          <div class="power-stat"><div class="v" id="coulombForceVal">4.0×</div><div class="l">Relative force</div></div>
+        </div>
+        <p class="body-text" style="margin:10px 0 0 0; text-align:center;">Drag closer — watch the force spike, not climb steadily.</p>
+      </div>
+
+      <p class="body-text">This is why static cling is strong right at contact and vanishes within an inch, and why a balloon "sticks" to a wall only when held close. This same inverse-square shape shows up again later for magnetic and gravitational fields — it's one of the most common patterns in physics.</p>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="static-sub-esd">Next: Electrostatic discharge <span class="arrow">→</span></button>
+      </div>
+    </section>
+
+    <!-- 01b SUBSECTION: Static electricity → ESD -->
+    <section id="static-sub-esd" hidden class="subsection-page" data-parent-chapter="static">
+      <button class="sub-back-link" data-back-to="static">← Back to Static electricity</button>
+      <div class="eyebrow">// 01 — Go deeper</div>
+      <h2 class="title">Electrostatic discharge and real-world risk</h2>
+      <p class="dek">Static buildup isn't just a curiosity — it's a real hazard for electronics.</p>
+
+      <p class="body-text">A person walking across carpet can build up thousands of volts of static charge. Touch a sensitive chip, and that discharge (<b>ESD</b>, electrostatic discharge) can silently destroy it, even if you don't feel a shock. This is why technicians use <b>anti-static wrist straps</b> and <b>ESD mats</b> when handling bare circuit boards — they give any built-up charge a safe path to ground before it can jump through a component.</p>
+
+      <div class="warn-box" style="background:rgba(0,229,160,0.05); border-color:var(--trace-dim);">
+        <span class="ic" style="color:var(--trace);">i</span>
+        <p style="color:var(--muted-2);">You can feel an ESD shock around 3,000V — but chips can be damaged by static as low as 100V, well below what you'd ever notice. This is why "I didn't feel anything" doesn't mean a board is safe from static damage.</p>
+      </div>
+
+      <div class="card">
+        <div class="esd-threshold-row">
+          <span class="esd-label">Human sensation threshold</span>
+          <div class="esd-bar-track"><div class="esd-bar-fill esd-fill-high"></div></div>
+          <span class="esd-value">~3,000 V</span>
+        </div>
+        <div class="esd-threshold-row">
+          <span class="esd-label">Damage to a typical CMOS chip</span>
+          <div class="esd-bar-track"><div class="esd-bar-fill esd-fill-low"></div></div>
+          <span class="esd-value">as low as 100 V</span>
+        </div>
+        <p class="body-text" style="margin:12px 0 0 0;">The gap between those two bars is the danger zone — damage that happens with zero warning.</p>
+      </div>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="static-sub-coulomb"><span class="arrow">←</span> Back: Coulomb's law</button>
+        <button class="nav-btn" data-target="static-sub-triboelectric">Next: Triboelectric series <span class="arrow">→</span></button>
+      </div>
+    </section>
+
+    <!-- 01c SUBSECTION: Static electricity → Triboelectric series -->
+    <section id="static-sub-triboelectric" hidden class="subsection-page" data-parent-chapter="static">
+      <button class="sub-back-link" data-back-to="static">← Back to Static electricity</button>
+      <div class="eyebrow">// 01 — Go deeper</div>
+      <h2 class="title">The triboelectric series</h2>
+      <p class="dek">Why some materials always seem to steal electrons from others, no matter what you rub them against.</p>
+
+      <p class="body-text">Materials can be ranked by how strongly they tend to gain or lose electrons on contact — this ranking is called the <b>triboelectric series</b>. Materials near the top (like human hair, glass, wool) tend to give up electrons and charge positive. Materials near the bottom (like Teflon, vinyl) tend to grab electrons and charge negative. The farther apart two materials sit on the series, the stronger the charge transfer when they touch.</p>
+
+      <div class="card">
+        <div class="tribo-ladder" id="triboLadder" role="img" aria-label="Triboelectric series ladder from most positive to most negative">
+          <div class="tribo-row tribo-pos"><span class="tribo-mat">Human hair</span><span class="tribo-tag">+ tends to lose electrons</span></div>
+          <div class="tribo-row"><span class="tribo-mat">Glass</span></div>
+          <div class="tribo-row"><span class="tribo-mat">Wool</span></div>
+          <div class="tribo-row tribo-mid"><span class="tribo-mat">Cotton</span><span class="tribo-tag">neutral-ish</span></div>
+          <div class="tribo-row"><span class="tribo-mat">Rubber balloon</span></div>
+          <div class="tribo-row"><span class="tribo-mat">Vinyl (PVC)</span></div>
+          <div class="tribo-row tribo-neg"><span class="tribo-mat">Teflon</span><span class="tribo-tag">− tends to gain electrons</span></div>
+        </div>
+        <p class="body-text" style="margin:12px 0 0 0;">This is exactly why rubbing a balloon on hair works so well for a static demo — hair and rubber sit far apart on the series, so the electron transfer is strong.</p>
+      </div>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="static-sub-esd"><span class="arrow">←</span> Back: Electrostatic discharge</button>
       </div>
     </section>
 
@@ -386,13 +526,88 @@
           <span style="font-size:12.5px; color:var(--muted-2);" id="tubeLabel">Push electron in</span>
         </div>
       </div>
+      <h3>Go deeper</h3>
+      <p class="body-text" style="margin-bottom:14px;">Optional detours — expand "Conductors & insulators" in the sidebar, or jump in below.</p>
+      <div class="subsection-links" data-subsection-chapter="conductors">
+        <button class="subsection-link-card" data-target="conductors-sub-semiconductors">
+          <span class="sl-title">Semiconductors: the in-between material</span>
+          <span class="sl-desc">Why silicon is neither a conductor nor an insulator — interactive conductivity spectrum</span>
+        </button>
+        <button class="subsection-link-card" data-target="conductors-sub-super">
+          <span class="sl-title">Superconductivity: zero resistance</span>
+          <span class="sl-desc">What happens at extreme cold — interactive temperature threshold</span>
+        </button>
+      </div>
+
       <div class="mini-quiz-block" data-quiz-section="conductors">
         <div class="mini-quiz-header">Quick check</div>
         <div class="mini-quiz-container"></div>
       </div>
     </section>
 
-    <!-- 03 WHAT ARE ELECTRIC CIRCUITS -->
+    <!-- 02a SUBSECTION: Conductors → Semiconductors -->
+    <section id="conductors-sub-semiconductors" hidden class="subsection-page" data-parent-chapter="conductors">
+      <button class="sub-back-link" data-back-to="conductors">← Back to Conductors & insulators</button>
+      <div class="eyebrow">// 02 — Go deeper</div>
+      <h2 class="title">Semiconductors: the in-between material</h2>
+      <p class="dek">Not everything is cleanly a conductor or an insulator. Semiconductors sit in the middle — and that middle ground is what makes every chip on Earth possible.</p>
+
+      <p class="body-text">Silicon, the most common semiconductor, conducts far worse than copper but far better than glass. On its own it's not very useful — the real trick is <b>doping</b>: adding tiny, carefully controlled impurities that either add extra free electrons (n-type) or leave "holes" that behave like positive charge carriers (p-type). Combine n-type and p-type silicon and you get a <b>diode</b>, a <b>transistor</b>, and ultimately a whole processor.</p>
+
+      <div class="card">
+        <div class="conductivity-spectrum">
+          <div class="cs-track">
+            <div class="cs-fill" id="csFill"></div>
+            <div class="cs-marker" id="csMarker"></div>
+          </div>
+          <div class="cs-labels">
+            <span>Insulator</span>
+            <span>Semiconductor</span>
+            <span>Conductor</span>
+          </div>
+          <div class="slider-field" style="margin-top:14px;">
+            <label>MATERIAL <b id="csMaterialLabel">Glass</b></label>
+            <input type="range" id="csSlider" min="0" max="4" step="1" value="0" aria-label="Select a material to see where it falls on the conductivity spectrum">
+          </div>
+          <p class="body-text" id="csReadout" style="margin-top:10px; text-align:center;">Glass: electrons locked tightly in place. Practically no conduction at room temperature.</p>
+        </div>
+      </div>
+
+      <p class="body-text">This is why doping matters so much: it lets engineers dial a semiconductor's conductivity almost anywhere between insulator and conductor, on purpose, in specific regions of a chip — something you simply can't do with a fixed material like copper or rubber.</p>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="conductors-sub-super">Next: Superconductivity <span class="arrow">→</span></button>
+      </div>
+    </section>
+
+    <!-- 02b SUBSECTION: Conductors → Superconductivity -->
+    <section id="conductors-sub-super" hidden class="subsection-page" data-parent-chapter="conductors">
+      <button class="sub-back-link" data-back-to="conductors">← Back to Conductors & insulators</button>
+      <div class="eyebrow">// 02 — Go deeper</div>
+      <h2 class="title">Superconductivity: zero resistance</h2>
+      <p class="dek">Cool certain materials down far enough, and their electrical resistance doesn't just drop — it vanishes completely.</p>
+
+      <p class="body-text">Below a material-specific <b>critical temperature</b>, some materials become superconductors: current can flow through them with <b>zero</b> energy loss, no voltage source required to keep it going. This isn't "very low resistance" — it's exactly zero, a genuinely different physical state. MRI machines, particle accelerators, and maglev trains all depend on this effect.</p>
+
+      <div class="card">
+        <div class="slider-field">
+          <label>TEMPERATURE <b id="superTempLabel">293 K (room temp)</b></label>
+          <input type="range" id="superTempSlider" min="0" max="293" value="293" step="1" aria-label="Temperature in kelvin">
+        </div>
+        <div class="power-readout-row">
+          <div class="power-stat"><div class="v" id="superResistVal">1.7×10⁻⁸ Ω·m</div><div class="l">Resistivity</div></div>
+        </div>
+        <div class="super-state-banner" id="superStateBanner">Normal conductor — resistance present</div>
+        <p class="body-text" style="margin:12px 0 0 0; text-align:center;">Drag toward 0 K — most real superconductors transition somewhere around 4–130 K depending on the material.</p>
+      </div>
+
+      <p class="body-text">This example uses a simplified critical temperature of <b>90 K</b> (close to real "high-temperature" superconductors like YBCO) to make the transition visible on this slider — most metals need to get far colder than that, near absolute zero, before superconducting.</p>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="conductors-sub-semiconductors"><span class="arrow">←</span> Back: Semiconductors</button>
+      </div>
+    </section>
+
     <section id="circuitdef" hidden>
       <div class="eyebrow">// 03 — Foundations · Ch. 1</div>
       <h2 class="title">What are electric circuits?</h2>
@@ -437,13 +652,97 @@
           <span style="font-size:12.5px; color:var(--muted-2);" id="circuitSwitchLabel">Circuit open — no current flows</span>
         </div>
       </div>
+      <h3>Go deeper</h3>
+      <p class="body-text" style="margin-bottom:14px;">Optional detours — expand "What is a circuit?" in the sidebar, or jump in below.</p>
+      <div class="subsection-links" data-subsection-chapter="circuitdef">
+        <button class="subsection-link-card" data-target="circuitdef-sub-short">
+          <span class="sl-title">Short circuits: when the load gets skipped</span>
+          <span class="sl-desc">Why "no resistance" is dangerous — interactive current spike demo</span>
+        </button>
+        <button class="subsection-link-card" data-target="circuitdef-sub-schematic">
+          <span class="sl-title">Reading a schematic</span>
+          <span class="sl-desc">The standard symbols every circuit diagram uses</span>
+        </button>
+      </div>
+
       <div class="mini-quiz-block" data-quiz-section="circuitdef">
         <div class="mini-quiz-header">Quick check</div>
         <div class="mini-quiz-container"></div>
       </div>
     </section>
 
-    <!-- 01 FUNDAMENTALS -->
+    <!-- 03a SUBSECTION: What is a circuit? → Short circuits -->
+    <section id="circuitdef-sub-short" hidden class="subsection-page" data-parent-chapter="circuitdef">
+      <button class="sub-back-link" data-back-to="circuitdef">← Back to What is a circuit?</button>
+      <div class="eyebrow">// 03 — Go deeper</div>
+      <h2 class="title">Short circuits: when the load gets skipped</h2>
+      <p class="dek">A closed loop is good. A closed loop with nothing to slow the current down is a problem.</p>
+
+      <p class="body-text">A <b>short circuit</b> happens when current finds a path around the load entirely — straight from one battery terminal back to the other through little more than wire. Since Ohm's law says <code class="inline">I = V/R</code>, and a bare wire's resistance is nearly zero, the current spikes toward enormous values almost instantly. That's where the heat, sparks, and melted insulation in "don't touch the two battery terminals with a paperclip" warnings come from.</p>
+
+      <div class="card">
+        <div class="slider-field">
+          <label>PATH RESISTANCE <b id="shortResistLabel">100 Ω (through the load)</b></label>
+          <input type="range" id="shortResistSlider" min="0" max="100" value="100" aria-label="Resistance of the current path in ohms">
+        </div>
+        <div class="power-readout-row">
+          <div class="power-stat"><div class="v" id="shortCurrentVal">0.09 A</div><div class="l">Current (9V ÷ R)</div></div>
+        </div>
+        <div class="short-heat-bar-track"><div class="short-heat-bar-fill" id="shortHeatBar"></div></div>
+        <p class="body-text" id="shortReadout" style="margin:10px 0 0 0; text-align:center;">Drag resistance toward 0 — watch current (and heat) climb without bound.</p>
+      </div>
+
+      <p class="body-text">This is exactly why fuses and circuit breakers exist: they're designed to break the loop automatically once current crosses a safe threshold, before wires overheat or a battery is damaged.</p>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="circuitdef-sub-schematic">Next: Reading a schematic <span class="arrow">→</span></button>
+      </div>
+    </section>
+
+    <!-- 03b SUBSECTION: What is a circuit? → Schematic symbols -->
+    <section id="circuitdef-sub-schematic" hidden class="subsection-page" data-parent-chapter="circuitdef">
+      <button class="sub-back-link" data-back-to="circuitdef">← Back to What is a circuit?</button>
+      <div class="eyebrow">// 03 — Go deeper</div>
+      <h2 class="title">Reading a schematic</h2>
+      <p class="dek">A schematic isn't a photo of the circuit — it's a map of the connections, using a shared symbol language.</p>
+
+      <p class="body-text">Every schematic uses the same handful of standard symbols regardless of who drew it or what software made it. Learning to recognize these on sight is what lets you read any circuit diagram — from a simple LED project to a professional datasheet.</p>
+
+      <div class="card schematic-ref-card">
+        <div class="schem-row">
+          <svg viewBox="0 0 60 30" class="schem-icon"><line x1="0" y1="15" x2="18" y2="15" stroke="var(--text)" stroke-width="2"/><line x1="18" y1="5" x2="18" y2="25" stroke="var(--text)" stroke-width="2.5"/><line x1="26" y1="8" x2="26" y2="22" stroke="var(--text)" stroke-width="1.5"/><line x1="26" y1="15" x2="60" y2="15" stroke="var(--text)" stroke-width="2"/></svg>
+          <span class="schem-name">Battery / DC source</span>
+          <span class="schem-desc">Long line = positive, short line = negative</span>
+        </div>
+        <div class="schem-row">
+          <svg viewBox="0 0 60 30" class="schem-icon"><line x1="0" y1="15" x2="18" y2="15" stroke="var(--text)" stroke-width="2"/><rect x="18" y="7" width="24" height="16" fill="none" stroke="var(--text)" stroke-width="2"/><line x1="42" y1="15" x2="60" y2="15" stroke="var(--text)" stroke-width="2"/></svg>
+          <span class="schem-name">Resistor</span>
+          <span class="schem-desc">A rectangle (or zig-zag in older diagrams)</span>
+        </div>
+        <div class="schem-row">
+          <svg viewBox="0 0 60 30" class="schem-icon"><line x1="0" y1="15" x2="20" y2="15" stroke="var(--text)" stroke-width="2"/><path d="M20,4 L20,26 L38,15 Z" fill="none" stroke="var(--text)" stroke-width="2"/><line x1="38" y1="4" x2="38" y2="26" stroke="var(--text)" stroke-width="2"/><line x1="38" y1="15" x2="60" y2="15" stroke="var(--text)" stroke-width="2"/></svg>
+          <span class="schem-name">LED / diode</span>
+          <span class="schem-desc">Triangle points in the direction current flows</span>
+        </div>
+        <div class="schem-row">
+          <svg viewBox="0 0 60 30" class="schem-icon"><line x1="0" y1="15" x2="22" y2="15" stroke="var(--text)" stroke-width="2"/><line x1="22" y1="15" x2="38" y2="4" stroke="var(--text)" stroke-width="2"/><circle cx="22" cy="15" r="2.5" fill="var(--text)"/><circle cx="38" cy="15" r="2.5" fill="var(--text)"/><line x1="38" y1="15" x2="60" y2="15" stroke="var(--text)" stroke-width="2"/></svg>
+          <span class="schem-name">Switch</span>
+          <span class="schem-desc">A gap the circuit can open or close</span>
+        </div>
+        <div class="schem-row">
+          <svg viewBox="0 0 60 30" class="schem-icon"><line x1="30" y1="0" x2="30" y2="16" stroke="var(--text)" stroke-width="2"/><line x1="18" y1="16" x2="42" y2="16" stroke="var(--text)" stroke-width="2"/><line x1="21" y1="21" x2="39" y2="21" stroke="var(--text)" stroke-width="2"/><line x1="24" y1="26" x2="36" y2="26" stroke="var(--text)" stroke-width="2"/></svg>
+          <span class="schem-name">Ground</span>
+          <span class="schem-desc">The circuit's shared reference point (0V)</span>
+        </div>
+      </div>
+
+      <p class="body-text">Wires are simply straight lines; a dot where two lines cross means they're electrically connected, while a crossing with no dot means the wires pass over each other without connecting — a small detail that trips up a lot of beginners.</p>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="circuitdef-sub-short"><span class="arrow">←</span> Back: Short circuits</button>
+      </div>
+    </section>
+
     <section id="fundamentals" hidden>
       <div class="eyebrow">// 04 — Foundations · Ch. 1</div>
       <h2 class="title">Voltage and current</h2>
@@ -483,13 +782,94 @@
         <span class="ic">!</span>
         <p>Never open or probe anything plugged directly into a wall outlet. All the projects in this guide use low-voltage DC (batteries, USB, or a benchtop supply under 12V), which is safe to touch.</p>
       </div>
+      <h3>Go deeper</h3>
+      <p class="body-text" style="margin-bottom:14px;">Optional detours — expand "Voltage & current" in the sidebar, or jump in below.</p>
+      <div class="subsection-links" data-subsection-chapter="fundamentals">
+        <button class="subsection-link-card" data-target="fundamentals-sub-waterworks">
+          <span class="sl-title">The water analogy, taken further</span>
+          <span class="sl-desc">Interactive pipe: adjust pressure and width, watch flow respond</span>
+        </button>
+        <button class="subsection-link-card" data-target="fundamentals-sub-acdc">
+          <span class="sl-title">AC and DC, drawn as waveforms</span>
+          <span class="sl-desc">Animated waveform comparison — see the actual shape of each signal</span>
+        </button>
+      </div>
+
       <div class="mini-quiz-block" data-quiz-section="fundamentals">
         <div class="mini-quiz-header">Quick check</div>
         <div class="mini-quiz-container"></div>
       </div>
     </section>
 
-    <!-- 05 RESISTANCE -->
+    <!-- 04a SUBSECTION: Voltage & current → Water analogy -->
+    <section id="fundamentals-sub-waterworks" hidden class="subsection-page" data-parent-chapter="fundamentals">
+      <button class="sub-back-link" data-back-to="fundamentals">← Back to Voltage & current</button>
+      <div class="eyebrow">// 04 — Go deeper</div>
+      <h2 class="title">The water analogy, taken further</h2>
+      <p class="dek">Pressure, pipe width, and flow rate map onto voltage, resistance, and current almost perfectly. Adjust both and watch how flow actually responds.</p>
+
+      <p class="body-text">The analogy holds because both systems obey the same shape of relationship: flow depends on push, divided by restriction. Increase the pressure (voltage) and flow (current) goes up. Widen the pipe — lower the resistance — and flow goes up too, for the same pressure. This is Ohm's law, wearing a plumbing costume.</p>
+
+      <div class="card">
+        <div class="water-pipe-stage">
+          <svg viewBox="0 0 380 140" id="waterPipeSvg">
+            <rect x="10" y="55" width="360" height="30" rx="8" fill="var(--surface)" stroke="#2A3846" stroke-width="1.5"/>
+            <rect id="waterPipeNarrow" x="140" y="55" width="100" height="30" fill="var(--surface)" stroke="#2A3846" stroke-width="1.5"/>
+            <g id="waterFlowGroup"></g>
+            <text x="20" y="30" fill="var(--muted-2)" font-family="JetBrains Mono" font-size="10">PUMP</text>
+            <text x="330" y="30" fill="var(--muted-2)" font-family="JetBrains Mono" font-size="10">OUT</text>
+          </svg>
+        </div>
+        <div class="slider-field">
+          <label>PRESSURE (VOLTAGE) <b id="waterPressureLabel">5 V</b></label>
+          <input type="range" id="waterPressureSlider" min="1" max="12" value="5" aria-label="Pressure, representing voltage">
+        </div>
+        <div class="slider-field" style="margin-top:10px;">
+          <label>PIPE WIDTH — inverse of resistance <b id="waterWidthLabel">Medium</b></label>
+          <input type="range" id="waterWidthSlider" min="1" max="3" step="1" value="2" aria-label="Pipe width, representing inverse of resistance">
+        </div>
+        <div class="power-readout-row">
+          <div class="power-stat"><div class="v" id="waterFlowVal">2.5 A</div><div class="l">Flow (current)</div></div>
+        </div>
+      </div>
+
+      <p class="body-text">One place the analogy breaks down: water can compress and pool, but in a simple DC circuit, current is the same at every point around the loop at any instant — there's no "backing up" the way water can pool behind a narrow point.</p>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="fundamentals-sub-acdc">Next: AC and DC waveforms <span class="arrow">→</span></button>
+      </div>
+    </section>
+
+    <!-- 04b SUBSECTION: Voltage & current → AC/DC waveforms -->
+    <section id="fundamentals-sub-acdc" hidden class="subsection-page" data-parent-chapter="fundamentals">
+      <button class="sub-back-link" data-back-to="fundamentals">← Back to Voltage & current</button>
+      <div class="eyebrow">// 04 — Go deeper</div>
+      <h2 class="title">AC and DC, drawn as waveforms</h2>
+      <p class="dek">"Direct" and "alternating" describe a shape over time — seeing that shape makes the difference click instantly.</p>
+
+      <p class="body-text">Plot voltage against time and DC draws a flat, steady line — always positive, never changing (ignoring brief startup transients). AC instead draws a smooth wave that rises, falls, crosses zero, and reverses direction, over and over, many times per second. In the US, wall power alternates at 60 Hz — 60 full cycles every second.</p>
+
+      <div class="card">
+        <div class="waveform-toggle-row">
+          <button class="charge-btn wf-toggle active" id="wfDcBtn" data-wf="dc">DC</button>
+          <button class="charge-btn wf-toggle" id="wfAcBtn" data-wf="ac">AC</button>
+        </div>
+        <svg viewBox="0 0 380 140" id="waveformSvg">
+          <line x1="10" y1="70" x2="370" y2="70" stroke="#263241" stroke-width="1"/>
+          <path id="waveformPath" d="" fill="none" stroke="var(--trace)" stroke-width="2.5"/>
+          <text x="14" y="18" fill="var(--muted-2)" font-family="JetBrains Mono" font-size="10">+V</text>
+          <text x="14" y="128" fill="var(--muted-2)" font-family="JetBrains Mono" font-size="10">−V</text>
+        </svg>
+        <p class="body-text" id="waveformCaption" style="text-align:center; margin-top:6px;">DC: a flat line — constant voltage, one direction, forever.</p>
+      </div>
+
+      <p class="body-text">Every project in this course uses DC because it's simple, predictable, and safe at low voltages — but AC is what makes long-distance power transmission efficient, which is why it's what comes out of the wall.</p>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="fundamentals-sub-waterworks"><span class="arrow">←</span> Back: Water analogy</button>
+      </div>
+    </section>
+
     <section id="resistance" hidden>
       <div class="eyebrow">// 05 — Foundations · Ch. 1</div>
       <h2 class="title">Resistance, on its own</h2>
@@ -511,13 +891,83 @@
         <span class="ic" style="color:var(--trace);">i</span>
         <p style="color:var(--muted-2);">Superconductors are real materials that drop to essentially <b style="color:var(--text)">zero</b> resistance at extremely low temperatures — current can flow through them without any voltage source maintaining it, in principle forever.</p>
       </div>
+      <h3>Go deeper</h3>
+      <p class="body-text" style="margin-bottom:14px;">Optional detours — expand "Resistance" in the sidebar, or jump in below.</p>
+      <div class="subsection-links" data-subsection-chapter="resistance">
+        <button class="subsection-link-card" data-target="resistance-sub-materials">
+          <span class="sl-title">Comparing real materials</span>
+          <span class="sl-desc">Interactive resistivity comparison across common metals and insulators</span>
+        </button>
+        <button class="subsection-link-card" data-target="resistance-sub-tempco">
+          <span class="sl-title">Temperature and resistance</span>
+          <span class="sl-desc">Why a hot wire resists more — interactive heating slider</span>
+        </button>
+      </div>
+
       <div class="mini-quiz-block" data-quiz-section="resistance">
         <div class="mini-quiz-header">Quick check</div>
         <div class="mini-quiz-container"></div>
       </div>
     </section>
 
-    <!-- 06 PRACTICAL CIRCUITS -->
+    <!-- 05a SUBSECTION: Resistance → Comparing materials -->
+    <section id="resistance-sub-materials" hidden class="subsection-page" data-parent-chapter="resistance">
+      <button class="sub-back-link" data-back-to="resistance">← Back to Resistance</button>
+      <div class="eyebrow">// 05 — Go deeper</div>
+      <h2 class="title">Comparing real materials</h2>
+      <p class="dek">"Resistivity" is a material's intrinsic resistance per unit length and thickness — independent of how you cut or shape it.</p>
+
+      <p class="body-text">Two wires of the same length and thickness, made of different metals, can have wildly different resistance. This is <b>resistivity</b> (symbol ρ, measured in ohm-meters) — a fixed property of the material itself, separate from length and thickness, which you choose when you design the wire.</p>
+
+      <div class="card">
+        <div class="resistivity-bars" id="resistivityBars">
+          <div class="rb-row"><span class="rb-label">Silver</span><div class="rb-track"><div class="rb-fill" style="width:2%; background:var(--trace);"></div></div><span class="rb-val">1.59×10⁻⁸ Ω·m</span></div>
+          <div class="rb-row"><span class="rb-label">Copper</span><div class="rb-track"><div class="rb-fill" style="width:2.4%; background:var(--trace);"></div></div><span class="rb-val">1.68×10⁻⁸ Ω·m</span></div>
+          <div class="rb-row"><span class="rb-label">Gold</span><div class="rb-track"><div class="rb-fill" style="width:3.5%; background:var(--copper);"></div></div><span class="rb-val">2.44×10⁻⁸ Ω·m</span></div>
+          <div class="rb-row"><span class="rb-label">Aluminum</span><div class="rb-track"><div class="rb-fill" style="width:3.9%; background:var(--copper);"></div></div><span class="rb-val">2.65×10⁻⁸ Ω·m</span></div>
+          <div class="rb-row"><span class="rb-label">Iron</span><div class="rb-track"><div class="rb-fill" style="width:14%; background:var(--copper);"></div></div><span class="rb-val">9.7×10⁻⁸ Ω·m</span></div>
+          <div class="rb-row"><span class="rb-label">Glass</span><div class="rb-track"><div class="rb-fill" style="width:100%; background:var(--danger);"></div></div><span class="rb-val">~10¹² Ω·m</span></div>
+        </div>
+        <p class="body-text" style="margin-top:12px;">Bar length is on a compressed scale to fit conductors and glass on one chart — in reality, glass's resistivity is roughly a <b>trillion trillion</b> times higher than silver's.</p>
+      </div>
+
+      <p class="body-text">This is why silver — not copper — is technically the best conductor, but copper wins for wiring anyway: it's far cheaper and only slightly worse, which matters enormously at the scale power grids are built.</p>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="resistance-sub-tempco">Next: Temperature and resistance <span class="arrow">→</span></button>
+      </div>
+    </section>
+
+    <!-- 05b SUBSECTION: Resistance → Temperature coefficient -->
+    <section id="resistance-sub-tempco" hidden class="subsection-page" data-parent-chapter="resistance">
+      <button class="sub-back-link" data-back-to="resistance">← Back to Resistance</button>
+      <div class="eyebrow">// 05 — Go deeper</div>
+      <h2 class="title">Temperature and resistance</h2>
+      <p class="dek">Heat up a metal wire and its resistance climbs — a real effect with real consequences for anything that runs hot.</p>
+
+      <p class="body-text">In most metals, heating the material makes atoms vibrate more, which gets in the way of moving electrons more often — resistance rises. This is why a light bulb's filament (which glows red-hot) has noticeably higher resistance running than it does cold, and why high-power electronics need cooling: rising resistance from heat can create a feedback loop of even more heat.</p>
+
+      <div class="card">
+        <div class="slider-field">
+          <label>WIRE TEMPERATURE <b id="tempcoLabel">20°C (room temp)</b></label>
+          <input type="range" id="tempcoSlider" min="20" max="300" value="20" aria-label="Wire temperature in celsius">
+        </div>
+        <div class="power-readout-row">
+          <div class="power-stat"><div class="v" id="tempcoResistVal">1.00×</div><div class="l">Resistance, relative to 20°C</div></div>
+        </div>
+        <svg viewBox="0 0 380 90" id="tempcoWireSvg">
+          <line x1="20" y1="45" x2="360" y2="45" id="tempcoWireLine" stroke="#8B9AAB" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+        <p class="body-text" style="margin-top:8px; text-align:center;">The wire's glow shifts as temperature rises — resistance and heat feed each other.</p>
+      </div>
+
+      <p class="body-text">This behavior is called a <b>positive temperature coefficient</b>. A few special materials do the opposite (resistance drops as they heat up) — those are called <b>NTC</b> (negative temperature coefficient) materials, and they're used deliberately in some sensors and inrush-current limiters.</p>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="resistance-sub-materials"><span class="arrow">←</span> Back: Comparing materials</button>
+      </div>
+    </section>
+
     <section id="practical" hidden>
       <div class="eyebrow">// 06 — Foundations · Ch. 1</div>
       <h2 class="title">Voltage and current in a practical circuit</h2>
@@ -535,9 +985,56 @@
         <p class="body-text">Voltage left for the resistor to drop: <code class="inline">9V − 2V = 7V</code>.</p>
         <p class="body-text" style="margin-bottom:0;">Current through the circuit: <code class="inline">I = V / R = 7V / 470Ω ≈ 14.9mA</code> — right in the LED's safe range. This is the exact calculation the Ohm's law calculator a few pages back does live.</p>
       </div>
+      <h3>Go deeper</h3>
+      <p class="body-text" style="margin-bottom:14px;">Optional detours — expand "practical" in the sidebar, or jump in below.</p>
+      <div class="subsection-links" data-subsection-chapter="practical">
+        <button class="subsection-link-card" data-target="practical-sub-currentlimit">
+          <span class="sl-title">Why every LED circuit needs a resistor, quantified</span>
+          <span class="sl-desc">Working through what happens with zero resistance in the loop</span>
+        </button>
+        <button class="subsection-link-card" data-target="practical-sub-multiple">
+          <span class="sl-title">Voltage drop across multiple components</span>
+          <span class="sl-desc">Extending the worked example to a series chain of more than one part</span>
+        </button>
+      </div>
       <div class="mini-quiz-block" data-quiz-section="practical">
         <div class="mini-quiz-header">Quick check</div>
         <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 06a SUBSECTION: practical -> Why every LED circuit needs a resistor, quantified -->
+    <section id="practical-sub-currentlimit" hidden class="subsection-page" data-parent-chapter="practical">
+      <button class="sub-back-link" data-back-to="practical">← Back to practical</button>
+      <div class="eyebrow">// 06 — Go deeper</div>
+      <h2 class="title">Why every LED circuit needs a resistor, quantified</h2>
+      <p class="dek">Working through what happens with zero resistance in the loop</p>
+
+      <p class="body-text">Plug Ohm's law's numbers in: with a 9V battery, an LED that only needs ~2V, and essentially 0Ω of resistance in a bare-wire path, the "extra" 7V has nowhere sensible to go — the circuit tries to push an enormous current to satisfy <code class="inline">I = V/R</code> as R approaches zero. In practice, the LED (or the battery, or the wire) fails first, well before that theoretical current is ever reached.</p>
+      <div class="warn-box">
+        <span class="ic">!</span>
+        <p>This is exactly what "short circuit" means in practice: not necessarily a wire touching another wire, but any path with resistance too low for the available voltage — an LED with no series resistor qualifies just as much as two bare wires touching.</p>
+      </div>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="practical-sub-multiple">Next: Voltage drop across multiple components <span class="arrow">→</span></button>
+      </div>
+    </section>
+
+    <!-- 06b SUBSECTION: practical -> Voltage drop across multiple components -->
+    <section id="practical-sub-multiple" hidden class="subsection-page" data-parent-chapter="practical">
+      <button class="sub-back-link" data-back-to="practical">← Back to practical</button>
+      <div class="eyebrow">// 06 — Go deeper</div>
+      <h2 class="title">Voltage drop across multiple components</h2>
+      <p class="dek">Extending the worked example to a series chain of more than one part</p>
+
+      <p class="body-text">The main lesson's example uses one resistor and one LED. Add a second resistor in series, and the same principle just splits three ways instead of two: the battery's total voltage divides across all three components, in proportion to each one's resistance (or, for the LED, its fixed forward-voltage requirement), and the leftover always sums back up to the full supply voltage.</p>
+      <div class="card">
+        <p class="body-text" style="margin-bottom:0;">9V battery → 220Ω resistor → 250Ω resistor → LED (2V) → back to battery. Voltage left for the two resistors together: <code class="inline">9V − 2V = 7V</code>. Current: <code class="inline">I = 7V / (220Ω+250Ω) = 7V / 470Ω ≈ 14.9mA</code> — identical math to the single-resistor case, just with resistances added first, exactly like the series rule from a later chapter.</p>
+      </div>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="practical-sub-currentlimit"><span class="arrow">←</span> Back: Why every LED circuit needs a resistor, quantified</button>
       </div>
     </section>
 
@@ -565,43 +1062,43 @@
 
       <div class="card">
         <div class="flow-compare">
-          <div class="flow-compare-card">
-            <span class="flow-compare-label" style="color:#FFB627;">Conventional current · + → −</span>
-            <svg class="flow-arrow-svg" viewBox="0 0 260 60" aria-hidden="true">
-              <defs>
-                <clipPath id="wireClipConv"><rect x="14" y="0" width="232" height="60"/></clipPath>
-              </defs>
-              <line x1="14" y1="30" x2="246" y2="30" stroke="#2A3846" stroke-width="10" stroke-linecap="round"/>
-              <text x="14" y="14" fill="#FFB627" font-family="JetBrains Mono" font-size="11" font-weight="700">+</text>
-              <text x="238" y="14" fill="#8B9AAB" font-family="JetBrains Mono" font-size="11" font-weight="700">−</text>
-              <g class="flow-conventional" clip-path="url(#wireClipConv)">
-                <polygon class="flow-particle" points="14,24 26,30 14,36" fill="currentColor"/>
-                <polygon class="flow-particle" points="14,24 26,30 14,36" fill="currentColor"/>
-                <polygon class="flow-particle" points="14,24 26,30 14,36" fill="currentColor"/>
-                <polygon class="flow-particle" points="14,24 26,30 14,36" fill="currentColor"/>
-              </g>
-            </svg>
-            <p style="font-size:12px; color:var(--muted-2); margin:6px 0 0;">Arrows point + to − — the textbook direction</p>
-          </div>
-          <div class="flow-compare-card">
-            <span class="flow-compare-label" style="color:var(--trace);">Electron flow · − → +</span>
-            <svg class="flow-arrow-svg" viewBox="0 0 260 60" aria-hidden="true">
-              <defs>
-                <clipPath id="wireClipElec"><rect x="14" y="0" width="232" height="60"/></clipPath>
-              </defs>
-              <line x1="14" y1="30" x2="246" y2="30" stroke="#2A3846" stroke-width="10" stroke-linecap="round"/>
-              <text x="14" y="14" fill="#FFB627" font-family="JetBrains Mono" font-size="11" font-weight="700">+</text>
-              <text x="238" y="14" fill="#8B9AAB" font-family="JetBrains Mono" font-size="11" font-weight="700">−</text>
-              <g class="flow-electron" clip-path="url(#wireClipElec)">
-                <circle class="flow-particle" cx="246" cy="30" r="5" fill="currentColor"/>
-                <circle class="flow-particle" cx="246" cy="30" r="5" fill="currentColor"/>
-                <circle class="flow-particle" cx="246" cy="30" r="5" fill="currentColor"/>
-                <circle class="flow-particle" cx="246" cy="30" r="5" fill="currentColor"/>
-              </g>
-            </svg>
-            <p style="font-size:12px; color:var(--muted-2); margin:6px 0 0;">Electrons actually travel − to + — the reverse</p>
-          </div>
-        </div>
+  <div class="flow-compare-card">
+    <span class="flow-compare-label" style="color:#FFB627;">Conventional current · + → −</span>
+    <svg class="flow-arrow-svg" viewBox="0 0 260 60" aria-hidden="true">
+      <defs>
+        <clipPath id="wireClipConv"><rect x="14" y="0" width="232" height="60"/></clipPath>
+      </defs>
+      <line x1="14" y1="30" x2="246" y2="30" stroke="#2A3846" stroke-width="10" stroke-linecap="round"/>
+      <text x="14" y="14" fill="#FFB627" font-family="JetBrains Mono" font-size="11" font-weight="700">+</text>
+      <text x="238" y="14" fill="#8B9AAB" font-family="JetBrains Mono" font-size="11" font-weight="700">−</text>
+      <g class="flow-conventional" clip-path="url(#wireClipConv)">
+        <polygon class="flow-particle" points="14,24 26,30 14,36" fill="currentColor"/>
+        <polygon class="flow-particle" points="14,24 26,30 14,36" fill="currentColor"/>
+        <polygon class="flow-particle" points="14,24 26,30 14,36" fill="currentColor"/>
+        <polygon class="flow-particle" points="14,24 26,30 14,36" fill="currentColor"/>
+      </g>
+    </svg>
+    <p style="font-size:12px; color:var(--muted-2); margin:6px 0 0;">Arrows point + to − — the textbook direction</p>
+  </div>
+  <div class="flow-compare-card">
+    <span class="flow-compare-label" style="color:var(--trace);">Electron flow · − → +</span>
+    <svg class="flow-arrow-svg" viewBox="0 0 260 60" aria-hidden="true">
+      <defs>
+        <clipPath id="wireClipElec"><rect x="14" y="0" width="232" height="60"/></clipPath>
+      </defs>
+      <line x1="14" y1="30" x2="246" y2="30" stroke="#2A3846" stroke-width="10" stroke-linecap="round"/>
+      <text x="14" y="14" fill="#FFB627" font-family="JetBrains Mono" font-size="11" font-weight="700">+</text>
+      <text x="238" y="14" fill="#8B9AAB" font-family="JetBrains Mono" font-size="11" font-weight="700">−</text>
+      <g class="flow-electron" clip-path="url(#wireClipElec)">
+        <circle class="flow-particle" cx="246" cy="30" r="5" fill="currentColor"/>
+        <circle class="flow-particle" cx="246" cy="30" r="5" fill="currentColor"/>
+        <circle class="flow-particle" cx="246" cy="30" r="5" fill="currentColor"/>
+        <circle class="flow-particle" cx="246" cy="30" r="5" fill="currentColor"/>
+      </g>
+    </svg>
+    <p style="font-size:12px; color:var(--muted-2); margin:6px 0 0;">Electrons actually travel − to + — the reverse</p>
+  </div>
+</div>
         <p class="body-text" style="margin-bottom:0; text-align:center; font-size:12.5px; color:var(--muted-2);">Same wire, same physics — two conventions pointing opposite ways.</p>
       </div>
 
@@ -609,9 +1106,53 @@
         <span class="ic">!</span>
         <p>This doesn't change any of the math. Whether you think of current as + → − or − → +, Ohm's law, circuit analysis, and every formula in this guide give identical answers — it's a labeling convention, not a physics disagreement. Stick with conventional current (+ → −) since that's what you'll see in class and in every datasheet.</p>
       </div>
+      <h3>Go deeper</h3>
+      <p class="body-text" style="margin-bottom:14px;">Optional detours — expand "flowdir" in the sidebar, or jump in below.</p>
+      <div class="subsection-links" data-subsection-chapter="flowdir">
+        <button class="subsection-link-card" data-target="flowdir-sub-why-matters">
+          <span class="sl-title">Does the direction convention ever actually matter?</span>
+          <span class="sl-desc">The rare cases where the choice of convention does show up</span>
+        </button>
+        <button class="subsection-link-card" data-target="flowdir-sub-history">
+          <span class="sl-title">Franklin's guess, and why it wasn't corrected</span>
+          <span class="sl-desc">The historical reason the 'wrong' convention became permanent</span>
+        </button>
+      </div>
       <div class="mini-quiz-block" data-quiz-section="flowdir">
         <div class="mini-quiz-header">Quick check</div>
         <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 07a SUBSECTION: flowdir -> Does the direction convention ever actually matter? -->
+    <section id="flowdir-sub-why-matters" hidden class="subsection-page" data-parent-chapter="flowdir">
+      <button class="sub-back-link" data-back-to="flowdir">← Back to flowdir</button>
+      <div class="eyebrow">// 07 — Go deeper</div>
+      <h2 class="title">Does the direction convention ever actually matter?</h2>
+      <p class="dek">The rare cases where the choice of convention does show up</p>
+
+      <p class="body-text">For almost everything in this guide — Ohm's law, series/parallel math, Kirchhoff's laws — the convention is purely cosmetic; the numbers come out identical either way. It becomes genuinely relevant in a few specific areas: semiconductor physics (where "electron flow" and "hole flow," a related but distinct concept, are both used to explain how transistors work), and in some magnetic-field right-hand-rule conventions, where getting the current direction backwards flips the predicted field direction.</p>
+      <div class="card">
+        <p class="body-text" style="margin-bottom:0;">For everyday circuit analysis and every calculator in this guide, conventional current (+ → −) is the only convention you need — the electron-flow detail is worth knowing exists, not worth switching to.</p>
+      </div>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="flowdir-sub-history">Next: Franklin's guess, and why it wasn't corrected <span class="arrow">→</span></button>
+      </div>
+    </section>
+
+    <!-- 07b SUBSECTION: flowdir -> Franklin's guess, and why it wasn't corrected -->
+    <section id="flowdir-sub-history" hidden class="subsection-page" data-parent-chapter="flowdir">
+      <button class="sub-back-link" data-back-to="flowdir">← Back to flowdir</button>
+      <div class="eyebrow">// 07 — Go deeper</div>
+      <h2 class="title">Franklin's guess, and why it wasn't corrected</h2>
+      <p class="dek">The historical reason the 'wrong' convention became permanent</p>
+
+      <p class="body-text">By the time J.J. Thomson discovered the electron in 1897 — more than a century after Franklin's original guess — the positive/negative naming convention was already deeply embedded in published physics, early circuit theory, and emerging electrical engineering practice. Flipping the convention at that point would have meant rewriting an enormous body of existing work and re-teaching an already-standardized system, for a change that (as covered in the main lesson) doesn't affect any of the actual math.</p>
+      <p class="body-text" style="margin-bottom:0;">So instead, the field kept Franklin's convention and simply added a footnote: current flows + to −, even though the electrons carrying it move the other way. That footnote is precisely what this chapter exists to explain.</p>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="flowdir-sub-why-matters"><span class="arrow">←</span> Back: Does the direction convention ever actually matter?</button>
       </div>
     </section>
 
@@ -678,9 +1219,57 @@
         </table>
         <p class="body-text" style="margin:12px 0 0 0;">Series example: current (I) is identical down its row since there's only one path. Voltage (E) is found per-component with Ohm's law, then added for the total. Resistance (R) adds directly. For parallel circuits, it's voltage (E) that stays identical across the row instead — current and conductance are what add up.</p>
       </div>
+      <h3>Go deeper</h3>
+      <p class="body-text" style="margin-bottom:14px;">Optional detours — expand "Series vs. parallel circuits" in the sidebar, or jump in below.</p>
+      <div class="subsection-links" data-subsection-chapter="circuits">
+        <button class="subsection-link-card" data-target="circuits-sub-equiv">
+          <span class="sl-title">Equivalent resistance, one step further</span>
+          <span class="sl-desc">Combining more than two resistors, and why parallel always drops below the smallest</span>
+        </button>
+        <button class="subsection-link-card" data-target="circuits-sub-why">
+          <span class="sl-title">Why parallel outlets don't dim each other</span>
+          <span class="sl-desc">The real-world reason your house wiring uses parallel, not series</span>
+        </button>
+      </div>
       <div class="mini-quiz-block" data-quiz-section="circuits">
         <div class="mini-quiz-header">Quick check</div>
         <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 10a SUBSECTION: Series vs. parallel circuits -> Equivalent resistance, one step further -->
+    <section id="circuits-sub-equiv" hidden class="subsection-page" data-parent-chapter="circuits">
+      <button class="sub-back-link" data-back-to="circuits">← Back to Series vs. parallel circuits</button>
+      <div class="eyebrow">// 10 — Go deeper</div>
+      <h2 class="title">Equivalent resistance, one step further</h2>
+      <p class="dek">Combining more than two resistors, and why parallel always drops below the smallest</p>
+
+      <p class="body-text">The pattern from two resistors extends to any number: for a series chain, just keep adding — <code class="inline">R_total = R1 + R2 + R3 + ...</code>. For a parallel group, the general formula is <code class="inline">1/R_total = 1/R1 + 1/R2 + 1/R3 + ...</code>. Note that adding more parallel branches always makes total resistance <b>go down</b>, never up — you're giving current more paths, so overall it's easier for current to flow.</p>
+      <div class="card">
+        <p class="body-text">Three 100Ω resistors in parallel: <code class="inline">1/R = 1/100 + 1/100 + 1/100 = 3/100</code>, so <code class="inline">R = 33.3Ω</code> — well below any single 100Ω resistor.</p>
+        <p class="body-text" style="margin-bottom:0;">A useful shortcut: for <i>n</i> identical resistors of value R in parallel, the total is simply <code class="inline">R / n</code>.</p>
+      </div>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="circuits-sub-why">Next: Why parallel outlets don't dim each other <span class="arrow">→</span></button>
+      </div>
+    </section>
+
+    <!-- 10b SUBSECTION: Series vs. parallel circuits -> Why parallel outlets don't dim each other -->
+    <section id="circuits-sub-why" hidden class="subsection-page" data-parent-chapter="circuits">
+      <button class="sub-back-link" data-back-to="circuits">← Back to Series vs. parallel circuits</button>
+      <div class="eyebrow">// 10 — Go deeper</div>
+      <h2 class="title">Why parallel outlets don't dim each other</h2>
+      <p class="dek">The real-world reason your house wiring uses parallel, not series</p>
+
+      <p class="body-text">Household outlets are wired in parallel specifically so every outlet sees the same ~120V (or 230V), independent of how many other things are plugged in nearby, and so one dead lamp doesn't kill the whole circuit. If outlets were wired in series like old Christmas lights, unplugging one appliance would cut power to everything downstream of it — and every device would have to share the same current.</p>
+      <div class="warn-box">
+        <span class="ic">!</span>
+        <p>This is also why adding more devices to one household circuit increases total current draw (parallel branches add current, not resistance) — enough devices on one breaker and you trip it, even though each device still sees full voltage.</p>
+      </div>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="circuits-sub-equiv"><span class="arrow">←</span> Back: Equivalent resistance, one step further</button>
       </div>
     </section>
 
@@ -723,10 +1312,54 @@
         <span class="ic">!</span>
         <p>Component failures are easier to reason about once you can see the circuit this way. An open resistor in a parallel group just removes that branch (the group's resistance rises); a short across a parallel group removes the whole group's resistance (drops to ~0Ω), which dumps extra voltage onto whatever's left in series with it.</p>
       </div>
+      <h3>Go deeper</h3>
+      <p class="body-text" style="margin-bottom:14px;">Optional detours — expand "Series-parallel combos" in the sidebar, or jump in below.</p>
+      <div class="subsection-links" data-subsection-chapter="seriesparallel">
+        <button class="subsection-link-card" data-target="seriesparallel-sub-ladder">
+          <span class="sl-title">Ladder networks: a common trap</span>
+          <span class="sl-desc">Why some circuits look series-parallel but aren't — and how to spot the difference</span>
+        </button>
+        <button class="subsection-link-card" data-target="seriesparallel-sub-order">
+          <span class="sl-title">Does reduction order matter?</span>
+          <span class="sl-desc">Reassuringly, no — any valid reduction path gets you the same answer</span>
+        </button>
+      </div>
 
       <div class="mini-quiz-block" data-quiz-section="seriesparallel">
         <div class="mini-quiz-header">Quick check</div>
         <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 11a SUBSECTION: Series-parallel combos -> Ladder networks: a common trap -->
+    <section id="seriesparallel-sub-ladder" hidden class="subsection-page" data-parent-chapter="seriesparallel">
+      <button class="sub-back-link" data-back-to="seriesparallel">← Back to Series-parallel combos</button>
+      <div class="eyebrow">// 11 — Go deeper</div>
+      <h2 class="title">Ladder networks: a common trap</h2>
+      <p class="dek">Why some circuits look series-parallel but aren't — and how to spot the difference</p>
+
+      <p class="body-text">Not every tangled-looking circuit reduces cleanly with series/parallel rules. A classic example is a <b>ladder network</b> or a <b>bridge circuit</b>, where a resistor connects two points that aren't a simple two-terminal group — there's no way to isolate a purely-series or purely-parallel chunk. These require more general tools like Kirchhoff's laws (next chapter) or nodal analysis, not just series/parallel reduction.</p>
+      <div class="card">
+        <p class="body-text" style="margin-bottom:0;">Quick test: if you can trace two clear endpoints for a group of resistors where current only enters and leaves at those two points, series/parallel reduction works. If a resistor bridges across the "middle" of the circuit, you likely need Kirchhoff's laws instead.</p>
+      </div>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="seriesparallel-sub-order">Next: Does reduction order matter? <span class="arrow">→</span></button>
+      </div>
+    </section>
+
+    <!-- 11b SUBSECTION: Series-parallel combos -> Does reduction order matter? -->
+    <section id="seriesparallel-sub-order" hidden class="subsection-page" data-parent-chapter="seriesparallel">
+      <button class="sub-back-link" data-back-to="seriesparallel">← Back to Series-parallel combos</button>
+      <div class="eyebrow">// 11 — Go deeper</div>
+      <h2 class="title">Does reduction order matter?</h2>
+      <p class="dek">Reassuringly, no — any valid reduction path gets you the same answer</p>
+
+      <p class="body-text">If a circuit has multiple independent series/parallel groups, you can reduce them in whatever order you like — start with whichever group looks simplest. The final equivalent resistance comes out identical either way, because each reduction step is just applying algebra to a piece of the circuit, and algebra doesn't care what order you do it in.</p>
+      <p class="body-text" style="margin-bottom:0;">This is genuinely useful on exams and on the bench: if a big combination circuit is intimidating, just find <i>any</i> resistor pair or chain that's clearly series or clearly parallel, collapse it, and repeat. Momentum matters more than a "correct" starting point.</p>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="seriesparallel-sub-ladder"><span class="arrow">←</span> Back: Ladder networks: a common trap</button>
       </div>
     </section>
 
@@ -767,9 +1400,53 @@
         <p class="body-text">Battery: 9V. Resistor 1 drops 3V. Resistor 2 drops 6V.</p>
         <p class="body-text" style="margin-bottom:0;"><code class="inline">9V = 3V + 6V</code> — the loop balances. This is exactly the math behind series voltage dividers.</p>
       </div>
+      <h3>Go deeper</h3>
+      <p class="body-text" style="margin-bottom:14px;">Optional detours — expand "Kirchhoff's laws" in the sidebar, or jump in below.</p>
+      <div class="subsection-links" data-subsection-chapter="kirchhoff">
+        <button class="subsection-link-card" data-target="kirchhoff-sub-kcl">
+          <span class="sl-title">Kirchhoff's Current Law, visually</span>
+          <span class="sl-desc">Why current in always equals current out at any junction</span>
+        </button>
+        <button class="subsection-link-card" data-target="kirchhoff-sub-kvl">
+          <span class="sl-title">Kirchhoff's Voltage Law, visually</span>
+          <span class="sl-desc">Why voltage around any closed loop always sums to zero</span>
+        </button>
+      </div>
       <div class="mini-quiz-block" data-quiz-section="kirchhoff">
         <div class="mini-quiz-header">Quick check</div>
         <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 12a SUBSECTION: Kirchhoff's laws -> Kirchhoff's Current Law, visually -->
+    <section id="kirchhoff-sub-kcl" hidden class="subsection-page" data-parent-chapter="kirchhoff">
+      <button class="sub-back-link" data-back-to="kirchhoff">← Back to Kirchhoff's laws</button>
+      <div class="eyebrow">// 12 — Go deeper</div>
+      <h2 class="title">Kirchhoff's Current Law, visually</h2>
+      <p class="dek">Why current in always equals current out at any junction</p>
+
+      <p class="body-text"><b>KCL</b> says the sum of currents entering a junction (node) equals the sum of currents leaving it. This isn't a special electrical rule — it's just conservation of charge: charge can't pile up or vanish at a wire junction, so whatever flows in has to flow back out somewhere.</p>
+      <div class="card">
+        <p class="body-text" style="margin-bottom:0;">A node with 3A flowing in from one wire and 1A flowing in from another must have exactly 4A flowing out through whatever wires remain — split however the resistances downstream dictate, but always summing to 4A.</p>
+      </div>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="kirchhoff-sub-kvl">Next: Kirchhoff's Voltage Law, visually <span class="arrow">→</span></button>
+      </div>
+    </section>
+
+    <!-- 12b SUBSECTION: Kirchhoff's laws -> Kirchhoff's Voltage Law, visually -->
+    <section id="kirchhoff-sub-kvl" hidden class="subsection-page" data-parent-chapter="kirchhoff">
+      <button class="sub-back-link" data-back-to="kirchhoff">← Back to Kirchhoff's laws</button>
+      <div class="eyebrow">// 12 — Go deeper</div>
+      <h2 class="title">Kirchhoff's Voltage Law, visually</h2>
+      <p class="dek">Why voltage around any closed loop always sums to zero</p>
+
+      <p class="body-text"><b>KVL</b> says that if you add up every voltage rise and every voltage drop as you trace a complete loop in a circuit, the total is zero. Think of it like elevation on a hike: if you start and end at the same point, all the uphill and downhill sections must cancel out — you can't end up net higher or lower than where you started.</p>
+      <p class="body-text" style="margin-bottom:0;">In practice: a battery's voltage rise around a loop must exactly equal the sum of all the voltage drops across every resistor in that loop. This is the formal justification behind the voltage-divider shortcut from the next chapter.</p>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="kirchhoff-sub-kcl"><span class="arrow">←</span> Back: Kirchhoff's Current Law, visually</button>
       </div>
     </section>
 
@@ -838,10 +1515,57 @@
         <p class="ohm-formula" style="text-align:center;">I<sub>1</sub> = I<sub>total</sub> × (R<sub>2</sub> / (R<sub>1</sub> + R<sub>2</sub>))</p>
         <p class="body-text" style="text-align:center; margin-bottom:0;">Notice R2 (the <i>other</i> branch's resistance) is on top — the branch with less resistance gets more of the current.</p>
       </div>
+      <h3>Go deeper</h3>
+      <p class="body-text" style="margin-bottom:14px;">Optional detours — expand "Voltage & current dividers" in the sidebar, or jump in below.</p>
+      <div class="subsection-links" data-subsection-chapter="dividers">
+        <button class="subsection-link-card" data-target="dividers-sub-loading">
+          <span class="sl-title">Loading effects: why the tap voltage sags</span>
+          <span class="sl-desc">What actually happens when you connect a load to a divider's output</span>
+        </button>
+        <button class="subsection-link-card" data-target="dividers-sub-sensors">
+          <span class="sl-title">Dividers as sensor circuits</span>
+          <span class="sl-desc">How a photoresistor or thermistor turns into a readable voltage</span>
+        </button>
+      </div>
 
       <div class="mini-quiz-block" data-quiz-section="dividers">
         <div class="mini-quiz-header">Quick check</div>
         <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 13a SUBSECTION: Voltage & current dividers -> Loading effects: why the tap voltage sags -->
+    <section id="dividers-sub-loading" hidden class="subsection-page" data-parent-chapter="dividers">
+      <button class="sub-back-link" data-back-to="dividers">← Back to Voltage & current dividers</button>
+      <div class="eyebrow">// 13 — Go deeper</div>
+      <h2 class="title">Loading effects: why the tap voltage sags</h2>
+      <p class="dek">What actually happens when you connect a load to a divider's output</p>
+
+      <p class="body-text">The clean voltage-divider formula assumes nothing is drawn from the tap point. Connect a real load (like an LED or a sensor) there, and that load acts as a third resistor in parallel with the bottom resistor — which changes the effective R2 and pulls the output voltage down from the "ideal" calculated value.</p>
+      <div class="warn-box">
+        <span class="ic">!</span>
+        <p>Rule of thumb: keep the divider's own resistors at least 10× lower resistance than whatever load you're driving, so the loading effect stays small. For anything power-hungry, use a voltage regulator instead of a plain divider.</p>
+      </div>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="dividers-sub-sensors">Next: Dividers as sensor circuits <span class="arrow">→</span></button>
+      </div>
+    </section>
+
+    <!-- 13b SUBSECTION: Voltage & current dividers -> Dividers as sensor circuits -->
+    <section id="dividers-sub-sensors" hidden class="subsection-page" data-parent-chapter="dividers">
+      <button class="sub-back-link" data-back-to="dividers">← Back to Voltage & current dividers</button>
+      <div class="eyebrow">// 13 — Go deeper</div>
+      <h2 class="title">Dividers as sensor circuits</h2>
+      <p class="dek">How a photoresistor or thermistor turns into a readable voltage</p>
+
+      <p class="body-text">Many sensors (photoresistors, thermistors, flex sensors) aren't voltage sources themselves — they just change resistance with light, heat, or bend. Pair one with a fixed resistor in a voltage divider, and now light or temperature translates directly into a voltage an Arduino's analog input can read.</p>
+      <div class="card">
+        <p class="body-text" style="margin-bottom:0;">A photoresistor (LDR) on top and a fixed 10kΩ resistor on the bottom: more light → lower LDR resistance → less voltage drop across the LDR → higher voltage at the tap. This exact pattern shows up constantly in beginner sensor projects.</p>
+      </div>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="dividers-sub-loading"><span class="arrow">←</span> Back: Loading effects: why the tap voltage sags</button>
       </div>
     </section>
 
@@ -866,9 +1590,54 @@
         <div class="card"><p class="body-text" style="margin:0;"><b style="color:var(--text)">Capacitors can store a charge</b> even after power is removed. Some can still shock you minutes or hours later.</p></div>
         <div class="card"><p class="body-text" style="margin:0;"><b style="color:var(--text)">Dry hands, dry surroundings.</b> Wet skin has dramatically lower resistance, which allows dangerously higher current for the same voltage.</p></div>
       </div>
+      <h3>Go deeper</h3>
+      <p class="body-text" style="margin-bottom:14px;">Optional detours — expand "Electrical safety" in the sidebar, or jump in below.</p>
+      <div class="subsection-links" data-subsection-chapter="safety">
+        <button class="subsection-link-card" data-target="safety-sub-ohm-body">
+          <span class="sl-title">Ohm's law and the human body</span>
+          <span class="sl-desc">The actual numbers behind why low voltage is safe and wall power isn't</span>
+        </button>
+        <button class="subsection-link-card" data-target="safety-sub-ground">
+          <span class="sl-title">What grounding actually protects you from</span>
+          <span class="sl-desc">The role of the ground wire and GFCI outlets in real wiring</span>
+        </button>
+      </div>
       <div class="mini-quiz-block" data-quiz-section="safety">
         <div class="mini-quiz-header">Quick check</div>
         <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 14a SUBSECTION: Electrical safety -> Ohm's law and the human body -->
+    <section id="safety-sub-ohm-body" hidden class="subsection-page" data-parent-chapter="safety">
+      <button class="sub-back-link" data-back-to="safety">← Back to Electrical safety</button>
+      <div class="eyebrow">// 14 — Go deeper</div>
+      <h2 class="title">Ohm's law and the human body</h2>
+      <p class="dek">The actual numbers behind why low voltage is safe and wall power isn't</p>
+
+      <p class="body-text">Dry skin has resistance in the tens of thousands of ohms. Run that through Ohm's law with a 9V battery: <code class="inline">I = 9V / 20,000Ω ≈ 0.45mA</code> — far below the roughly 1mA threshold where a shock even becomes perceptible. Wet skin can drop resistance to as low as 1,000Ω; the same wall-power voltage through that much lower resistance produces current well into dangerous territory.</p>
+      <div class="warn-box">
+        <span class="ic">!</span>
+        <p>This is the whole reason the "current, not voltage, is what injures" rule holds: the same voltage can be harmless or lethal depending entirely on the resistance of the path current takes through you.</p>
+      </div>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="safety-sub-ground">Next: What grounding actually protects you from <span class="arrow">→</span></button>
+      </div>
+    </section>
+
+    <!-- 14b SUBSECTION: Electrical safety -> What grounding actually protects you from -->
+    <section id="safety-sub-ground" hidden class="subsection-page" data-parent-chapter="safety">
+      <button class="sub-back-link" data-back-to="safety">← Back to Electrical safety</button>
+      <div class="eyebrow">// 14 — Go deeper</div>
+      <h2 class="title">What grounding actually protects you from</h2>
+      <p class="dek">The role of the ground wire and GFCI outlets in real wiring</p>
+
+      <p class="body-text">The ground wire in household wiring gives fault current a low-resistance path back to the panel instead of through a person who touches a faulty appliance. If a live wire accidentally touches a metal appliance case, ground gives that current somewhere safe to go — usually tripping a breaker instantly rather than waiting for a person to become that path.</p>
+      <p class="body-text" style="margin-bottom:0;"><b>GFCI outlets</b> (common near sinks and outdoors) go further: they constantly compare current going out on the hot wire versus current returning on neutral. Any mismatch — even a tiny one, meaning current is leaking somewhere it shouldn't (like through a person) — trips the outlet in milliseconds.</p>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="safety-sub-ohm-body"><span class="arrow">←</span> Back: Ohm's law and the human body</button>
       </div>
     </section>
 
@@ -911,9 +1680,53 @@
       </div>
 
       <p class="body-text" style="margin-top:16px;">Reading a resistor as <code class="inline">4.7k</code> means 4,700 Ω. A capacitor marked <code class="inline">100n</code> means 0.0000001 farads — this is exactly why the prefix shorthand exists; nobody wants to write or read that many zeros.</p>
+      <h3>Go deeper</h3>
+      <p class="body-text" style="margin-bottom:14px;">Optional detours — expand "Scientific notation & prefixes" in the sidebar, or jump in below.</p>
+      <div class="subsection-links" data-subsection-chapter="scinotation">
+        <button class="subsection-link-card" data-target="scinotation-sub-sci">
+          <span class="sl-title">Scientific notation itself, refreshed</span>
+          <span class="sl-desc">The a × 10^n form that metric prefixes are shorthand for</span>
+        </button>
+        <button class="subsection-link-card" data-target="scinotation-sub-errors">
+          <span class="sl-title">Common unit mistakes to watch for</span>
+          <span class="sl-desc">The prefix mix-ups that quietly produce wrong answers</span>
+        </button>
+      </div>
       <div class="mini-quiz-block" data-quiz-section="scinotation">
         <div class="mini-quiz-header">Quick check</div>
         <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 15a SUBSECTION: Scientific notation & prefixes -> Scientific notation itself, refreshed -->
+    <section id="scinotation-sub-sci" hidden class="subsection-page" data-parent-chapter="scinotation">
+      <button class="sub-back-link" data-back-to="scinotation">← Back to Scientific notation & prefixes</button>
+      <div class="eyebrow">// 15 — Go deeper</div>
+      <h2 class="title">Scientific notation itself, refreshed</h2>
+      <p class="dek">The a × 10^n form that metric prefixes are shorthand for</p>
+
+      <p class="body-text">Metric prefixes are really just a shortcut for scientific notation. <code class="inline">4.7k</code> is shorthand for <code class="inline">4.7 × 10³</code>; <code class="inline">100n</code> is shorthand for <code class="inline">100 × 10⁻⁹</code>. Multiplying two values in scientific notation just means multiplying the leading numbers and adding the exponents — a habit worth having before combining values with wildly different prefixes.</p>
+      <div class="card">
+        <p class="body-text" style="margin-bottom:0;">Example: multiplying a 2kΩ resistor's value by a 3mA current (both from Ohm's law, <code class="inline">V=IR</code>) means <code class="inline">(2×10³) × (3×10⁻³) = 6×10⁰ = 6V</code> — the exponents cancel neatly since kilo and milli are opposite-sign powers of ten.</p>
+      </div>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="scinotation-sub-errors">Next: Common unit mistakes to watch for <span class="arrow">→</span></button>
+      </div>
+    </section>
+
+    <!-- 15b SUBSECTION: Scientific notation & prefixes -> Common unit mistakes to watch for -->
+    <section id="scinotation-sub-errors" hidden class="subsection-page" data-parent-chapter="scinotation">
+      <button class="sub-back-link" data-back-to="scinotation">← Back to Scientific notation & prefixes</button>
+      <div class="eyebrow">// 15 — Go deeper</div>
+      <h2 class="title">Common unit mistakes to watch for</h2>
+      <p class="dek">The prefix mix-ups that quietly produce wrong answers</p>
+
+      <p class="body-text">The most common error is mixing base units and prefixed units in the same calculation without converting first — plugging 4.7 (meaning 4.7kΩ) directly into a formula as if it were 4.7Ω. Always convert everything to base units (ohms, farads, volts, amps) before doing arithmetic, then convert the final answer back to a convenient prefix if needed.</p>
+      <p class="body-text" style="margin-bottom:0;">Another frequent trip-up: <b>m</b> (milli, ×10⁻³) versus <b>M</b> (mega, ×10⁶) — a nine-order-of-magnitude difference hiding in one capital letter. Datasheets are case-sensitive about this for exactly that reason.</p>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="scinotation-sub-sci"><span class="arrow">←</span> Back: Scientific notation itself, refreshed</button>
       </div>
     </section>
 
@@ -971,9 +1784,53 @@
         <span class="ic" style="color:var(--trace);">i</span>
         <p style="color:var(--muted-2);">Ohm's law assumes a <b style="color:var(--text)">linear</b> component — resistance that stays constant as voltage changes. Plain resistors behave this way. Diodes, LEDs, and lightbulb filaments don't: their resistance shifts with voltage and temperature, so their V–I graph curves instead of forming a straight line. You'll still use <code class="inline">V = I × R</code> for them, just with an R that isn't fixed.</p>
       </div>
+      <h3>Go deeper</h3>
+      <p class="body-text" style="margin-bottom:14px;">Optional detours — expand "Ohm's law calculator" in the sidebar, or jump in below.</p>
+      <div class="subsection-links" data-subsection-chapter="ohmslaw">
+        <button class="subsection-link-card" data-target="ohmslaw-sub-triangle">
+          <span class="sl-title">The Ohm's law triangle memory trick</span>
+          <span class="sl-desc">A quick visual for rearranging V = I × R under pressure</span>
+        </button>
+        <button class="subsection-link-card" data-target="ohmslaw-sub-nonlinear">
+          <span class="sl-title">When Ohm's law bends: non-linear components</span>
+          <span class="sl-desc">Why LEDs, diodes, and lightbulb filaments don't follow a straight line</span>
+        </button>
+      </div>
       <div class="mini-quiz-block" data-quiz-section="ohmslaw">
         <div class="mini-quiz-header">Quick check</div>
         <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 08a SUBSECTION: Ohm's law calculator -> The Ohm's law triangle memory trick -->
+    <section id="ohmslaw-sub-triangle" hidden class="subsection-page" data-parent-chapter="ohmslaw">
+      <button class="sub-back-link" data-back-to="ohmslaw">← Back to Ohm's law calculator</button>
+      <div class="eyebrow">// 08 — Go deeper</div>
+      <h2 class="title">The Ohm's law triangle memory trick</h2>
+      <p class="dek">A quick visual for rearranging V = I × R under pressure</p>
+
+      <p class="body-text">Draw a triangle with V on top, I and R on the bottom. Cover whichever value you're solving for, and the triangle shows you the formula: cover V, and I and R sit side-by-side (multiply them: <code class="inline">V = I × R</code>). Cover I or R, and the remaining two are stacked (divide them: <code class="inline">I = V/R</code> or <code class="inline">R = V/I</code>).</p>
+      <div class="card">
+        <p class="body-text" style="margin-bottom:0;">It's not new math — it's the exact same three formulas the calculator uses — but it's a fast way to avoid rearranging algebra from scratch during a quiz or on the bench.</p>
+      </div>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="ohmslaw-sub-nonlinear">Next: When Ohm's law bends: non-linear components <span class="arrow">→</span></button>
+      </div>
+    </section>
+
+    <!-- 08b SUBSECTION: Ohm's law calculator -> When Ohm's law bends: non-linear components -->
+    <section id="ohmslaw-sub-nonlinear" hidden class="subsection-page" data-parent-chapter="ohmslaw">
+      <button class="sub-back-link" data-back-to="ohmslaw">← Back to Ohm's law calculator</button>
+      <div class="eyebrow">// 08 — Go deeper</div>
+      <h2 class="title">When Ohm's law bends: non-linear components</h2>
+      <p class="dek">Why LEDs, diodes, and lightbulb filaments don't follow a straight line</p>
+
+      <p class="body-text">Ohm's law describes an <b>ideal resistor</b>, where R stays constant no matter what voltage you apply — plot V against I and you get a perfectly straight line. Real components like LEDs and diodes have resistance that changes with voltage and temperature, so their V-I curve bends instead. Below a certain "turn-on" voltage almost no current flows at all; past it, current rises steeply.</p>
+      <p class="body-text" style="margin-bottom:0;">This is exactly why LEDs need a current-limiting series resistor rather than being wired straight to a battery — without something linear in the loop, a small voltage increase can cause a large, potentially destructive current spike.</p>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="ohmslaw-sub-triangle"><span class="arrow">←</span> Back: The Ohm's law triangle memory trick</button>
       </div>
     </section>
 
@@ -1025,10 +1882,55 @@
 
       <h3>Why the wattage rating on a resistor matters</h3>
       <p class="body-text">Every resistor has a maximum power rating (often ¼W for small hobby resistors) — exceed it and the resistor overheats, drifts in value, or burns out entirely. Before wiring a circuit, it's worth a quick <code class="inline">P = I²R</code> check to confirm you're safely under that rating, especially with lower resistances or higher currents.</p>
+      <h3>Go deeper</h3>
+      <p class="body-text" style="margin-bottom:14px;">Optional detours — expand "Power in circuits" in the sidebar, or jump in below.</p>
+      <div class="subsection-links" data-subsection-chapter="power">
+        <button class="subsection-link-card" data-target="power-sub-heat">
+          <span class="sl-title">Where the power actually goes: heat</span>
+          <span class="sl-desc">Why resistors, wires, and chips get warm — and how that becomes a design constraint</span>
+        </button>
+        <button class="subsection-link-card" data-target="power-sub-efficiency">
+          <span class="sl-title">Power and efficiency in real designs</span>
+          <span class="sl-desc">Why engineers obsess over wasted watts, from phone chargers to motors</span>
+        </button>
+      </div>
 
       <div class="mini-quiz-block" data-quiz-section="power">
         <div class="mini-quiz-header">Quick check</div>
         <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 08ba SUBSECTION: Power in circuits -> Where the power actually goes: heat -->
+    <section id="power-sub-heat" hidden class="subsection-page" data-parent-chapter="power">
+      <button class="sub-back-link" data-back-to="power">← Back to Power in circuits</button>
+      <div class="eyebrow">// 08b — Go deeper</div>
+      <h2 class="title">Where the power actually goes: heat</h2>
+      <p class="dek">Why resistors, wires, and chips get warm — and how that becomes a design constraint</p>
+
+      <p class="body-text">In a plain resistor, essentially all dissipated power converts to heat — this is why resistors carry a power rating (like 1/4W) in addition to a resistance value. Exceed that rating and the resistor can overheat, drift in value, or fail outright. This is also why high-power circuits need heat sinks: metal fins that increase surface area so heat escapes into the air faster than it builds up.</p>
+      <div class="warn-box">
+        <span class="ic">!</span>
+        <p>Always check a resistor's power rating against <code class="inline">P = I²R</code> for its actual circuit, not just its resistance value — a resistor can have exactly the right resistance and still be the wrong part if it can't handle the wattage.</p>
+      </div>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="power-sub-efficiency">Next: Power and efficiency in real designs <span class="arrow">→</span></button>
+      </div>
+    </section>
+
+    <!-- 08bb SUBSECTION: Power in circuits -> Power and efficiency in real designs -->
+    <section id="power-sub-efficiency" hidden class="subsection-page" data-parent-chapter="power">
+      <button class="sub-back-link" data-back-to="power">← Back to Power in circuits</button>
+      <div class="eyebrow">// 08b — Go deeper</div>
+      <h2 class="title">Power and efficiency in real designs</h2>
+      <p class="dek">Why engineers obsess over wasted watts, from phone chargers to motors</p>
+
+      <p class="body-text">Any power that isn't delivered where it's useful is wasted, usually as heat — this is the basis of <b>efficiency</b>: useful power out divided by total power in. A phone charger that's 90% efficient turns 10% of the wall power into waste heat in the charger itself rather than into your phone's battery.</p>
+      <p class="body-text" style="margin-bottom:0;">This is also why long-distance power transmission uses very high voltage and low current: for the same delivered power (<code class="inline">P = IV</code>), lower current means dramatically less power wasted as heat in the transmission wires themselves (<code class="inline">P_loss = I²R</code> — current is squared, so keeping it small matters a lot).</p>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="power-sub-heat"><span class="arrow">←</span> Back: Where the power actually goes: heat</button>
       </div>
     </section>
 
@@ -1094,9 +1996,53 @@
           <span class="comp-tag">tool</span>
         </div>
       </div>
+      <h3>Go deeper</h3>
+      <p class="body-text" style="margin-bottom:14px;">Optional detours — expand "Component library" in the sidebar, or jump in below.</p>
+      <div class="subsection-links" data-subsection-chapter="library">
+        <button class="subsection-link-card" data-target="library-sub-datasheets">
+          <span class="sl-title">Reading a datasheet without getting lost</span>
+          <span class="sl-desc">The handful of numbers that actually matter on a first read</span>
+        </button>
+        <button class="subsection-link-card" data-target="library-sub-polarity">
+          <span class="sl-title">Polarity: the mistake every beginner makes once</span>
+          <span class="sl-desc">Which components care which way current flows, and why</span>
+        </button>
+      </div>
       <div class="mini-quiz-block" data-quiz-section="library">
         <div class="mini-quiz-header">Quick check</div>
         <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 16a SUBSECTION: Component library -> Reading a datasheet without getting lost -->
+    <section id="library-sub-datasheets" hidden class="subsection-page" data-parent-chapter="library">
+      <button class="sub-back-link" data-back-to="library">← Back to Component library</button>
+      <div class="eyebrow">// 16 — Go deeper</div>
+      <h2 class="title">Reading a datasheet without getting lost</h2>
+      <p class="dek">The handful of numbers that actually matter on a first read</p>
+
+      <p class="body-text">Datasheets look intimidating but you rarely need more than a few numbers on a first pass: the <b>absolute maximum ratings</b> (voltage/current limits you must never exceed), the <b>recommended operating conditions</b> (the safe zone to actually design in), and the <b>pinout diagram</b> (which pin does what). Everything else — detailed graphs, timing diagrams — is worth returning to only once those basics are locked in.</p>
+      <div class="card">
+        <p class="body-text" style="margin-bottom:0;">For an LED specifically: forward voltage (V_f), maximum forward current, and the pinout (which lead is anode vs. cathode) cover almost everything a beginner circuit needs.</p>
+      </div>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="library-sub-polarity">Next: Polarity: the mistake every beginner makes once <span class="arrow">→</span></button>
+      </div>
+    </section>
+
+    <!-- 16b SUBSECTION: Component library -> Polarity: the mistake every beginner makes once -->
+    <section id="library-sub-polarity" hidden class="subsection-page" data-parent-chapter="library">
+      <button class="sub-back-link" data-back-to="library">← Back to Component library</button>
+      <div class="eyebrow">// 16 — Go deeper</div>
+      <h2 class="title">Polarity: the mistake every beginner makes once</h2>
+      <p class="dek">Which components care which way current flows, and why</p>
+
+      <p class="body-text">Some components are <b>polarized</b> — they only work correctly (or safely) installed one direction. LEDs, electrolytic capacitors, and diodes are the classic offenders. An LED installed backwards simply won't light (it blocks current); an electrolytic capacitor installed backwards can actually be damaged or even vent/rupture, since its internal chemistry assumes one terminal stays positive.</p>
+      <p class="body-text" style="margin-bottom:0;">Resistors, by contrast, are <b>non-polarized</b> — current can flow through them either direction with identical behavior, which is why resistor packaging never marks a "+" side.</p>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="library-sub-datasheets"><span class="arrow">←</span> Back: Reading a datasheet without getting lost</button>
       </div>
     </section>
 
@@ -1156,10 +2102,57 @@
           <p style="font-size:12.5px; color:var(--muted-2); text-align:center; margin-top:6px;">Voltmeter: across the load, in parallel</p>
         </div>
       </div>
+      <h3>Go deeper</h3>
+      <p class="body-text" style="margin-bottom:14px;">Optional detours — expand "Meters" in the sidebar, or jump in below.</p>
+      <div class="subsection-links" data-subsection-chapter="meters">
+        <button class="subsection-link-card" data-target="meters-sub-ranges">
+          <span class="sl-title">Auto-ranging vs. manual ranging meters</span>
+          <span class="sl-desc">Why cheap meters make you guess a range, and nicer ones don't</span>
+        </button>
+        <button class="subsection-link-card" data-target="meters-sub-mistakes">
+          <span class="sl-title">The classic multimeter mistake: measuring current wrong</span>
+          <span class="sl-desc">Why ammeters must go in series, and what happens if you get it backwards</span>
+        </button>
+      </div>
 
       <div class="mini-quiz-block" data-quiz-section="meters">
         <div class="mini-quiz-header">Quick check</div>
         <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 17a SUBSECTION: Meters -> Auto-ranging vs. manual ranging meters -->
+    <section id="meters-sub-ranges" hidden class="subsection-page" data-parent-chapter="meters">
+      <button class="sub-back-link" data-back-to="meters">← Back to Meters</button>
+      <div class="eyebrow">// 17 — Go deeper</div>
+      <h2 class="title">Auto-ranging vs. manual ranging meters</h2>
+      <p class="dek">Why cheap meters make you guess a range, and nicer ones don't</p>
+
+      <p class="body-text">Older or budget multimeters require you to manually select a measurement range (like 200mV, 2V, 20V) before measuring — pick too low a range for the actual voltage and the meter simply reads "1" or overloads. <b>Auto-ranging</b> meters detect the magnitude automatically and pick the right range themselves, trading a small amount of measurement speed for a lot of convenience.</p>
+      <div class="card">
+        <p class="body-text" style="margin-bottom:0;">If you're using a manual-range meter and get a nonsense reading, the first thing to check isn't your circuit — it's whether you've selected a range that actually fits the value you're measuring.</p>
+      </div>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="meters-sub-mistakes">Next: The classic multimeter mistake: measuring current wrong <span class="arrow">→</span></button>
+      </div>
+    </section>
+
+    <!-- 17b SUBSECTION: Meters -> The classic multimeter mistake: measuring current wrong -->
+    <section id="meters-sub-mistakes" hidden class="subsection-page" data-parent-chapter="meters">
+      <button class="sub-back-link" data-back-to="meters">← Back to Meters</button>
+      <div class="eyebrow">// 17 — Go deeper</div>
+      <h2 class="title">The classic multimeter mistake: measuring current wrong</h2>
+      <p class="dek">Why ammeters must go in series, and what happens if you get it backwards</p>
+
+      <p class="body-text">A voltmeter measures across two points (in parallel) with very high internal resistance, so it barely disturbs the circuit. An ammeter must be placed <b>in series</b>, becoming part of the current's actual path, and it has very low internal resistance so it doesn't add meaningful resistance to the loop.</p>
+      <div class="warn-box">
+        <span class="ic">!</span>
+        <p>Accidentally using the meter's current-measuring probes to measure voltage (i.e., connecting it in parallel while set to measure amps) creates a near-short circuit through the meter's very low internal resistance — this is the single most common way to blow a multimeter's internal fuse.</p>
+      </div>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="meters-sub-ranges"><span class="arrow">←</span> Back: Auto-ranging vs. manual ranging meters</button>
       </div>
     </section>
 
@@ -1205,9 +2198,53 @@
       </div>
 
       <p class="body-text" style="margin-top:18px;">Memory trick for the color order: <b style="color:var(--text)">B</b>lack <b style="color:var(--text)">B</b>rown <b style="color:var(--text)">R</b>oy <b style="color:var(--text)">O</b>f <b style="color:var(--text)">Y</b>ork <b style="color:var(--text)">G</b>ave <b style="color:var(--text)">B</b>attle <b style="color:var(--text)">V</b>ain <b style="color:var(--text)">G</b>lorious <b style="color:var(--text)">W</b>ins — for 0 through 9.</p>
+      <h3>Go deeper</h3>
+      <p class="body-text" style="margin-bottom:14px;">Optional detours — expand "Resistor color decoder" in the sidebar, or jump in below.</p>
+      <div class="subsection-links" data-subsection-chapter="resistors">
+        <button class="subsection-link-card" data-target="resistors-sub-5band">
+          <span class="sl-title">5-band and 6-band resistors</span>
+          <span class="sl-desc">How higher-precision resistors encode a third significant digit</span>
+        </button>
+        <button class="subsection-link-card" data-target="resistors-sub-smd">
+          <span class="sl-title">Surface-mount resistors: numbers instead of colors</span>
+          <span class="sl-desc">Why tiny SMD resistors ditch color bands for a printed code</span>
+        </button>
+      </div>
       <div class="mini-quiz-block" data-quiz-section="resistors">
         <div class="mini-quiz-header">Quick check</div>
         <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 18a SUBSECTION: Resistor color decoder -> 5-band and 6-band resistors -->
+    <section id="resistors-sub-5band" hidden class="subsection-page" data-parent-chapter="resistors">
+      <button class="sub-back-link" data-back-to="resistors">← Back to Resistor color decoder</button>
+      <div class="eyebrow">// 18 — Go deeper</div>
+      <h2 class="title">5-band and 6-band resistors</h2>
+      <p class="dek">How higher-precision resistors encode a third significant digit</p>
+
+      <p class="body-text">The 4-band scheme (2 digits + multiplier + tolerance) is common but not universal. Precision resistors use a <b>5-band</b> code: 3 significant digits, then a multiplier, then tolerance — giving finer resolution than a 2-digit value could. A <b>6th band</b>, when present, indicates temperature coefficient (how much the resistance drifts with temperature).</p>
+      <div class="card">
+        <p class="body-text" style="margin-bottom:0;">Tolerance colors are also a useful tell: gold usually means ±5%, silver ±10%, and no 4th band at all means ±20% — while 5-band precision resistors commonly use brown (±1%) or red (±2%) for tolerance instead.</p>
+      </div>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="resistors-sub-smd">Next: Surface-mount resistors: numbers instead of colors <span class="arrow">→</span></button>
+      </div>
+    </section>
+
+    <!-- 18b SUBSECTION: Resistor color decoder -> Surface-mount resistors: numbers instead of colors -->
+    <section id="resistors-sub-smd" hidden class="subsection-page" data-parent-chapter="resistors">
+      <button class="sub-back-link" data-back-to="resistors">← Back to Resistor color decoder</button>
+      <div class="eyebrow">// 18 — Go deeper</div>
+      <h2 class="title">Surface-mount resistors: numbers instead of colors</h2>
+      <p class="dek">Why tiny SMD resistors ditch color bands for a printed code</p>
+
+      <p class="body-text">Surface-mount (SMD) resistors are often too small to print readable color bands on, so they use a numeric code instead — typically 3 or 4 digits printed directly on the tiny package. The last digit is the power-of-ten multiplier, and the preceding digits are the significant figures, following the exact same logic as the color code, just in a more compact form.</p>
+      <p class="body-text" style="margin-bottom:0;">A resistor marked <code class="inline">472</code> means "47, times 10²" = 4,700Ω = 4.7kΩ — the same value you'd decode from yellow-violet-red bands on a through-hole resistor.</p>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="resistors-sub-5band"><span class="arrow">←</span> Back: 5-band and 6-band resistors</button>
       </div>
     </section>
 
@@ -1255,9 +2292,54 @@
         <div class="card"><p style="font-size:13px; color:var(--muted-2);"><b style="color:var(--text)">Decoupling</b> — a small local charge reserve so a chip doesn't starve during current spikes.</p></div>
         <div class="card"><p style="font-size:13px; color:var(--muted-2);"><b style="color:var(--text)">Timing</b> — combined with a resistor, sets delays (like a classic 555-timer blink circuit).</p></div>
       </div>
+      <h3>Go deeper</h3>
+      <p class="body-text" style="margin-bottom:14px;">Optional detours — expand "Capacitors" in the sidebar, or jump in below.</p>
+      <div class="subsection-links" data-subsection-chapter="capacitors">
+        <button class="subsection-link-card" data-target="capacitors-sub-types">
+          <span class="sl-title">Ceramic vs. electrolytic vs. tantalum</span>
+          <span class="sl-desc">The three capacitor types you'll actually run into, and when each is used</span>
+        </button>
+        <button class="subsection-link-card" data-target="capacitors-sub-ac">
+          <span class="sl-title">Capacitors in AC circuits</span>
+          <span class="sl-desc">Why a capacitor blocks DC but 'passes' AC</span>
+        </button>
+      </div>
       <div class="mini-quiz-block" data-quiz-section="capacitors">
         <div class="mini-quiz-header">Quick check</div>
         <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 19a SUBSECTION: Capacitors -> Ceramic vs. electrolytic vs. tantalum -->
+    <section id="capacitors-sub-types" hidden class="subsection-page" data-parent-chapter="capacitors">
+      <button class="sub-back-link" data-back-to="capacitors">← Back to Capacitors</button>
+      <div class="eyebrow">// 19 — Go deeper</div>
+      <h2 class="title">Ceramic vs. electrolytic vs. tantalum</h2>
+      <p class="dek">The three capacitor types you'll actually run into, and when each is used</p>
+
+      <p class="body-text"><b>Ceramic capacitors</b> are small, non-polarized, and used for small values (pF–µF) like decoupling. <b>Electrolytic capacitors</b> are polarized, can store much larger values (µF–mF), and are used for bulk energy storage and power supply smoothing — but they must be installed the correct direction. <b>Tantalum capacitors</b> are also polarized and offer high capacitance in a small package, but are less tolerant of voltage spikes than electrolytics.</p>
+      <div class="warn-box">
+        <span class="ic">!</span>
+        <p>Because electrolytics and tantalums are polarized, reversing them isn't just "won't work" — it can cause internal damage, heating, or in extreme cases venting. Always match the marked "+" lead to the correct polarity in the circuit.</p>
+      </div>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="capacitors-sub-ac">Next: Capacitors in AC circuits <span class="arrow">→</span></button>
+      </div>
+    </section>
+
+    <!-- 19b SUBSECTION: Capacitors -> Capacitors in AC circuits -->
+    <section id="capacitors-sub-ac" hidden class="subsection-page" data-parent-chapter="capacitors">
+      <button class="sub-back-link" data-back-to="capacitors">← Back to Capacitors</button>
+      <div class="eyebrow">// 19 — Go deeper</div>
+      <h2 class="title">Capacitors in AC circuits</h2>
+      <p class="dek">Why a capacitor blocks DC but 'passes' AC</p>
+
+      <p class="body-text">A capacitor never actually lets current cross the gap between its plates — but in an AC circuit, the voltage is constantly reversing, so the capacitor is perpetually charging and discharging in alternating directions. From outside the capacitor, that looks like current is flowing continuously, even though nothing crosses the dielectric. This "AC passes, DC blocks" behavior is the basis of using capacitors as filters — separating AC signal components from a steady DC level.</p>
+      <p class="body-text" style="margin-bottom:0;">This links directly to the <b>RC time constant</b> from the main lesson: at low frequencies (slow voltage changes) a capacitor behaves more like it's blocking; at high frequencies it behaves more like it's passing current through.</p>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="capacitors-sub-types"><span class="arrow">←</span> Back: Ceramic vs. electrolytic vs. tantalum</button>
       </div>
     </section>
 
@@ -1271,21 +2353,29 @@
       <p class="body-text">Any wire carrying current generates a magnetic field around it (this is <b>electromagnetism</b>). Coil that wire into a loop, and the fields from each turn add together — more turns, or more current, means a stronger field. This is literally how an electromagnet works: wire wrapped around an iron core, energized by current.</p>
 
       <div class="magnet-sim card">
-        <div class="magnet-stage">
-          <svg viewBox="0 0 260 140" width="100%">
-            <rect x="110" y="30" width="40" height="80" rx="4" fill="#8B9AAB"/>
-            <g id="coilLines"></g>
-            <g id="fieldLines"></g>
-          </svg>
-        </div>
-        <div class="magnet-slider-row">
-          <span style="font-size:11px; font-family:'JetBrains Mono',monospace; color:var(--muted-2);">CURRENT</span>
-          <label for="magnetSlider" class="sr-only">Magnet distance from coil</label>
-          <input type="range" id="magnetSlider" min="0" max="100" value="0" aria-label="Magnet distance from coil">
-          <span style="font-size:11px; font-family:'JetBrains Mono',monospace; color:var(--trace);" id="magnetReadout">0%</span>
-        </div>
-        <p class="body-text" style="text-align:center; margin:0;">Drag the slider up — more current, more visible field lines and a stronger pull.</p>
-      </div>
+  <div class="magnet-stage">
+    <svg viewBox="0 0 320 180" width="100%">
+      <defs>
+        <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="var(--copper)" stop-opacity="0.5"/>
+          <stop offset="100%" stop-color="var(--copper)" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <circle id="coreGlowCircle" cx="160" cy="90" r="0" fill="url(#coreGlow)"/>
+      <g id="fieldLines"></g>
+      <rect x="140" y="35" width="40" height="110" rx="5" fill="#7C8AA0" stroke="#3A4A5A" stroke-width="1.5"/>
+      <g id="coilLines"></g>
+      <text x="160" y="165" text-anchor="middle" fill="var(--muted-2)" font-family="JetBrains Mono" font-size="9">IRON CORE</text>
+    </svg>
+  </div>
+  <div class="magnet-slider-row">
+    <span style="font-size:11px; font-family:'JetBrains Mono',monospace; color:var(--muted-2);">CURRENT</span>
+    <label for="magnetSlider" class="sr-only">Coil current</label>
+    <input type="range" id="magnetSlider" min="0" max="100" value="0" aria-label="Coil current">
+    <span style="font-size:11px; font-family:'JetBrains Mono',monospace; color:var(--trace);" id="magnetReadout">0%</span>
+  </div>
+  <p class="body-text" style="text-align:center; margin:0;">Drag the slider up — more current, denser field lines, stronger pull.</p>
+</div>
 
       <h3>Inductors: the electrical inertia component</h3>
       <p class="body-text">An inductor is just a coil of wire. Its defining behavior is opposing <b>changes</b> in current — not blocking current itself, like a resistor, but resisting a sudden change in it, storing energy in its magnetic field while current rises and releasing it while current falls. Measured in <b>henries (H)</b>.</p>
@@ -1296,9 +2386,53 @@
       </div>
 
       <p class="body-text" style="margin-top:16px;">This "resists change" behavior is why inductors show up in power supply filtering, motor circuits, and anywhere you need to smooth out sudden current spikes.</p>
+      <h3>Go deeper</h3>
+      <p class="body-text" style="margin-bottom:14px;">Optional detours — expand "Magnetism & inductors" in the sidebar, or jump in below.</p>
+      <div class="subsection-links" data-subsection-chapter="magnetism">
+        <button class="subsection-link-card" data-target="magnetism-sub-motor">
+          <span class="sl-title">How this becomes a motor</span>
+          <span class="sl-desc">From a current-carrying wire in a field to continuous rotation</span>
+        </button>
+        <button class="subsection-link-card" data-target="magnetism-sub-backemf">
+          <span class="sl-title">Inductors and the fight against current change</span>
+          <span class="sl-desc">Why inductors resist sudden change, and why that matters for switching circuits</span>
+        </button>
+      </div>
       <div class="mini-quiz-block" data-quiz-section="magnetism">
         <div class="mini-quiz-header">Quick check</div>
         <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 20a SUBSECTION: Magnetism & inductors -> How this becomes a motor -->
+    <section id="magnetism-sub-motor" hidden class="subsection-page" data-parent-chapter="magnetism">
+      <button class="sub-back-link" data-back-to="magnetism">← Back to Magnetism & inductors</button>
+      <div class="eyebrow">// 20 — Go deeper</div>
+      <h2 class="title">How this becomes a motor</h2>
+      <p class="dek">From a current-carrying wire in a field to continuous rotation</p>
+
+      <p class="body-text">A wire carrying current inside a magnetic field feels a force (this is the same physics as the electromagnet you just read about, run in reverse). Shape that wire into a loop mounted on an axle, keep it inside a fixed magnet's field, and that force becomes a torque that spins the loop. A commutator flips the current's direction at just the right moment each half-turn so the torque keeps pushing the same rotational direction instead of oscillating back and forth — and you have a basic DC motor.</p>
+      <div class="card">
+        <p class="body-text" style="margin-bottom:0;">A speaker uses the same underlying principle in reverse-ish form: an audio signal's changing current pushes a coil (attached to a cone) back and forth inside a fixed magnet, and that physical motion is what you hear as sound.</p>
+      </div>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="magnetism-sub-backemf">Next: Inductors and the fight against current change <span class="arrow">→</span></button>
+      </div>
+    </section>
+
+    <!-- 20b SUBSECTION: Magnetism & inductors -> Inductors and the fight against current change -->
+    <section id="magnetism-sub-backemf" hidden class="subsection-page" data-parent-chapter="magnetism">
+      <button class="sub-back-link" data-back-to="magnetism">← Back to Magnetism & inductors</button>
+      <div class="eyebrow">// 20 — Go deeper</div>
+      <h2 class="title">Inductors and the fight against current change</h2>
+      <p class="dek">Why inductors resist sudden change, and why that matters for switching circuits</p>
+
+      <p class="body-text">An <b>inductor</b> is just a coil of wire, and it stores energy in its magnetic field rather than in an electric field like a capacitor does. Any change in current through an inductor changes its magnetic field, which in turn generates a voltage (called <b>back-EMF</b>) that opposes that change — inductors resist sudden current changes the way capacitors resist sudden voltage changes.</p>
+      <p class="body-text" style="margin-bottom:0;">This matters practically: suddenly switching off current to an inductive load (like a motor or relay coil) can generate a large voltage spike as the field collapses — which is why such circuits often include a "flyback diode" to safely absorb that spike instead of letting it damage nearby components.</p>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="magnetism-sub-motor"><span class="arrow">←</span> Back: How this becomes a motor</button>
       </div>
     </section>
 
@@ -1338,9 +2472,53 @@
 <div>}</div>
       </div>
       <p class="body-text" style="margin-top:12px;"><code class="inline">setup()</code> runs once. <code class="inline">loop()</code> repeats forever — that's the pattern behind almost every Arduino sketch you'll write.</p>
+      <h3>Go deeper</h3>
+      <p class="body-text" style="margin-bottom:14px;">Optional detours — expand "Microcontrollers" in the sidebar, or jump in below.</p>
+      <div class="subsection-links" data-subsection-chapter="microcontrollers">
+        <button class="subsection-link-card" data-target="microcontrollers-sub-choose">
+          <span class="sl-title">Which board should you actually start with?</span>
+          <span class="sl-desc">A practical framework for picking between Arduino-family and Raspberry Pi-family boards</span>
+        </button>
+        <button class="subsection-link-card" data-target="microcontrollers-sub-clock">
+          <span class="sl-title">What 'clock speed' actually means for a microcontroller</span>
+          <span class="sl-desc">Why 16MHz sounds slow compared to a phone, but is plenty for most projects</span>
+        </button>
+      </div>
       <div class="mini-quiz-block" data-quiz-section="microcontrollers">
         <div class="mini-quiz-header">Quick check</div>
         <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 21a SUBSECTION: Microcontrollers -> Which board should you actually start with? -->
+    <section id="microcontrollers-sub-choose" hidden class="subsection-page" data-parent-chapter="microcontrollers">
+      <button class="sub-back-link" data-back-to="microcontrollers">← Back to Microcontrollers</button>
+      <div class="eyebrow">// 21 — Go deeper</div>
+      <h2 class="title">Which board should you actually start with?</h2>
+      <p class="dek">A practical framework for picking between Arduino-family and Raspberry Pi-family boards</p>
+
+      <p class="body-text">The short version: if the project is mostly about reading sensors and driving motors/LEDs in real time with simple, predictable timing, an <b>Arduino-style microcontroller</b> board is usually the better fit — it boots instantly, has no operating system to crash, and its timing is very deterministic. If the project needs a camera, internet connectivity, a display, or general-purpose computing, a <b>Raspberry Pi-style single-board computer</b> is the better fit — it's a full Linux computer that can also talk to the same kinds of sensors and pins.</p>
+      <div class="card">
+        <p class="body-text" style="margin-bottom:0;">Many serious projects use both together: a Pi for the "brains" (networking, logic, a display) paired with a microcontroller for the tight, real-time hardware control — communicating over serial, exactly like the next few chapters cover.</p>
+      </div>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="microcontrollers-sub-clock">Next: What 'clock speed' actually means for a microcontroller <span class="arrow">→</span></button>
+      </div>
+    </section>
+
+    <!-- 21b SUBSECTION: Microcontrollers -> What 'clock speed' actually means for a microcontroller -->
+    <section id="microcontrollers-sub-clock" hidden class="subsection-page" data-parent-chapter="microcontrollers">
+      <button class="sub-back-link" data-back-to="microcontrollers">← Back to Microcontrollers</button>
+      <div class="eyebrow">// 21 — Go deeper</div>
+      <h2 class="title">What 'clock speed' actually means for a microcontroller</h2>
+      <p class="dek">Why 16MHz sounds slow compared to a phone, but is plenty for most projects</p>
+
+      <p class="body-text">A microcontroller's clock speed (often 8–16MHz on hobbyist boards) determines how many basic instruction cycles it can execute per second — millions per second even at these "slow" speeds. It sounds tiny next to a phone's multi-gigahertz processor, but a microcontroller isn't running an operating system, apps, or a graphical display — it's usually running one small, focused program in a tight loop, and that's plenty fast for reading sensors and blinking LEDs many thousands of times per second.</p>
+      <p class="body-text" style="margin-bottom:0;">This tradeoff — simplicity and predictability over raw computing power — is exactly why microcontrollers stay relevant even as general-purpose computers get faster: for real-time hardware control, predictable timing often matters more than sheer speed.</p>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="microcontrollers-sub-choose"><span class="arrow">←</span> Back: Which board should you actually start with?</button>
       </div>
     </section>
 
@@ -1384,9 +2562,54 @@
 
       <h3>What a good joint looks like</h3>
       <p class="body-text">Shiny, smooth, and shaped like a small volcano cone around the lead — not a dull grey blob (cold joint) and not a giant ball (too much solder).</p>
+      <h3>Go deeper</h3>
+      <p class="body-text" style="margin-bottom:14px;">Optional detours — expand "Soldering basics" in the sidebar, or jump in below.</p>
+      <div class="subsection-links" data-subsection-chapter="soldering">
+        <button class="subsection-link-card" data-target="soldering-sub-joint">
+          <span class="sl-title">What a good solder joint actually looks like</span>
+          <span class="sl-desc">The visual cues that separate a solid connection from a 'cold joint'</span>
+        </button>
+        <button class="subsection-link-card" data-target="soldering-sub-desolder">
+          <span class="sl-title">Removing solder: desoldering basics</span>
+          <span class="sl-desc">How to safely undo a joint when you need to fix a mistake</span>
+        </button>
+      </div>
       <div class="mini-quiz-block" data-quiz-section="soldering">
         <div class="mini-quiz-header">Quick check</div>
         <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 22a SUBSECTION: Soldering basics -> What a good solder joint actually looks like -->
+    <section id="soldering-sub-joint" hidden class="subsection-page" data-parent-chapter="soldering">
+      <button class="sub-back-link" data-back-to="soldering">← Back to Soldering basics</button>
+      <div class="eyebrow">// 22 — Go deeper</div>
+      <h2 class="title">What a good solder joint actually looks like</h2>
+      <p class="dek">The visual cues that separate a solid connection from a 'cold joint'</p>
+
+      <p class="body-text">A good solder joint is shiny, smooth, and forms a small volcano-like cone around the lead — evidence the solder flowed and properly wetted both the component lead and the pad. A <b>cold joint</b> looks dull, grainy, or lumpy — usually caused by insufficient heat, movement before the solder cooled, or a dirty/oxidized surface — and it can carry an intermittent or unreliable connection even though it looks "connected" at a glance.</p>
+      <div class="warn-box">
+        <span class="ic">!</span>
+        <p>If a joint looks dull or cracked, the fix isn't to add more solder on top — it's to reheat the existing joint until the solder flows properly, then let it cool undisturbed.</p>
+      </div>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="soldering-sub-desolder">Next: Removing solder: desoldering basics <span class="arrow">→</span></button>
+      </div>
+    </section>
+
+    <!-- 22b SUBSECTION: Soldering basics -> Removing solder: desoldering basics -->
+    <section id="soldering-sub-desolder" hidden class="subsection-page" data-parent-chapter="soldering">
+      <button class="sub-back-link" data-back-to="soldering">← Back to Soldering basics</button>
+      <div class="eyebrow">// 22 — Go deeper</div>
+      <h2 class="title">Removing solder: desoldering basics</h2>
+      <p class="dek">How to safely undo a joint when you need to fix a mistake</p>
+
+      <p class="body-text">Two common tools handle this: a <b>solder sucker</b> (a spring-loaded plunger that vacuums up melted solder) and <b>desoldering braid/wick</b> (a copper mesh that wicks melted solder up into itself by capillary action). Either way, the process is the same: reheat the joint until the solder is fully molten, then apply the tool immediately before it re-solidifies.</p>
+      <p class="body-text" style="margin-bottom:0;">Patience matters more than force here — trying to yank a component free before the solder is fully melted is the most common way to damage a PCB pad or lift it off the board entirely.</p>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="soldering-sub-joint"><span class="arrow">←</span> Back: What a good solder joint actually looks like</button>
       </div>
     </section>
 
@@ -1425,9 +2648,53 @@
         <div class="card"><p style="font-size:13px; color:var(--muted-2);"><b style="color:var(--text)">Continuity</b> — beeps if there's a complete path. Great for checking wires and fuses.</p></div>
         <div class="card"><p style="font-size:13px; color:var(--muted-2);"><b style="color:var(--text)">Resistance (Ω)</b> — only measure this with power disconnected from the circuit.</p></div>
       </div>
+      <h3>Go deeper</h3>
+      <p class="body-text" style="margin-bottom:14px;">Optional detours — expand "Troubleshooting" in the sidebar, or jump in below.</p>
+      <div class="subsection-links" data-subsection-chapter="troubleshoot">
+        <button class="subsection-link-card" data-target="troubleshoot-sub-halfsplit">
+          <span class="sl-title">The half-split method for longer chains</span>
+          <span class="sl-desc">A faster way to isolate a fault in a long series of connections</span>
+        </button>
+        <button class="subsection-link-card" data-target="troubleshoot-sub-symptoms">
+          <span class="sl-title">Reading symptoms backwards to likely causes</span>
+          <span class="sl-desc">A quick-reference mapping of common failure symptoms to their usual culprits</span>
+        </button>
+      </div>
       <div class="mini-quiz-block" data-quiz-section="troubleshoot">
         <div class="mini-quiz-header">Quick check</div>
         <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 23a SUBSECTION: Troubleshooting -> The half-split method for longer chains -->
+    <section id="troubleshoot-sub-halfsplit" hidden class="subsection-page" data-parent-chapter="troubleshoot">
+      <button class="sub-back-link" data-back-to="troubleshoot">← Back to Troubleshooting</button>
+      <div class="eyebrow">// 23 — Go deeper</div>
+      <h2 class="title">The half-split method for longer chains</h2>
+      <p class="dek">A faster way to isolate a fault in a long series of connections</p>
+
+      <p class="body-text">Checking a long chain of connections one at a time is reliable but slow. The <b>half-split method</b> speeds this up: test the midpoint of the suspect path first. If it's good, the fault is in the second half; if it's bad, the fault is in the first half. Repeat on whichever half remains, and each test roughly halves the remaining search space — finding a fault in a 16-step chain takes about 4 tests instead of up to 16.</p>
+      <div class="card">
+        <p class="body-text" style="margin-bottom:0;">This is the same logic behind binary search in computer science — not a coincidence, since both are about efficiently narrowing down one unknown location within an ordered sequence.</p>
+      </div>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="troubleshoot-sub-symptoms">Next: Reading symptoms backwards to likely causes <span class="arrow">→</span></button>
+      </div>
+    </section>
+
+    <!-- 23b SUBSECTION: Troubleshooting -> Reading symptoms backwards to likely causes -->
+    <section id="troubleshoot-sub-symptoms" hidden class="subsection-page" data-parent-chapter="troubleshoot">
+      <button class="sub-back-link" data-back-to="troubleshoot">← Back to Troubleshooting</button>
+      <div class="eyebrow">// 23 — Go deeper</div>
+      <h2 class="title">Reading symptoms backwards to likely causes</h2>
+      <p class="dek">A quick-reference mapping of common failure symptoms to their usual culprits</p>
+
+      <p class="body-text">Certain symptoms point strongly toward certain causes, which is worth building intuition for before reaching for a multimeter at all. <b>Nothing happens at all</b> usually points to a power or ground problem. <b>Something works intermittently</b> usually points to a loose connection or cold solder joint rather than a dead component. <b>Something gets hot</b> usually points to a short circuit or a component installed backwards/wrong value.</p>
+      <p class="body-text" style="margin-bottom:0;">None of these are certainties — but starting your diagnostic path with the most statistically likely cause for the symptom you're seeing saves a lot of wasted measurement time.</p>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="troubleshoot-sub-halfsplit"><span class="arrow">←</span> Back: The half-split method for longer chains</button>
       </div>
     </section>
 
@@ -1474,9 +2741,53 @@
         <span class="ic" style="color:var(--trace);">i</span>
         <p style="color:var(--muted-2);">Hex (base 16, digits 0–9 then A–F) shows up constantly in embedded work because one hex digit maps to exactly 4 bits — <code class="inline" style="color:var(--trace);">0xFF</code> is a tidy way to write all-eight-bits-on (255) instead of <code class="inline" style="color:var(--trace);">0b11111111</code>.</p>
       </div>
+      <h3>Go deeper</h3>
+      <p class="body-text" style="margin-bottom:14px;">Optional detours — expand "Binary & bits" in the sidebar, or jump in below.</p>
+      <div class="subsection-links" data-subsection-chapter="binary">
+        <button class="subsection-link-card" data-target="binary-sub-conversion">
+          <span class="sl-title">Converting between binary and decimal by hand</span>
+          <span class="sl-desc">The place-value trick that makes binary math approachable</span>
+        </button>
+        <button class="subsection-link-card" data-target="binary-sub-hex">
+          <span class="sl-title">Hexadecimal: binary's shorthand</span>
+          <span class="sl-desc">Why programmers use base-16 instead of writing out long binary strings</span>
+        </button>
+      </div>
       <div class="mini-quiz-block" data-quiz-section="binary">
         <div class="mini-quiz-header">Quick check</div>
         <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 23a SUBSECTION: Binary & bits -> Converting between binary and decimal by hand -->
+    <section id="binary-sub-conversion" hidden class="subsection-page" data-parent-chapter="binary">
+      <button class="sub-back-link" data-back-to="binary">← Back to Binary & bits</button>
+      <div class="eyebrow">// 23 — Go deeper</div>
+      <h2 class="title">Converting between binary and decimal by hand</h2>
+      <p class="dek">The place-value trick that makes binary math approachable</p>
+
+      <p class="body-text">Just like decimal place values are powers of 10 (1s, 10s, 100s...), binary place values are powers of 2 (1s, 2s, 4s, 8s, 16s...). To convert binary to decimal, add up the place values wherever there's a 1. <code class="inline">1011</code> in binary is <code class="inline">8 + 0 + 2 + 1 = 11</code> in decimal.</p>
+      <div class="card">
+        <p class="body-text" style="margin-bottom:0;">To go the other direction, repeatedly divide the decimal number by 2 and record the remainders (0 or 1) — reading those remainders bottom-to-top gives you the binary value.</p>
+      </div>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="binary-sub-hex">Next: Hexadecimal: binary's shorthand <span class="arrow">→</span></button>
+      </div>
+    </section>
+
+    <!-- 23b SUBSECTION: Binary & bits -> Hexadecimal: binary's shorthand -->
+    <section id="binary-sub-hex" hidden class="subsection-page" data-parent-chapter="binary">
+      <button class="sub-back-link" data-back-to="binary">← Back to Binary & bits</button>
+      <div class="eyebrow">// 23 — Go deeper</div>
+      <h2 class="title">Hexadecimal: binary's shorthand</h2>
+      <p class="dek">Why programmers use base-16 instead of writing out long binary strings</p>
+
+      <p class="body-text"><b>Hexadecimal</b> (base 16, digits 0–9 then A–F) is popular in programming because each hex digit maps exactly to 4 binary bits — a full byte (8 bits) is always exactly 2 hex digits. This makes hex far more compact and readable than raw binary while still translating cleanly back to it, which is why memory addresses and color codes are so often written in hex.</p>
+      <p class="body-text" style="margin-bottom:0;">The byte <code class="inline">11110000</code> in binary is simply <code class="inline">F0</code> in hex — split it into two 4-bit chunks (1111 and 0000), and each chunk maps directly to one hex digit.</p>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="binary-sub-conversion"><span class="arrow">←</span> Back: Converting between binary and decimal by hand</button>
       </div>
     </section>
 
@@ -1520,9 +2831,53 @@
         <div class="card"><p style="font-size:13px; color:var(--muted-2);"><b style="color:var(--text)">NAND</b> — AND, then inverted. Famous because you can build any other gate from just NANDs.</p></div>
         <div class="card"><p style="font-size:13px; color:var(--muted-2);"><b style="color:var(--text)">NOR</b> — OR, then inverted.</p></div>
       </div>
+      <h3>Go deeper</h3>
+      <p class="body-text" style="margin-bottom:14px;">Optional detours — expand "Logic gates" in the sidebar, or jump in below.</p>
+      <div class="subsection-links" data-subsection-chapter="gates">
+        <button class="subsection-link-card" data-target="gates-sub-other-gates">
+          <span class="sl-title">NAND, NOR, XNOR: the inverted family</span>
+          <span class="sl-desc">The 'not' versions of the basic gates, and why NAND is special</span>
+        </button>
+        <button class="subsection-link-card" data-target="gates-sub-truth">
+          <span class="sl-title">Reading and building truth tables</span>
+          <span class="sl-desc">A systematic way to describe any gate's behavior for every possible input</span>
+        </button>
+      </div>
       <div class="mini-quiz-block" data-quiz-section="gates">
         <div class="mini-quiz-header">Quick check</div>
         <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 24a SUBSECTION: Logic gates -> NAND, NOR, XNOR: the inverted family -->
+    <section id="gates-sub-other-gates" hidden class="subsection-page" data-parent-chapter="gates">
+      <button class="sub-back-link" data-back-to="gates">← Back to Logic gates</button>
+      <div class="eyebrow">// 24 — Go deeper</div>
+      <h2 class="title">NAND, NOR, XNOR: the inverted family</h2>
+      <p class="dek">The 'not' versions of the basic gates, and why NAND is special</p>
+
+      <p class="body-text">Every basic gate has an inverted counterpart: <b>NAND</b> is AND followed by a NOT, <b>NOR</b> is OR followed by a NOT, and <b>XNOR</b> is XOR followed by a NOT. NAND deserves special mention: it's a <b>universal gate</b> — any other logic gate (AND, OR, NOT, XOR, anything) can be built using only NAND gates, wired together in different combinations. This is a big part of why real chip fabrication historically leaned so heavily on NAND-based designs.</p>
+      <div class="card">
+        <p class="body-text" style="margin-bottom:0;">A NOT gate is just a NAND gate with both inputs tied together — feed the same signal to both inputs of a NAND, and it behaves exactly like an inverter.</p>
+      </div>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="gates-sub-truth">Next: Reading and building truth tables <span class="arrow">→</span></button>
+      </div>
+    </section>
+
+    <!-- 24b SUBSECTION: Logic gates -> Reading and building truth tables -->
+    <section id="gates-sub-truth" hidden class="subsection-page" data-parent-chapter="gates">
+      <button class="sub-back-link" data-back-to="gates">← Back to Logic gates</button>
+      <div class="eyebrow">// 24 — Go deeper</div>
+      <h2 class="title">Reading and building truth tables</h2>
+      <p class="dek">A systematic way to describe any gate's behavior for every possible input</p>
+
+      <p class="body-text">A <b>truth table</b> lists every possible combination of inputs and the corresponding output — for a 2-input gate, that's exactly 4 rows (00, 01, 10, 11). This is the most precise, unambiguous way to define a gate's behavior, and it scales directly: a 3-input gate needs 8 rows, a 4-input gate needs 16, following <code class="inline">2ⁿ</code> for n inputs.</p>
+      <p class="body-text" style="margin-bottom:0;">Truth tables also work in reverse — given a desired behavior, you can build a truth table first, then design (or select) the gate combination that produces it. This is exactly the process used to design the half-adder in the next chapter.</p>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="gates-sub-other-gates"><span class="arrow">←</span> Back: NAND, NOR, XNOR: the inverted family</button>
       </div>
     </section>
 
@@ -1558,9 +2913,53 @@
         <span class="ic" style="color:var(--trace);">i</span>
         <p style="color:var(--muted-2);">This is called a <b style="color:var(--text)">half</b>-adder because it can't accept a carry-in from a previous column. Chain several together with an extra OR gate per stage (making each a "full adder") and you can add numbers of any width — which is precisely what happens inside a CPU's arithmetic logic unit.</p>
       </div>
+      <h3>Go deeper</h3>
+      <p class="body-text" style="margin-bottom:14px;">Optional detours — expand "Building a half-adder" in the sidebar, or jump in below.</p>
+      <div class="subsection-links" data-subsection-chapter="adder">
+        <button class="subsection-link-card" data-target="adder-sub-full">
+          <span class="sl-title">From half-adder to full-adder</span>
+          <span class="sl-desc">The extra input that makes multi-bit addition actually work</span>
+        </button>
+        <button class="subsection-link-card" data-target="adder-sub-cpu">
+          <span class="sl-title">How this scales up to a real processor</span>
+          <span class="sl-desc">The line from a two-bit adder to the arithmetic inside a CPU</span>
+        </button>
+      </div>
       <div class="mini-quiz-block" data-quiz-section="adder">
         <div class="mini-quiz-header">Quick check</div>
         <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 25a SUBSECTION: Building a half-adder -> From half-adder to full-adder -->
+    <section id="adder-sub-full" hidden class="subsection-page" data-parent-chapter="adder">
+      <button class="sub-back-link" data-back-to="adder">← Back to Building a half-adder</button>
+      <div class="eyebrow">// 25 — Go deeper</div>
+      <h2 class="title">From half-adder to full-adder</h2>
+      <p class="dek">The extra input that makes multi-bit addition actually work</p>
+
+      <p class="body-text">A half-adder handles one bit-pair but has no way to accept a carry-in from a previous column — which means it can't be chained to add multi-bit numbers on its own. A <b>full-adder</b> adds a third input (carry-in) alongside the two bits being added, so it can be chained: the carry-out of one full-adder feeds directly into the carry-in of the next, just like carrying a digit in long addition by hand.</p>
+      <div class="card">
+        <p class="body-text" style="margin-bottom:0;">A full-adder can actually be built from two half-adders plus one OR gate — a nice example of how small logic building blocks compose into progressively more capable ones.</p>
+      </div>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="adder-sub-cpu">Next: How this scales up to a real processor <span class="arrow">→</span></button>
+      </div>
+    </section>
+
+    <!-- 25b SUBSECTION: Building a half-adder -> How this scales up to a real processor -->
+    <section id="adder-sub-cpu" hidden class="subsection-page" data-parent-chapter="adder">
+      <button class="sub-back-link" data-back-to="adder">← Back to Building a half-adder</button>
+      <div class="eyebrow">// 25 — Go deeper</div>
+      <h2 class="title">How this scales up to a real processor</h2>
+      <p class="dek">The line from a two-bit adder to the arithmetic inside a CPU</p>
+
+      <p class="body-text">Chain enough full-adders together — one per bit position — and you get a <b>ripple-carry adder</b> capable of adding numbers of any bit-width, which is essentially what a CPU's Arithmetic Logic Unit (ALU) does for addition. Real ALUs add further logic on top (subtraction, comparisons, bitwise operations) but the core addition circuitry traces directly back to the same half-adder and full-adder building blocks you just built.</p>
+      <p class="body-text" style="margin-bottom:0;">This is the genuine, unbroken chain from the humble AND/OR/XOR gates a few chapters back to the arithmetic running inside every computer, phone, and microcontroller you'll ever program.</p>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="adder-sub-full"><span class="arrow">←</span> Back: From half-adder to full-adder</button>
       </div>
     </section>
 
@@ -1628,9 +3027,53 @@
       <h3>Try it: predict the output</h3>
       <p class="body-text">Read the code, guess what prints, then reveal the answer. This is exactly how you should read any unfamiliar sketch before uploading it.</p>
       <div id="ccContainer"></div>
+      <h3>Go deeper</h3>
+      <p class="body-text" style="margin-bottom:14px;">Optional detours — expand "Real C++ for Arduino" in the sidebar, or jump in below.</p>
+      <div class="subsection-links" data-subsection-chapter="cppbasics">
+        <button class="subsection-link-card" data-target="cppbasics-sub-types">
+          <span class="sl-title">Data types: why int, float, and bool aren't interchangeable</span>
+          <span class="sl-desc">What's actually happening in memory when you pick a variable type</span>
+        </button>
+        <button class="subsection-link-card" data-target="cppbasics-sub-scope">
+          <span class="sl-title">Variable scope: why your sketch behaves differently inside vs. outside loop()</span>
+          <span class="sl-desc">Global vs. local variables, and the bugs that come from mixing them up</span>
+        </button>
+      </div>
       <div class="mini-quiz-block" data-quiz-section="cppbasics">
         <div class="mini-quiz-header">Quick check</div>
         <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 26a SUBSECTION: Real C++ for Arduino -> Data types: why int, float, and bool aren't interchangeable -->
+    <section id="cppbasics-sub-types" hidden class="subsection-page" data-parent-chapter="cppbasics">
+      <button class="sub-back-link" data-back-to="cppbasics">← Back to Real C++ for Arduino</button>
+      <div class="eyebrow">// 26 — Go deeper</div>
+      <h2 class="title">Data types: why int, float, and bool aren't interchangeable</h2>
+      <p class="dek">What's actually happening in memory when you pick a variable type</p>
+
+      <p class="body-text">C++ is a <b>statically typed</b> language — every variable's type is fixed at compile time and determines exactly how many bytes of memory it uses and how those bytes are interpreted. An <code class="inline">int</code> stores a whole number in a fixed number of bytes; a <code class="inline">float</code> stores a decimal approximation using a completely different bit layout (sign, exponent, mantissa); a <code class="inline">bool</code> stores just true/false, typically still using a full byte on Arduino despite only needing one bit of information.</p>
+      <div class="card">
+        <p class="body-text" style="margin-bottom:0;">On memory-constrained boards like the Arduino Uno (only 2KB of RAM), choosing efficient types — like <code class="inline">byte</code> or <code class="inline">int</code> instead of always defaulting to <code class="inline">long</code> or <code class="inline">float</code> — genuinely matters for whether your sketch fits at all.</p>
+      </div>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="cppbasics-sub-scope">Next: Variable scope: why your sketch behaves differently inside vs. outside loop() <span class="arrow">→</span></button>
+      </div>
+    </section>
+
+    <!-- 26b SUBSECTION: Real C++ for Arduino -> Variable scope: why your sketch behaves differently inside vs. outside loop() -->
+    <section id="cppbasics-sub-scope" hidden class="subsection-page" data-parent-chapter="cppbasics">
+      <button class="sub-back-link" data-back-to="cppbasics">← Back to Real C++ for Arduino</button>
+      <div class="eyebrow">// 26 — Go deeper</div>
+      <h2 class="title">Variable scope: why your sketch behaves differently inside vs. outside loop()</h2>
+      <p class="dek">Global vs. local variables, and the bugs that come from mixing them up</p>
+
+      <p class="body-text">A variable declared outside any function (at the top of the sketch) is <b>global</b> — every function, including <code class="inline">setup()</code> and <code class="inline">loop()</code>, can read and change it, and it keeps its value between loop iterations. A variable declared inside a function is <b>local</b> — it only exists while that function is running, and it resets (or ceases to exist) each time the function is called again.</p>
+      <p class="body-text" style="margin-bottom:0;">This distinction explains a classic beginner bug: declaring a counter variable inside <code class="inline">loop()</code> means it resets to its initial value on every single pass, so it can never actually accumulate a count across iterations — it needs to be global instead.</p>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="cppbasics-sub-types"><span class="arrow">←</span> Back: Data types: why int, float, and bool aren't interchangeable</button>
       </div>
     </section>
 
@@ -1700,9 +3143,53 @@
         <span class="ic">!</span>
         <p>Notice this uses <code class="inline" style="color:#E8B4B4; border-color:#5A2A2A;">millis()</code>, not <code class="inline" style="color:#E8B4B4; border-color:#5A2A2A;">delay()</code>. A <code class="inline" style="color:#E8B4B4; border-color:#5A2A2A;">delay()</code> call freezes the entire chip — no sensors, no other logic — which is fine for a blink demo but breaks any real project doing more than one thing at once.</p>
       </div>
+      <h3>Go deeper</h3>
+      <p class="body-text" style="margin-bottom:14px;">Optional detours — expand "Digital I/O & debouncing" in the sidebar, or jump in below.</p>
+      <div class="subsection-links" data-subsection-chapter="digitalio">
+        <button class="subsection-link-card" data-target="digitalio-sub-pullup">
+          <span class="sl-title">Internal pull-ups: skipping the extra resistor</span>
+          <span class="sl-desc">Why INPUT_PULLUP exists and how it changes your wiring</span>
+        </button>
+        <button class="subsection-link-card" data-target="digitalio-sub-debounce-code">
+          <span class="sl-title">Debouncing in code vs. debouncing in hardware</span>
+          <span class="sl-desc">Two different fixes for the same mechanical bounce problem</span>
+        </button>
+      </div>
       <div class="mini-quiz-block" data-quiz-section="digitalio">
         <div class="mini-quiz-header">Quick check</div>
         <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 27a SUBSECTION: Digital I/O & debouncing -> Internal pull-ups: skipping the extra resistor -->
+    <section id="digitalio-sub-pullup" hidden class="subsection-page" data-parent-chapter="digitalio">
+      <button class="sub-back-link" data-back-to="digitalio">← Back to Digital I/O & debouncing</button>
+      <div class="eyebrow">// 27 — Go deeper</div>
+      <h2 class="title">Internal pull-ups: skipping the extra resistor</h2>
+      <p class="dek">Why INPUT_PULLUP exists and how it changes your wiring</p>
+
+      <p class="body-text">Rather than wiring an external pull-up resistor for every button, most microcontrollers include weak internal pull-up resistors you can enable in software with <code class="inline">pinMode(pin, INPUT_PULLUP)</code>. This flips the logic: the pin reads HIGH by default (pulled up internally) and reads LOW only when the button connects it to ground — which means your wiring gets simpler (button + one wire to ground, no external resistor needed) but your code needs to remember the logic is inverted from the "naive" wiring.</p>
+      <div class="card">
+        <p class="body-text" style="margin-bottom:0;">This is genuinely one of the most useful small tricks in Arduino programming: cleaner wiring, one less component per button, at the cost of remembering "pressed = LOW" instead of the more intuitive "pressed = HIGH."</p>
+      </div>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="digitalio-sub-debounce-code">Next: Debouncing in code vs. debouncing in hardware <span class="arrow">→</span></button>
+      </div>
+    </section>
+
+    <!-- 27b SUBSECTION: Digital I/O & debouncing -> Debouncing in code vs. debouncing in hardware -->
+    <section id="digitalio-sub-debounce-code" hidden class="subsection-page" data-parent-chapter="digitalio">
+      <button class="sub-back-link" data-back-to="digitalio">← Back to Digital I/O & debouncing</button>
+      <div class="eyebrow">// 27 — Go deeper</div>
+      <h2 class="title">Debouncing in code vs. debouncing in hardware</h2>
+      <p class="dek">Two different fixes for the same mechanical bounce problem</p>
+
+      <p class="body-text">The main lesson covers the problem — a mechanical switch's contacts physically bounce for a few milliseconds, registering as several rapid presses instead of one. There are two common fixes: a <b>hardware debounce</b> (adding a small capacitor across the switch to smooth out the bouncing electrically) or a <b>software debounce</b> (ignoring any additional button changes for a short window, typically 20–50ms, after the first detected change using <code class="inline">millis()</code>).</p>
+      <p class="body-text" style="margin-bottom:0;">Software debouncing is more common in beginner projects since it needs no extra parts — just a few extra lines of code tracking the last time the button state changed.</p>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="digitalio-sub-pullup"><span class="arrow">←</span> Back: Internal pull-ups: skipping the extra resistor</button>
       </div>
     </section>
 
@@ -1742,9 +3229,54 @@
       </div>
 
       <p class="body-text" style="margin-top:14px;">Serial isn't only for output — <code class="inline">Serial.read()</code> lets your sketch receive characters typed into the monitor, which is how you'll build simple command interfaces later (type <code class="inline">"on"</code> to trigger something, for instance).</p>
+      <h3>Go deeper</h3>
+      <p class="body-text" style="margin-bottom:14px;">Optional detours — expand "Serial communication" in the sidebar, or jump in below.</p>
+      <div class="subsection-links" data-subsection-chapter="serial">
+        <button class="subsection-link-card" data-target="serial-sub-baud">
+          <span class="sl-title">Baud rate: why both ends have to agree</span>
+          <span class="sl-desc">What happens when Serial.begin() doesn't match on both sides</span>
+        </button>
+        <button class="subsection-link-card" data-target="serial-sub-parsing">
+          <span class="sl-title">Reading structured data over serial</span>
+          <span class="sl-desc">Going beyond print statements to actually parse incoming commands</span>
+        </button>
+      </div>
       <div class="mini-quiz-block" data-quiz-section="serial">
         <div class="mini-quiz-header">Quick check</div>
         <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 28a SUBSECTION: Serial communication -> Baud rate: why both ends have to agree -->
+    <section id="serial-sub-baud" hidden class="subsection-page" data-parent-chapter="serial">
+      <button class="sub-back-link" data-back-to="serial">← Back to Serial communication</button>
+      <div class="eyebrow">// 28 — Go deeper</div>
+      <h2 class="title">Baud rate: why both ends have to agree</h2>
+      <p class="dek">What happens when Serial.begin() doesn't match on both sides</p>
+
+      <p class="body-text">The <b>baud rate</b> (like 9600 or 115200) sets how many bits per second are sent over the serial connection. Both the Arduino's code and the Serial Monitor's setting have to match exactly, because serial communication has no separate clock signal — the receiving side times each incoming bit based on the agreed rate. Mismatch the baud rate, and you'll see garbled characters instead of readable text, even though the connection itself is working fine.</p>
+      <div class="warn-box">
+        <span class="ic">!</span>
+        <p>If your Serial Monitor is printing gibberish, the very first thing to check is whether its baud rate dropdown matches the value inside your sketch's <code class="inline">Serial.begin(...)</code> call.</p>
+      </div>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="serial-sub-parsing">Next: Reading structured data over serial <span class="arrow">→</span></button>
+      </div>
+    </section>
+
+    <!-- 28b SUBSECTION: Serial communication -> Reading structured data over serial -->
+    <section id="serial-sub-parsing" hidden class="subsection-page" data-parent-chapter="serial">
+      <button class="sub-back-link" data-back-to="serial">← Back to Serial communication</button>
+      <div class="eyebrow">// 28 — Go deeper</div>
+      <h2 class="title">Reading structured data over serial</h2>
+      <p class="dek">Going beyond print statements to actually parse incoming commands</p>
+
+      <p class="body-text">Serial isn't just for one-way debugging output — it's a genuine two-way communication channel. Reading incoming data with <code class="inline">Serial.read()</code> or <code class="inline">Serial.parseInt()</code> lets a sketch respond to commands sent from a computer, like turning an LED on or off, or feeding in a target value for a control loop, all without touching the hardware.</p>
+      <p class="body-text" style="margin-bottom:0;">This is the same underlying mechanism used by more advanced tools that graph live sensor data or let a PC app control a robot in real time — it all traces back to reading and writing bytes over this same serial link.</p>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="serial-sub-baud"><span class="arrow">←</span> Back: Baud rate: why both ends have to agree</button>
       </div>
     </section>
 
@@ -1783,9 +3315,53 @@
 <div>shiftOut(dataPin, clockPin, MSBFIRST, 0b10110010);</div>
 <div>digitalWrite(latchPin, HIGH); <span class="cmt">// outputs update here, all at once</span></div>
       </div>
+      <h3>Go deeper</h3>
+      <p class="body-text" style="margin-bottom:14px;">Optional detours — expand "Shift registers" in the sidebar, or jump in below.</p>
+      <div class="subsection-links" data-subsection-chapter="shiftreg">
+        <button class="subsection-link-card" data-target="shiftreg-sub-spi-like">
+          <span class="sl-title">How shift registers 'speak' to the Arduino</span>
+          <span class="sl-desc">The three signals (data, clock, latch) that drive a 74HC595</span>
+        </button>
+        <button class="subsection-link-card" data-target="shiftreg-sub-chaining">
+          <span class="sl-title">Chaining multiple shift registers</span>
+          <span class="sl-desc">How 3 pins can control 16, 24, or more outputs</span>
+        </button>
+      </div>
       <div class="mini-quiz-block" data-quiz-section="shiftreg">
         <div class="mini-quiz-header">Quick check</div>
         <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 29a SUBSECTION: Shift registers -> How shift registers 'speak' to the Arduino -->
+    <section id="shiftreg-sub-spi-like" hidden class="subsection-page" data-parent-chapter="shiftreg">
+      <button class="sub-back-link" data-back-to="shiftreg">← Back to Shift registers</button>
+      <div class="eyebrow">// 29 — Go deeper</div>
+      <h2 class="title">How shift registers 'speak' to the Arduino</h2>
+      <p class="dek">The three signals (data, clock, latch) that drive a 74HC595</p>
+
+      <p class="body-text">A shift register like the 74HC595 uses just three pins from the Arduino: <b>data</b> (the bit value to shift in), <b>clock</b> (a pulse that shifts that bit into the register), and <b>latch</b> (a pulse that copies the shifted-in bits to the output pins all at once). Sending 8 bits, one at a time, with a clock pulse after each, fills the whole register — then one latch pulse updates all 8 outputs simultaneously, avoiding any visible flicker mid-update.</p>
+      <div class="card">
+        <p class="body-text" style="margin-bottom:0;">This 3-wire pattern (data, clock, latch) is a simplified relative of SPI, a communication protocol used constantly for talking to displays, sensors, and memory chips — learning it here pays off well beyond just driving LEDs.</p>
+      </div>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="shiftreg-sub-chaining">Next: Chaining multiple shift registers <span class="arrow">→</span></button>
+      </div>
+    </section>
+
+    <!-- 29b SUBSECTION: Shift registers -> Chaining multiple shift registers -->
+    <section id="shiftreg-sub-chaining" hidden class="subsection-page" data-parent-chapter="shiftreg">
+      <button class="sub-back-link" data-back-to="shiftreg">← Back to Shift registers</button>
+      <div class="eyebrow">// 29 — Go deeper</div>
+      <h2 class="title">Chaining multiple shift registers</h2>
+      <p class="dek">How 3 pins can control 16, 24, or more outputs</p>
+
+      <p class="body-text">Shift registers can be daisy-chained: the serial data-out pin of one 74HC595 connects to the data-in pin of the next, while clock and latch are shared across all of them. Shifting in 16 bits instead of 8 fills two chained registers instead of one — the same 3 Arduino pins now control double the outputs, and this scales to as many chips as you chain.</p>
+      <p class="body-text" style="margin-bottom:0;">This is exactly how projects with dozens of LEDs, or seven-segment display arrays, stay within a microcontroller's limited pin count.</p>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="shiftreg-sub-spi-like"><span class="arrow">←</span> Back: How shift registers 'speak' to the Arduino</button>
       </div>
     </section>
 
@@ -1827,9 +3403,53 @@
         <span class="ic" style="color:var(--trace);">i</span>
         <p style="color:var(--muted-2);">PWM isn't just for LEDs. The exact same principle drives DC motor speed control and generates the control pulses that servos read as a target angle.</p>
       </div>
+      <h3>Go deeper</h3>
+      <p class="body-text" style="margin-bottom:14px;">Optional detours — expand "PWM in depth" in the sidebar, or jump in below.</p>
+      <div class="subsection-links" data-subsection-chapter="pwm">
+        <button class="subsection-link-card" data-target="pwm-sub-frequency">
+          <span class="sl-title">PWM frequency and why it matters</span>
+          <span class="sl-desc">Why some PWM pins can cause an audible whine, and how to avoid it</span>
+        </button>
+        <button class="subsection-link-card" data-target="pwm-sub-dac">
+          <span class="sl-title">PWM vs. a true analog output (DAC)</span>
+          <span class="sl-desc">Why PWM is a clever workaround, not the same thing as real analog voltage</span>
+        </button>
+      </div>
       <div class="mini-quiz-block" data-quiz-section="pwm">
         <div class="mini-quiz-header">Quick check</div>
         <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 30a SUBSECTION: PWM in depth -> PWM frequency and why it matters -->
+    <section id="pwm-sub-frequency" hidden class="subsection-page" data-parent-chapter="pwm">
+      <button class="sub-back-link" data-back-to="pwm">← Back to PWM in depth</button>
+      <div class="eyebrow">// 30 — Go deeper</div>
+      <h2 class="title">PWM frequency and why it matters</h2>
+      <p class="dek">Why some PWM pins can cause an audible whine, and how to avoid it</p>
+
+      <p class="body-text">Beyond duty cycle, PWM also has a <b>frequency</b> — how many on/off cycles happen per second. Arduino Uno's default PWM frequency (about 490Hz or 980Hz depending on the pin) is fast enough that an LED's flicker is invisible to the eye, but slow enough that it can sometimes be audible as a faint whine when driving a motor or piezo speaker, since it falls within the range of human hearing.</p>
+      <div class="card">
+        <p class="body-text" style="margin-bottom:0;">Driving motors smoothly and silently generally wants a much higher PWM frequency (well above the ~20kHz upper edge of human hearing) — which is why dedicated motor driver boards often use their own higher-frequency PWM circuitry instead of a microcontroller's default pins.</p>
+      </div>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="pwm-sub-dac">Next: PWM vs. a true analog output (DAC) <span class="arrow">→</span></button>
+      </div>
+    </section>
+
+    <!-- 30b SUBSECTION: PWM in depth -> PWM vs. a true analog output (DAC) -->
+    <section id="pwm-sub-dac" hidden class="subsection-page" data-parent-chapter="pwm">
+      <button class="sub-back-link" data-back-to="pwm">← Back to PWM in depth</button>
+      <div class="eyebrow">// 30 — Go deeper</div>
+      <h2 class="title">PWM vs. a true analog output (DAC)</h2>
+      <p class="dek">Why PWM is a clever workaround, not the same thing as real analog voltage</p>
+
+      <p class="body-text">PWM never actually outputs a voltage between HIGH and LOW — it only ever outputs full HIGH or full LOW, rapidly. What makes it useful is that downstream devices (an LED, your eye, a motor's mechanical inertia) effectively "average" that rapid switching into something that behaves like an intermediate value. A true <b>DAC</b> (digital-to-analog converter) outputs a genuinely continuous voltage instead — more accurate for some applications (like audio), but requiring dedicated hardware most basic microcontrollers don't include on every pin.</p>
+      <p class="body-text" style="margin-bottom:0;">For LED brightness and simple motor speed control, PWM's "fake it with fast switching" approach is close enough that a real DAC is rarely worth the added complexity.</p>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="pwm-sub-frequency"><span class="arrow">←</span> Back: PWM frequency and why it matters</button>
       </div>
     </section>
 
@@ -1891,9 +3511,54 @@
         <span class="ic">!</span>
         <p>ISRs should be short. They interrupt everything else, including other interrupts — a slow ISR (or one with its own <code class="inline" style="color:#E8B4B4; border-color:#5A2A2A;">delay()</code>) can make the whole chip feel unresponsive. Set a flag and let <code class="inline" style="color:#E8B4B4; border-color:#5A2A2A;">loop()</code> handle the real work.</p>
       </div>
+      <h3>Go deeper</h3>
+      <p class="body-text" style="margin-bottom:14px;">Optional detours — expand "Interrupts" in the sidebar, or jump in below.</p>
+      <div class="subsection-links" data-subsection-chapter="interrupts">
+        <button class="subsection-link-card" data-target="interrupts-sub-isr-rules">
+          <span class="sl-title">The rules for writing a safe ISR</span>
+          <span class="sl-desc">Why interrupt service routines need to be short and careful</span>
+        </button>
+        <button class="subsection-link-card" data-target="interrupts-sub-vs-polling">
+          <span class="sl-title">Interrupts vs. polling: picking the right tool</span>
+          <span class="sl-desc">When polling is actually the better, simpler choice</span>
+        </button>
+      </div>
       <div class="mini-quiz-block" data-quiz-section="interrupts">
         <div class="mini-quiz-header">Quick check</div>
         <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 31a SUBSECTION: Interrupts -> The rules for writing a safe ISR -->
+    <section id="interrupts-sub-isr-rules" hidden class="subsection-page" data-parent-chapter="interrupts">
+      <button class="sub-back-link" data-back-to="interrupts">← Back to Interrupts</button>
+      <div class="eyebrow">// 31 — Go deeper</div>
+      <h2 class="title">The rules for writing a safe ISR</h2>
+      <p class="dek">Why interrupt service routines need to be short and careful</p>
+
+      <p class="body-text">An interrupt service routine (ISR) should do as little as possible — ideally just set a flag or update a variable — because it runs at the expense of whatever the main <code class="inline">loop()</code> was doing, and other interrupts are typically blocked while it executes. A long-running ISR (with delays, Serial prints, or heavy math) can cause the microcontroller to miss other time-sensitive events entirely.</p>
+      <div class="warn-box">
+        <span class="ic">!</span>
+        <p>Variables shared between an ISR and the main code must be declared <code class="inline">volatile</code> — this tells the compiler the value can change unexpectedly (from the interrupt), so it shouldn't optimize away repeated reads of that variable.</p>
+      </div>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="interrupts-sub-vs-polling">Next: Interrupts vs. polling: picking the right tool <span class="arrow">→</span></button>
+      </div>
+    </section>
+
+    <!-- 31b SUBSECTION: Interrupts -> Interrupts vs. polling: picking the right tool -->
+    <section id="interrupts-sub-vs-polling" hidden class="subsection-page" data-parent-chapter="interrupts">
+      <button class="sub-back-link" data-back-to="interrupts">← Back to Interrupts</button>
+      <div class="eyebrow">// 31 — Go deeper</div>
+      <h2 class="title">Interrupts vs. polling: picking the right tool</h2>
+      <p class="dek">When polling is actually the better, simpler choice</p>
+
+      <p class="body-text">Interrupts aren't always the better option. For events that need to be caught the instant they happen — like a fast-moving encoder pulse — interrupts are essential. But for things that change slowly, like a temperature sensor or a light level, polling in <code class="inline">loop()</code> is simpler to reason about, easier to debug, and avoids the extra complexity ISRs introduce (like needing <code class="inline">volatile</code> variables and careful timing).</p>
+      <p class="body-text" style="margin-bottom:0;">A good rule of thumb: reach for interrupts when timing precision genuinely matters and polling would risk missing the event; otherwise, plain polling is usually the more maintainable choice.</p>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="interrupts-sub-isr-rules"><span class="arrow">←</span> Back: The rules for writing a safe ISR</button>
       </div>
     </section>
 
@@ -1976,9 +3641,53 @@
         <span class="ic" style="color:var(--trace);">i</span>
         <p style="color:var(--muted-2);">This pattern — an <code class="inline" style="color:var(--trace);">enum</code> of named states, a <code class="inline" style="color:var(--trace);">switch</code> deciding behavior per state, and timing instead of blocking delays — scales to real projects: game logic, menu systems, communication protocols. You now have every piece used to build it: binary, gates, C++ syntax, digital I/O, timing, and structure.</p>
       </div>
+      <h3>Go deeper</h3>
+      <p class="body-text" style="margin-bottom:14px;">Optional detours — expand "Capstone: traffic light FSM" in the sidebar, or jump in below.</p>
+      <div class="subsection-links" data-subsection-chapter="statemachine">
+        <button class="subsection-link-card" data-target="statemachine-sub-why-fsm">
+          <span class="sl-title">Why state machines beat a pile of if-statements</span>
+          <span class="sl-desc">The maintainability problem FSMs solve as projects grow</span>
+        </button>
+        <button class="subsection-link-card" data-target="statemachine-sub-beyond">
+          <span class="sl-title">Where state machines show up next</span>
+          <span class="sl-desc">How this capstone pattern generalizes to bigger embedded projects</span>
+        </button>
+      </div>
       <div class="mini-quiz-block" data-quiz-section="statemachine">
         <div class="mini-quiz-header">Quick check</div>
         <div class="mini-quiz-container"></div>
+      </div>
+    </section>
+
+    <!-- 32a SUBSECTION: Capstone: traffic light FSM -> Why state machines beat a pile of if-statements -->
+    <section id="statemachine-sub-why-fsm" hidden class="subsection-page" data-parent-chapter="statemachine">
+      <button class="sub-back-link" data-back-to="statemachine">← Back to Capstone: traffic light FSM</button>
+      <div class="eyebrow">// 32 — Go deeper</div>
+      <h2 class="title">Why state machines beat a pile of if-statements</h2>
+      <p class="dek">The maintainability problem FSMs solve as projects grow</p>
+
+      <p class="body-text">It's entirely possible to build a traffic light using a tangle of booleans and nested <code class="inline">if</code> statements — but as the number of states and transitions grows, that approach becomes fragile fast: it's easy to create impossible combinations (like two lights green at once) or forget a transition. A state machine forces you to explicitly enumerate every valid state and every valid transition between them up front, which makes invalid combinations structurally impossible rather than something you have to remember to prevent.</p>
+      <div class="card">
+        <p class="body-text" style="margin-bottom:0;">This same pattern — enumerated states plus explicit transitions — shows up everywhere in software engineering, from game character behavior to network protocol implementations, well beyond hobby electronics.</p>
+      </div>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="statemachine-sub-beyond">Next: Where state machines show up next <span class="arrow">→</span></button>
+      </div>
+    </section>
+
+    <!-- 32b SUBSECTION: Capstone: traffic light FSM -> Where state machines show up next -->
+    <section id="statemachine-sub-beyond" hidden class="subsection-page" data-parent-chapter="statemachine">
+      <button class="sub-back-link" data-back-to="statemachine">← Back to Capstone: traffic light FSM</button>
+      <div class="eyebrow">// 32 — Go deeper</div>
+      <h2 class="title">Where state machines show up next</h2>
+      <p class="dek">How this capstone pattern generalizes to bigger embedded projects</p>
+
+      <p class="body-text">Once you're comfortable with a simple traffic-light FSM, the same skeleton scales to far more complex embedded projects: a game console's menu system, a washing machine's wash cycle, a vending machine's transaction flow, or a robot's behavior tree are all built from the same core idea — a current state, a set of allowed transitions, and conditions that trigger each transition.</p>
+      <p class="body-text" style="margin-bottom:0;">If you want to keep pushing this further, look into <b>hierarchical state machines</b> (states that contain their own sub-states) — a natural next step once a flat state machine's transition list starts getting unwieldy.</p>
+
+      <div class="subsection-nav-row">
+        <button class="nav-btn" data-target="statemachine-sub-why-fsm"><span class="arrow">←</span> Back: Why state machines beat a pile of if-statements</button>
       </div>
     </section>
 
@@ -2083,17 +3792,31 @@
     <!-- 09 QUIZ -->
     <section id="quiz" hidden>
       <div class="eyebrow">// 22 — Check yourself</div>
-      <h2 class="title">Quick quiz</h2>
-      <p class="dek">Ten questions covering everything above. No pressure — wrong answers show the reasoning.</p>
+      <h2 class="title">Final test</h2>
+      <p class="dek">The certificate test. Pass every chapter quiz at 80% or higher to unlock it.</p>
 
-      <div class="quiz-score" id="quizScore">Score: 0 / 0 answered</div>
-      <div id="quizContainer"></div>
+      <div class="final-lock-card" id="finalTestLock">
+        <div class="final-lock-icon">🔒</div>
+        <div class="final-lock-title">Locked until every chapter quiz is passed</div>
+        <div class="final-lock-sub">Score 80% or higher on each chapter's quick check to unlock the final test and certificate.</div>
+        <div id="finalLockCount">0 / 0 chapter quizzes passed</div>
+        <div id="finalLockList"></div>
+      </div>
+
+      <div id="finalTestBody" hidden>
+        <div class="quiz-score" id="quizScore">Score: 0 / 0 answered</div>
+        <div id="quizContainer"></div>
+      </div>
     </section>
 
     <!-- Prev / Next -->
     <div class="section-nav">
       <button class="nav-btn" id="prevBtn"><span class="arrow">←</span> Previous</button>
       <button class="nav-btn" id="nextBtn">Next <span class="arrow">→</span></button>
+    </div>
+
+    <div style="margin-top:26px; padding-top:16px; border-top:1px dashed #263241; text-align:center;">
+      <a href="legal.html" style="font-family:'JetBrains Mono', monospace; font-size:11.5px; color:var(--muted); text-decoration:none; border-bottom:1px dashed transparent;" onmouseover="this.style.color='var(--trace)'; this.style.borderBottomColor='var(--trace-dim)';" onmouseout="this.style.color='var(--muted)'; this.style.borderBottomColor='transparent';">Legal &amp; privacy</a>
     </div>
 
   </main>
@@ -2139,6 +3862,31 @@
   </div>
 </div>
 
+<!-- ===== Academic honesty pledge modal ===== -->
+<div class="modal-overlay" id="pledgeOverlay" hidden>
+  <div class="modal pledge-modal" role="dialog" aria-modal="true" aria-labelledby="pledgeTitle">
+    <div class="modal-header">
+      <h3 id="pledgeTitle">Academic Honesty Pledge</h3>
+    </div>
+    <div class="modal-body">
+      <p class="pledge-intro">Before your certificate is issued, please read and accept the pledge below.</p>
+      <ul class="pledge-list">
+        <li>I understand that plagiarism means copying someone else's work and presenting it as my own, without clearly attributing the original author.</li>
+        <li>I understand that plagiarism is an act of intellectual dishonesty.</li>
+        <li>Aside from openly citing outside sources I clearly attributed, 100% of my answers on this quiz reflect my own understanding.</li>
+        <li>I pledge that I did not plagiarize or look up answers in real time to misrepresent my knowledge on this assessment.</li>
+      </ul>
+      <label class="pledge-check-row">
+        <input type="checkbox" id="pledgeCheckbox">
+        <span>I have read and agree to the Academic Honesty Pledge above.</span>
+      </label>
+    </div>
+    <div class="modal-footer">
+      <button class="charge-btn" id="pledgeAcceptBtn" disabled>Accept &amp; view certificate</button>
+    </div>
+  </div>
+</div>
+
 <!-- ===== Certificate modal ===== -->
 <div class="modal-overlay" id="certOverlay" hidden>
   <div class="modal cert-modal" role="dialog" aria-modal="true" aria-labelledby="certTitle">
@@ -2161,6 +3909,7 @@
   </div>
 </div>
 
+<script src="quiz-engine.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

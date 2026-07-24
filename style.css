@@ -1422,3 +1422,20 @@
   .divider-inputs .field{ margin-bottom:18px; }
   .divider-inputs .field:last-child{ margin-bottom:0; }
   .divider-inputs label span{ font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--muted-2); letter-spacing:0.06em; }
+
+  .flow-particle{
+  filter:drop-shadow(0 0 5px currentColor) drop-shadow(0 0 10px currentColor);
+}
+.flow-conventional{ color:#FFB627; }
+.flow-electron{ color:#00E5A0; }
+@keyframes flowRightP{ from{transform:translateX(0);} to{transform:translateX(220px);} }
+@keyframes flowLeftP{ from{transform:translateX(0);} to{transform:translateX(-220px);} }
+.flow-conventional .flow-particle{ animation:flowRightP 2s linear infinite; }
+.flow-electron .flow-particle{ animation:flowLeftP 2s linear infinite; }
+.flow-particle:nth-child(2){ animation-delay:-0.5s; }
+.flow-particle:nth-child(3){ animation-delay:-1s; }
+.flow-particle:nth-child(4){ animation-delay:-1.5s; }
+
+@media (prefers-reduced-motion: reduce){
+  .flow-particle{ animation:none !important; }
+}
